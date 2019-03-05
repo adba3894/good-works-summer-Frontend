@@ -1,0 +1,43 @@
+
+.container-register {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  z-index: 15;
+  top: 70%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+}
+
+.register-heading {
+  font: 20px Century Gothic, monospace;
+
+}
+
+.btn-cancel{
+  background-color: whitesmoke;
+  position: absolute;
+  right: 160px;
+  top: 160px;
+  text-align: center;
+  padding: 10px 24px;
+  font-family:  Century Gothic, monospace;
+  font-size: 18px;
+}
+.btn-register {
+  background-color: rgba(252, 206, 36,36);
+  position: absolute;
+  right: 15px;
+  top: 160px;
+  text-align: center;
+  padding: 10px 24px;
+  font-family:  Century Gothic, monospace;
+  font-size: 18px;
+}
+
+.btn-cancel:active,
+.btn-register:active {
+  margin-top: 3px;
+  margin-bottom: -3px;
+}
+
