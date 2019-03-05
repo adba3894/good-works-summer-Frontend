@@ -9,8 +9,19 @@
     color: rgba(0,0,0,.87);
     background: #fff;
     width: 100%;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.329), 0 3px 1px -2px rgba(0, 0, 0, 0.356), 0 1px 5px 0 rgba(0, 0, 0, 0.247) !important;
     background-attachment: fixed;
+    left: 12%;
+    border-style: solid !important;
+    border-radius: 3px !important;
+    margin: 4px !important;
+    border-color: rgba(252, 205, 36, 0.76) !important;
+    padding: 5px !important;
+    background-color: rgba(252, 205, 36, 0.76) !important;
+}
+
+.active {
+    transition: opacity 1s ease-in;
 }
 
 .w3-display-container {
@@ -31,6 +42,8 @@ html *{
     display: inline-block;
     font-size: 50px;
     margin: auto;
+    color: rgb(255, 255, 255);
+    left: 13.3%; /* 12% */
 }
 
 .control-prev {
@@ -38,4 +51,80 @@ html *{
     display: inline-block;
     font-size: 50px;
     margin: auto;
+    color: rgb(255, 255, 255);
+    right: 14.4%; /* 14% */
+}
+
+.image-style {
+    width: 726px;
+    height: 500px;
+    position: center;
+    align-self: auto;
+}
+
+.media-style-youtube-video {
+    width: 726px;
+    height: 500px;
+    background-attachment: fixed;
+    position: center;
+    align-self: auto;
+}
+
+.carousel-indicators {
+    margin: 0px;
+    height: 0px;
+    color: azure;
+}
+
+.carousel-indicators ol {
+    width: 50%;
+}
+
+.carousel-indicators li {
+    height: 3px !important;
+    border-radius: 0px !important;
+    width: 10%;
+}
+
+.w3-button:hover {
+    color:rgb(255, 255, 255) !important;
+    background-color:rgba(252, 206, 36, 0.4) !important;
+}
+
+.w3-button {
+    transition: .5s ease !important;
+}
+
+.w3-border-white .w3-hover-border-white:hover {
+    border-color:#fff !important;
+    border: 2px !important;
+}
+
+.w3-display-right {
+    border-radius: 15px 0 0 15px;
+    border-style: solid !important;
+    border-color: rgb(255, 255, 255) !important;
+    border-right: 0 !important;
+}
+
+.w3-display-left {
+    border-radius: 0 15px 15px 0;
+    border-style: solid !important;
+    border-color: rgb(255, 255, 255) !important;
+    border-left: 0 !important;
+}
+.w3-display-left .w3-display-right .w3-black .w3-button {
+    -webkit-box-shadow-: 6px 5px 24px #000000 !important;
+}
+
+.w3-black {
+    background-color: rgba(0, 0, 0, 0.637) !important;
+}
+
+.carousel-fade {
+    z-index: 2;
+    left: 0;
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transition-property: opacity;
 }
