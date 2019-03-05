@@ -5,9 +5,9 @@ h1 {
     font-size: 48px;
 }
 
-#logo {
-  margin-right:auto;
-  align-self:center;
+.logo {
+  margin-right: auto;
+  align-self: center;
   padding-bottom: 10px;
 }
 
