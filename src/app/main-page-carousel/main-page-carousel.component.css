@@ -1,0 +1,41 @@
+.mySlides {
+    display: contents;
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px ;
+    color: rgba(0,0,0,.87);
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    background-attachment: fixed;
+}
+
+.w3-display-container {
+    display: block;
+}
+
+.w3-center {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 36px;
+}
+
+html *{
+    -webkit-font-smoothing: antialiased;
+}
+
+.control-next {
+    z-index: 5;
+    display: inline-block;
+    font-size: 50px;
+    margin: auto;
+}
+
+.control-prev {
+    z-index: 5;
+    display: inline-block;
+    font-size: 50px;
+    margin: auto;
+}
