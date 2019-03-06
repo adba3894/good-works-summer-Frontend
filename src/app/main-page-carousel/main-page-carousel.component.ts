@@ -12,24 +12,24 @@ export class MainPageCarouselComponent implements OnInit {
 
   slideIndex: number = 1;
 
-  showDivs(n: number) {
-    let i: number;
-    let x: HTMLCollectionOf<any> = document.getElementsByClassName("mySlides");
-    if (n > x.length) {
+  showDivs(currentCarouselElementIndex: number) {
+    let iteratorForCarousel: number;
+    let HTMLCollectionOfCarouselElements: HTMLCollectionOf<any> = document.getElementsByClassName("carouselComponent");
+    if (currentCarouselElementIndex > HTMLCollectionOfCarouselElements.length) {
       this.slideIndex = 1;
     }
-    if (n < 1) {
-      this.slideIndex = x.length;
+    if (currentCarouselElementIndex < 1) {
+      this.slideIndex = HTMLCollectionOfCarouselElements.length;
     }
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+    for (iteratorForCarousel = 0; iteratorForCarousel < HTMLCollectionOfCarouselElements.length; iteratorForCarousel++) {
+      HTMLCollectionOfCarouselElements[iteratorForCarousel].style.display = "none";
     }
-    x[this.slideIndex - 1].style.display = "block";
+    HTMLCollectionOfCarouselElements[this.slideIndex - 1].style.display = "block";
     console.log("showdivs");
   }
 
-  plusDivs(n: number) {
-    this.showDivs(this.slideIndex += n);
+  plusDivs(currentCarouselElementIndex: number) {
+    this.showDivs(this.slideIndex += currentCarouselElementIndex);
     console.log("plusdivs");
   }
 
