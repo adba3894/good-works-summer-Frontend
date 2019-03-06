@@ -1,0 +1,29 @@
+div{
+  padding-top: 5%;
+  background-color: white;
+}
+.display-3{
+  text-align:  center;
+  font-size: 25px;
+  font-family:  Century Gothic, monospace;
+}
+.lead{
+  text-align:  center;
+  font-size: 18px;
+  font-family:  Century Gothic, monospace;
+}
+a{
+  background-color: rgba(20, 143, 194, 0.9);
+  border-color: rgba(20, 143, 194, 0.9);
+}
+
+a:hover{
+  background-color: rgba(252, 206, 36, 1);
+  border-color: rgba(20, 143, 194, 0.9);
+}
+
+.success-image{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
