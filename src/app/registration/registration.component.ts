@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit {
   categoryData: any = {};
   cityData: any = {};
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
 
   }
   getData(ApiURL: any) {
@@ -40,4 +40,11 @@ export class RegistrationComponent implements OnInit {
   }
 
 
+  goToHome() {
+    this.router.navigateByUrl('');
+  }
+
+  goToSuccess() {
+    this.router.navigateByUrl('registration/success');
+  }
 }
