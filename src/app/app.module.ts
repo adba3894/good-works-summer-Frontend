@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SuccessPageComponent } from './success-page/success-page.component';
 import { MainPageCarouselComponent } from './main-page-carousel/main-page-carousel.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MainPageCarouselComponent } from './main-page-carousel/main-page-carous
     RegistrationComponent,
     SuccessPageComponent,
     RegistrationComponent,
-    MainPageCarouselComponent
+    MainPageCarouselComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
