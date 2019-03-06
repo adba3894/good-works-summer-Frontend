@@ -1,0 +1,18 @@
+.error-message {
+    font-size: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(252, 81, 81);
+    text-align: center;
+    text-shadow: 9px;
+    position: relative;
+}
+
+.lower-text {
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(39, 39, 39);
+    text-align: center;
+    position: absolute;
+    left: 41.7%;
+    top: 77%;
+}

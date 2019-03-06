@@ -7,7 +7,6 @@ import { MainPageCarouselComponent } from './main-page-carousel/main-page-carous
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  // {}
   {path: '', component: MainPageCarouselComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'registration/success', component: SuccessPageComponent},
