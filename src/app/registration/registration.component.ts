@@ -1,7 +1,6 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
-import { map } from 'rxjs/operators';
-
+import {map} from 'rxjs/operators';
 
 
 @Component({
@@ -10,29 +9,34 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-  private apiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories?fbcl' +
-    'id=IwAR0hQ7jbFgoTIp4A9DVA_sssOcn2Ng0vOMUTTB0ZatH01xxSUxs8RWZcl7A'
-  data: any = {};
-  category: string;
+  private categoryApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories';
+  private citiesApiUrl: any = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
+  categoryData: any = {};
+  cityData: any = {};
 
   constructor(private http: Http) {
-    this.getCategories();
-    this.getDataaa();
-  }
 
-  getDataaa() {
-    return this.http.get(this.apiUrl)
+  }
+  getData(ApiURL: any) {
+    return this.http.get(ApiURL)
       .pipe(map((res: Response) => res.json()));
   }
 
+  getCities() {
+    this.getData(this.citiesApiUrl).subscribe(data => {
+      this.cityData = data
+    })
+  }
+
   getCategories() {
-    this.getDataaa().subscribe(data => {
-      console.log(data);
-      this.data = data
+    this.getData(this.categoryApiUrl).subscribe(data => {
+      this.categoryData = data
     })
   }
 
   ngOnInit() {
+    this.getCities();
+    this.getCategories();
   }
 
 
