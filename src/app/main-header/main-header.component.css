@@ -9,18 +9,18 @@ h1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0px;
+  padding-top: 0px;
 }
 
-.main-header-top-image {
+.top-image {
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.6)), url('main_header_image.jpg');
-  height: 320px;
+  height: 300px;
 }
 
-.main-header-top-text {
+.top-text {
   position: relative;
   text-align: center;
   top: 50%;
@@ -47,7 +47,11 @@ button:hover {
   background-color: rgba(252, 206, 36, 0.4);
 }
 
-.register-button-text {
+button:focus{
+  outline:none !important;
+}
+
+.register-button {
   font-family: Century Gothic, monospace;
   font-size: 18px;
   color: white;
@@ -64,23 +68,23 @@ body {
 
 
   h1{
-    font-size: 28px;
+    display: none;
   }
 
-  .main-header-top-image{
+  .top-image{
     height: 200px;
   }
 
   .logo{
-    display: none;
+    margin-bottom: 10px;
   }
 
-  .register-button-text{
+  .register-button{
     font-size: 14px;
   }
 
-  .main-header-top-text {
-    top: 30%;
+  .top-text {
+    buttom: 30%;
   }
   .main-text{
     margin-top: 0px;
@@ -118,11 +122,11 @@ body {
 
   #menuToggle span
   {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
+    display: block !important;
+    width: 33px !important;
+    height: 4px !important;
+    margin-bottom: 5px !important;
+    position: relative !important;
 
     background: #cdcdcd;
     border-radius: 0px;
@@ -214,14 +218,14 @@ body {
     list-style: none;
   }
 
-  .nav-item {
+  .navbar-item {
     position: relative;
     align-self: center;
     cursor: pointer;
     float: left;
   }
 
-  .nav-item a {
+  .navbar-item a {
     color: #FFF;
     text-decoration: none;
     font: 20px Century Gothic, monospace;

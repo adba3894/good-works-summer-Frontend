@@ -1,4 +1,4 @@
-div{
+.jumbotron{
   padding-top: 5%;
   background-color: white;
 }
@@ -19,11 +19,21 @@ a{
 
 a:hover{
   background-color: rgba(252, 206, 36, 1);
-  border-color: rgba(20, 143, 194, 0.9);
+  border-color: transparent !important;
 }
 
 .success-image{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.btn-primary{
+  color: black;
+  background-color: rgba(252, 206, 36, 1);
+  border-color: transparent !important;
+}
+
+button:focus{
+  outline:none !important;
 }
