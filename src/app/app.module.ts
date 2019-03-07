@@ -10,15 +10,15 @@ import {SuccessPageComponent} from './registration/success-page/success-page.com
 import {MainPageCarouselComponent} from './main-page/main-page-carousel/main-page-carousel.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RouterModule, Routes} from '@angular/router';
-import { MainPageComponent } from './main-page/main-page.component';
+import {MainPageComponent} from './main-page/main-page.component';
 
 const routes: Routes = [
   {path: '', component: MainPageCarouselComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'registration/success', component: SuccessPageComponent},
-  {path: 'home', component: MainPageCarouselComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent}
+  {path: 'home', component: MainPageComponent},
+  {path: '**', component: PageNotFoundComponent},
 ]
 
 
