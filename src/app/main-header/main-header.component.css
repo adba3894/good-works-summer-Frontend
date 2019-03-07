@@ -3,13 +3,13 @@
 h1 {
   font-family: "Courier New", Courier;
   font-size: 48px;
+  margin: 0px !important;
 }
 
 .logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 0px;
 }
 
 .top-image {
@@ -37,10 +37,8 @@ button {
   cursor: pointer;
   position: relative;
   left: 0%;
-  top: 3px;
   transition: .5s ease;
-  padding: 10px 10px;
-  -webkit-box-shadow-: 6px 5px 24px #000000;
+  padding: 10px 10px !important;
 }
 
 button:hover {
@@ -64,19 +62,20 @@ body {
   background-color: #d3df91;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
 
 
   h1{
-    display: none;
+    font-size: 28px;
+    padding-bottom: 15px;
   }
 
   .top-image{
-    height: 200px;
+    height: 160px;
   }
 
   .logo{
-    margin-bottom: 10px;
+    display: none;
   }
 
   .register-button{
@@ -84,7 +83,7 @@ body {
   }
 
   .top-text {
-    buttom: 30%;
+    buttom: 20% !important;
   }
   .main-text{
     margin-top: 0px;
@@ -131,7 +130,7 @@ body {
     background: #cdcdcd;
     border-radius: 0px;
 
-    z-index: 1;
+    z-index: 6;
 
     transform-origin: 4px 0px;
 
@@ -165,28 +164,9 @@ body {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
-  .topBotomBordersOut
-  {
-    position: absolute;
-    width: 300px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-
-    background: #ededed;
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
-
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  }
-
-
   .nav-link
   {
+    color: black !important;
     padding: 10px 0;
     font-size: 22px;
     display: inline-block;
@@ -196,10 +176,31 @@ body {
   {
     transform: none;
   }
+
+
+  .hamburger-menu
+  {
+    z-index: 1;
+    position: absolute;
+    width: auto !important;
+    height: auto !important;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 120px;
+    background: rgba(252, 206, 36, 1);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+
+
 }
 
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 800px) {
 
   a {
     color: #fff !important;
@@ -273,5 +274,5 @@ body {
 
   }
 
+  }
 
-}

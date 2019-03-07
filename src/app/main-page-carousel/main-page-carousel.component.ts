@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-main-page-carousel',
@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageCarouselComponent implements OnInit {
 
-  constructor() { 
+  constructor() {
   }
 
   slideIndex: number = 1;
 
   showDivs(currentCarouselElementIndex: number) {
     let iteratorForCarousel: number;
-    let HTMLCollectionOfCarouselElements: HTMLCollectionOf<any> = document.getElementsByClassName("carouselComponent");
+    let HTMLCollectionOfCarouselElements: HTMLCollectionOf<any> = document.getElementsByClassName('carouselComponent');
     if (currentCarouselElementIndex > HTMLCollectionOfCarouselElements.length) {
       this.slideIndex = 1;
     }
@@ -22,15 +22,15 @@ export class MainPageCarouselComponent implements OnInit {
       this.slideIndex = HTMLCollectionOfCarouselElements.length;
     }
     for (iteratorForCarousel = 0; iteratorForCarousel < HTMLCollectionOfCarouselElements.length; iteratorForCarousel++) {
-      HTMLCollectionOfCarouselElements[iteratorForCarousel].style.display = "none";
+      HTMLCollectionOfCarouselElements[iteratorForCarousel].style.display = 'none';
     }
-    HTMLCollectionOfCarouselElements[this.slideIndex - 1].style.display = "block";
-    console.log("showdivs");
+    HTMLCollectionOfCarouselElements[this.slideIndex - 1].style.display = 'block';
+    console.log('showdivs');
   }
 
   plusDivs(currentCarouselElementIndex: number) {
     this.showDivs(this.slideIndex += currentCarouselElementIndex);
-    console.log("plusdivs");
+    console.log('plusdivs');
   }
 
   ngOnInit() {

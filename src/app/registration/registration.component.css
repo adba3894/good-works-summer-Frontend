@@ -3,7 +3,7 @@
   position: absolute;
   width: 700px;
   height: 300px;
-  z-index: 15;
+  z-index: -1;
   top: 50%;
   left: 43%;
   margin: -100px 0 0 -150px;
@@ -14,24 +14,25 @@
 
 }
 
-.btn-cancel{
+.btn-cancel {
   background-color: whitesmoke;
   position: absolute;
   right: 160px;
   top: 160px;
   text-align: center;
   padding: 10px 24px;
-  font-family:  Century Gothic, monospace;
+  font-family: Century Gothic, monospace;
   font-size: 18px;
 }
+
 .btn-register {
-  background-color: rgba(252, 206, 36,36);
+  background-color: rgba(252, 206, 36, 36);
   position: absolute;
   right: 15px;
   top: 160px;
   text-align: center;
   padding: 10px 24px;
-  font-family:  Century Gothic, monospace;
+  font-family: Century Gothic, monospace;
   font-size: 18px;
 }
 
