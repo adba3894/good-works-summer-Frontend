@@ -16,7 +16,7 @@ h1 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.6)), url('main_header_image.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.6)), url('../../assets/main_header_image.jpg');
   height: 300px;
 }
 

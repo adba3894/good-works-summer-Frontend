@@ -12,6 +12,10 @@ export class MainPageCarouselComponent implements OnInit {
   constructor() {
   }
 
+  ngOnInit() {
+    this.showCurrentSlide(this.currentSlidePositionIndex);
+  }
+
   showCurrentSlide(currentCarouselElementIndex: number) {
     const htmlCollectionOfCarouselElements: HTMLCollectionOf<any> = document.getElementsByClassName('carouselComponent');
     if (currentCarouselElementIndex > htmlCollectionOfCarouselElements.length) {
@@ -28,9 +32,5 @@ export class MainPageCarouselComponent implements OnInit {
 
   navigateFromCurrentSlide(currentCarouselElementIndex: number) {
     this.showCurrentSlide(this.currentSlidePositionIndex += currentCarouselElementIndex);
-  }
-
-  ngOnInit() {
-    this.showCurrentSlide(this.currentSlidePositionIndex);
   }
 }

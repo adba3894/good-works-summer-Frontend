@@ -16,4 +16,8 @@ export class MainHeaderComponent implements OnInit {
   goToRegistration() {
     this.router.navigateByUrl('/registration');
   }
+
+  goHome() {
+    this.router.navigateByUrl('/home');
+  }
 }

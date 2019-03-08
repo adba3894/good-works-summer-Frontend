@@ -44,7 +44,7 @@
           <div class="form-group">
             <select class="form-control">
               <option value="" disabled>City</option>
-              <option *ngFor="let city of city">
+              <option *ngFor="let city of cities">
                 {{ city.name }}
               </option>
             </select>
@@ -70,7 +70,7 @@
           <div class="form-group">
             <select class="form-control">
               <option value="" disabled>Category</option>
-              <option *ngFor="let category of category">
+              <option *ngFor="let category of categories">
                 {{ category }}
               </option>
             </select>

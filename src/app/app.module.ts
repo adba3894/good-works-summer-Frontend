@@ -13,11 +13,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainPageComponent} from './main-page/main-page.component';
 
 const routes: Routes = [
-  {path: '', component: MainPageCarouselComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'registration/success', component: SuccessPageComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: MainPageComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
 ]
 
@@ -41,7 +40,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [
-    [RouterModule]
+    [RouterModule],
+    [MainHeaderComponent]
   ],
   providers: [],
   bootstrap: [AppComponent]
