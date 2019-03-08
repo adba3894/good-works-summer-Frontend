@@ -2,11 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
-<<<<<<< HEAD
+
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-=======
-import {FormControl, FormGroup} from '@angular/forms';
->>>>>>> update registration form
 
 @Component({
   selector: 'app-registration',
@@ -30,8 +27,11 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
+<<<<<<< HEAD
 
   }
+=======
+>>>>>>> update registration fields
 
 <<<<<<< HEAD
   ngOnInit() {
@@ -82,8 +82,11 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     this.getCities();
     this.getCategories();
-    this.teamForm = new FormGroup({
-      teamLeadName: new FormControl(),
+    this.teamForm = this.formBuilder.group({
+      teamLeadName: new FormControl('John', [
+        Validators.required,
+        Validators.minLength(0),
+  ]),
       teamLeadEmail: new FormControl(),
       teamName: new FormControl(),
       city: new FormControl(),
@@ -107,6 +110,7 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl('registration/success');
     console.log(this.teamForm)
   }
+<<<<<<< HEAD
 
   onSubmit() {
     this.submitted = true;
@@ -116,4 +120,7 @@ export class RegistrationComponent implements OnInit {
     alert('SUCCESS!!');
     this.goToSuccess();
   }
+=======
+  get f() { return this.teamForm.controls; }
+>>>>>>> update registration fields
 }
