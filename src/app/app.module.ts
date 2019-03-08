@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
@@ -11,6 +11,7 @@ import {MainPageCarouselComponent} from './main-page/main-page-carousel/main-pag
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MainPageComponent} from './main-page/main-page.component';
+import {TestFormComponent} from './test-form/test-form.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -31,17 +32,18 @@ const routes: Routes = [
     MainPageCarouselComponent,
     PageNotFoundComponent,
     MainPageComponent,
+    TestFormComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     CommonModule,
     RouterModule.forRoot(routes)
   ],
   exports: [
-    [RouterModule],
-    [MainHeaderComponent]
+    [RouterModule]
   ],
   providers: [],
   bootstrap: [AppComponent]

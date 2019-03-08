@@ -1,0 +1,61 @@
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit()" class="form-vertical">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title" align="center">Registration</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="col-md-4 mr-md-4">
+          <input id="teamLeadName" placeholder="Team Lead Name" formControlName="teamLeadName" type="text"
+                 class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 mr-md-4">
+          <input id="teamLeadEmail" placeholder="Team Lead Email" type="text" formControlName="teamLeadEmail"
+                 class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-4 mr-md-4">
+          <input id="teamName" placeholder="Team Name" type="text" formControlName="teamName" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10 mr-md-4">
+          <select>
+            <option value="" disabled>City</option>
+            <option *ngFor="let city of city">
+              {{ city.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn-register" type="submit">Register</button>
+      <button
+        class="btn btn-cancel"
+        (mousedown)="goToHome()"
+        value="Cancel"
+      >
+      </button>
+    </div>
+  </div>
+</form>
+
+
+<table border="1">
+  <tr>
+    <th style="padding: 10px">Form group</th>
+    <th style="padding: 10px">Form Control (fullName)</th>
+  </tr>
+  <tr>
+    <td style="padding: 10px">
+      name : {{ teamForm.value}}
+      <br/> dirty : {{teamForm.dirty}}
+      <br/> valid : {{teamForm.valid}}
+    </td>
+  </tr>
+</table>

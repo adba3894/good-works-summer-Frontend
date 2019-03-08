@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -14,6 +15,8 @@ export class RegistrationComponent implements OnInit {
   categories = [];
   cities = [];
 
+  teamForm: FormGroup;
+
   constructor(private http: Http, private router: Router) {
 
   }
@@ -24,6 +27,15 @@ export class RegistrationComponent implements OnInit {
     });
     this.getCategories().subscribe(data => {
       this.categories = data;
+    });
+    this.teamForm = new FormGroup({
+      teamLeadName: new FormControl(),
+      teamLeadEmail: new FormControl(),
+      teamName: new FormControl(),
+      city: new FormControl(),
+      organization: new FormControl(),
+      ideaForJob: new FormControl(),
+      category: new FormControl(),
     });
   }
 
@@ -38,6 +50,11 @@ export class RegistrationComponent implements OnInit {
 
   getCategories() {
     return this.getData(this.categoryApiUrl);
+  }
+
+  onSubmit(): void {
+    console.log(this.teamForm.value);
+    this.goToSuccess();
   }
 
   goToHome() {
