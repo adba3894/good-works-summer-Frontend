@@ -11,7 +11,6 @@ import {MainPageCarouselComponent} from './main-page/main-page-carousel/main-pag
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MainPageComponent} from './main-page/main-page.component';
-import {TestFormComponent} from './test-form/test-form.component';
 
 const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
@@ -32,7 +31,6 @@ const routes: Routes = [
     MainPageCarouselComponent,
     PageNotFoundComponent,
     MainPageComponent,
-    TestFormComponent,
   ],
   imports: [
     BrowserModule,
