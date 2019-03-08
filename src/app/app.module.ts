@@ -41,7 +41,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [
-    [RouterModule]
+    [RouterModule],
+    [MainHeaderComponent]
   ],
   providers: [],
   bootstrap: [AppComponent]

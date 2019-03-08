@@ -29,7 +29,10 @@ export class RegistrationComponent implements OnInit {
       this.categories = data;
     });
     this.teamForm = this.formBuilder.group({
-      teamLeadName: new FormControl(),
+      teamLeadName: new FormControl('John', [
+        Validators.required,
+        Validators.minLength(0),
+      ]),
       teamLeadEmail: new FormControl(),
       teamName: new FormControl(),
       city: new FormControl(),
@@ -63,6 +66,5 @@ export class RegistrationComponent implements OnInit {
 
   goToSuccess() {
     this.router.navigateByUrl('registration/success');
-    console.log(this.teamForm)
   }
 }
