@@ -71,6 +71,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     // this.submitted = true;
+    console.log(this.teamForm.value)
     this.goToSuccess();
   }
 
