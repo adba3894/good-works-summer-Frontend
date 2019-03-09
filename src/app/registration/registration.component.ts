@@ -10,35 +10,35 @@ import {Router} from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   private categoryApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories';
-  private citiesApiUrl: any = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
-  categoryData: any = {};
-  cityData: any = {};
+  private citiesApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
+  categories = [];
+  cities = [];
 
   constructor(private http: Http, private router: Router) {
 
   }
-  getData(ApiURL: any) {
+
+  ngOnInit() {
+    this.getCities().subscribe(data => {
+      this.cities = data;
+    });
+    this.getCategories().subscribe(data => {
+      this.categories = data;
+    });
+  }
+
+  getData(ApiURL) {
     return this.http.get(ApiURL)
       .pipe(map((res: Response) => res.json()));
   }
 
   getCities() {
-    this.getData(this.citiesApiUrl).subscribe(data => {
-      this.cityData = data
-    })
+    return this.getData(this.citiesApiUrl);
   }
 
   getCategories() {
-    this.getData(this.categoryApiUrl).subscribe(data => {
-      this.categoryData = data
-    })
+    return this.getData(this.categoryApiUrl);
   }
-
-  ngOnInit() {
-    this.getCities();
-    this.getCategories();
-  }
-
 
   goToHome() {
     this.router.navigateByUrl('');
