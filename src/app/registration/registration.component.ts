@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +15,9 @@ export class RegistrationComponent implements OnInit {
   categories = [];
   cities = [];
 
-  constructor(private http: Http, private router: Router) {
+  registerForm: FormGroup;
+
+  constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
 
   }
 
@@ -24,6 +27,18 @@ export class RegistrationComponent implements OnInit {
     });
     this.getCategories().subscribe(data => {
       this.categories = data;
+    });
+    this.teamForm = this.formBuilder.group({
+      teamLeadName: new FormControl('John', [
+        Validators.required,
+        Validators.minLength(0),
+      ]),
+      teamLeadEmail: new FormControl(),
+      teamName: new FormControl(),
+      city: new FormControl(),
+      organization: new FormControl(),
+      ideaForJob: new FormControl(),
+      category: new FormControl(),
     });
   }
 
@@ -47,4 +62,21 @@ export class RegistrationComponent implements OnInit {
   goToSuccess() {
     this.router.navigateByUrl('registration/success');
   }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+    alert('SUCCESS!! :-)');
+    this.goToSuccess();
+  }
+
+  get registerFormControls() {
+    return this.registerForm.controls;
+  }
+
+
 }
