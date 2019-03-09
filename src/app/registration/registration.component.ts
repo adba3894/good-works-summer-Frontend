@@ -13,27 +13,16 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   private categoryApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories';
   private citiesApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
-<<<<<<< HEAD
   categories = [];
-  cities = [];
-=======
-  category = [];
   cities = [];
 
   teamForm: FormGroup;
->>>>>>> update registration form
-
-  registerForm: FormGroup;
   submitted = false;
 
+
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
-<<<<<<< HEAD
 
   }
-=======
->>>>>>> update registration fields
-
-<<<<<<< HEAD
   ngOnInit() {
     this.getCities().subscribe(data => {
       this.cities = data;
@@ -41,7 +30,7 @@ export class RegistrationComponent implements OnInit {
     this.getCategories().subscribe(data => {
       this.categories = data;
     });
-    this.registerForm = this.formBuilder.group({
+    this.teamForm = this.formBuilder.group({
       teamLeadName: ['', Validators.required],
       teamLeadEmail: ['', Validators.required],
       teamName: ['', Validators.required],
@@ -52,56 +41,25 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-=======
->>>>>>> update registration form
   getData(ApiURL) {
     return this.http.get(ApiURL)
       .pipe(map((res: Response) => res.json()));
   }
 
   getCities() {
-<<<<<<< HEAD
-    return this.getData(this.citiesApiUrl);
-=======
     this.getData(this.citiesApiUrl).subscribe(data => {
       this.cities = data
-    })
->>>>>>> update registration form
+    });
   }
 
   getCategories() {
     return this.getData(this.categoryApiUrl);
   }
 
-<<<<<<< HEAD
   get registerFormControls() {
-    return this.registerForm.controls;
+    return this.teamForm.controls;
   }
 
-=======
-  ngOnInit() {
-    this.getCities();
-    this.getCategories();
-    this.teamForm = this.formBuilder.group({
-      teamLeadName: new FormControl('John', [
-        Validators.required,
-        Validators.minLength(0),
-  ]),
-      teamLeadEmail: new FormControl(),
-      teamName: new FormControl(),
-      city: new FormControl(),
-      organization: new FormControl(),
-      ideaForJob: new FormControl(),
-      category: new FormControl(),
-    });
-  }
-
-  onSubmit(): void {
-    console.log(this.teamForm.value);
-    this.goToSuccess();
-  }
-
->>>>>>> update registration form
   goToHome() {
     this.router.navigateByUrl('');
   }
@@ -110,17 +68,16 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl('registration/success');
     console.log(this.teamForm)
   }
-<<<<<<< HEAD
-
   onSubmit() {
     this.submitted = true;
-    if (this.registerForm.invalid) {
+    if (this.teamForm.invalid) {
       return;
     }
     alert('SUCCESS!!');
     this.goToSuccess();
   }
-=======
-  get f() { return this.teamForm.controls; }
->>>>>>> update registration fields
+
+  get f() {
+    return this.teamForm.controls;
+  }
 }
