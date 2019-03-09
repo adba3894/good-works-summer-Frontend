@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   categories = [];
   cities = [];
 
-  teamForm: FormGroup;
+  registerForm: FormGroup;
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
 
@@ -55,11 +55,6 @@ export class RegistrationComponent implements OnInit {
     return this.getData(this.categoryApiUrl);
   }
 
-  onSubmit(): void {
-    console.log(this.teamForm.value);
-    this.goToSuccess();
-  }
-
   goToHome() {
     this.router.navigateByUrl('');
   }
@@ -67,4 +62,21 @@ export class RegistrationComponent implements OnInit {
   goToSuccess() {
     this.router.navigateByUrl('registration/success');
   }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+    alert('SUCCESS!! :-)');
+    this.goToSuccess();
+  }
+
+  get registerFormControls() {
+    return this.registerForm.controls;
+  }
+
+
 }

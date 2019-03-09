@@ -14,23 +14,53 @@
       aria-labelledby="home-tab"
     >
       <h4 class="register-heading">Registration</h4>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div
+      class="tab-pane fade show active"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+    >
+      <h4 class="register-heading">Registration</h4>
       <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
         <div class="row register-form">
           <div class="col-md-5 mr-md-4">
             <div class="form-group">
-              <input type="text" class="form-control" formControlName="teamLeadName" required placeholder="Team Lead Name" value=''/>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="teamLeadName"
+                [ngClass]="{ 'is-invalid': submitted && registerFormControls.teamLeadName.errors }"
+                required
+                placeholder="Team Lead Name"
+                value=""
+              />
+              <div *ngIf="submitted && registerFormControls.teamLeadName.errors" class="invalid-feedback">
+                <div *ngIf="registerFormControls.teamLeadName.errors.required">Last Name is required</div>
+              </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control"
-                     formControlName="teamLeadEmail" placeholder="Team Lead Email" value=''/>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="teamLeadEmail"
+                placeholder="Team Lead Email"
+                value=""
+              />
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" formControlName="teamName" placeholder="Team Name" value=''/>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="teamName"
+                placeholder="Team Name"
+                value=""
+              />
             </div>
             <div class="form-group">
               <select class="form-control" formControlName="city">
-                <option value='' disabled>City</option>
-                <option *ngFor="let city of cities" >
+                <option value="" disabled>City</option>
+                <option *ngFor="let city of cities">
                   {{ city.name }}
                 </option>
               </select>
@@ -38,20 +68,39 @@
           </div>
           <div class="col-md-5 ml-md-2">
             <div class="form-group">
-              <input type="text" class="form-control" formControlName="organization" placeholder="Organization" value=''/>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="organization"
+                placeholder="Organization"
+                value=""
+              />
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" formControlName="ideaForJob" placeholder="Idea for a good job" value=''/>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="ideaForJob"
+                placeholder="Idea for a good job"
+                value=""
+              />
             </div>
             <div class="form-group">
               <select class="form-control" formControlName="category">
                 <option value="" disabled>Category</option>
-                <option *ngFor="let category of categories" >
+                <option *ngFor="let category of categories">
                   {{ category }}
                 </option>
               </select>
             </div>
-            <button type="submit" class="btn btn-cancel" (click)="goToHome()" value="Cancel">Cancel</button>
+            <button
+              type="reset"
+              class="btn btn-cancel"
+              (click)="goToHome()"
+              value="Cancel"
+            >
+              Cancel
+            </button>
             <button type="submit" class="btn btn-register">Register</button>
           </div>
         </div>
@@ -59,4 +108,3 @@
     </div>
   </div>
 </div>
-
