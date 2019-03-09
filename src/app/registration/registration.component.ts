@@ -16,6 +16,7 @@ export class RegistrationComponent implements OnInit {
   cities = [];
 
   registerForm: FormGroup;
+  submitted = false;
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
 
@@ -28,17 +29,14 @@ export class RegistrationComponent implements OnInit {
     this.getCategories().subscribe(data => {
       this.categories = data;
     });
-    this.teamForm = this.formBuilder.group({
-      teamLeadName: new FormControl('John', [
-        Validators.required,
-        Validators.minLength(0),
-      ]),
-      teamLeadEmail: new FormControl(),
-      teamName: new FormControl(),
-      city: new FormControl(),
-      organization: new FormControl(),
-      ideaForJob: new FormControl(),
-      category: new FormControl(),
+    this.registerForm = this.formBuilder.group({
+      teamLeadName: ['', Validators.required],
+      teamLeadEmail: ['', Validators.required],
+      teamName: ['', Validators.required],
+      city: ['', Validators.required],
+      organization: ['', Validators.required],
+      ideaForJob: ['', Validators.required],
+      category: ['', Validators.required],
     });
   }
 
@@ -55,6 +53,10 @@ export class RegistrationComponent implements OnInit {
     return this.getData(this.categoryApiUrl);
   }
 
+  get registerFormControls() {
+    return this.registerForm.controls;
+  }
+
   goToHome() {
     this.router.navigateByUrl('');
   }
@@ -65,18 +67,10 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
-    alert('SUCCESS!! :-)');
+    alert('SUCCESS!!');
     this.goToSuccess();
   }
-
-  get registerFormControls() {
-    return this.registerForm.controls;
-  }
-
-
 }
