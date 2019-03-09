@@ -1,28 +1,41 @@
 .jumbotron{
-  padding-top: 5%;
+  padding-top: 3%;
   background-color: white;
 }
+
+.success-message{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: auto;
+  border-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-width: 3px;
+  border-color: rgba(252, 206, 36, 1);
+}
+
 .display-3{
+  padding-top: 15px;
   text-align:  center;
   font-size: 25px;
   font-family:  Century Gothic, monospace;
 }
 .lead{
+  padding-top: 2%;
   text-align:  center;
   font-size: 18px;
   font-family:  Century Gothic, monospace;
 }
-a{
-  background-color: rgba(20, 143, 194, 0.9);
-  border-color: rgba(20, 143, 194, 0.9);
-}
 
 a:hover{
-  background-color: rgba(252, 206, 36, 1);
+  background-color: rgba(252, 206, 36, 0.9);
   border-color: transparent !important;
 }
 
 .success-image{
+  opacity: 0.9;
+  padding-top: 15px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -30,10 +43,13 @@ a:hover{
 
 .btn-primary{
   color: black;
-  background-color: rgba(252, 206, 36, 1);
+  background-color: rgba(252, 206, 36, 0.7);
   border-color: transparent !important;
 }
 
 button:focus{
   outline:none !important;
 }
+
+
+

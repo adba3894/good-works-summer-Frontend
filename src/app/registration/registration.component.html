@@ -6,13 +6,8 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="container-register">
-  <div class="tab-content">
-    <div
-      class="tab-pane fade show active"
-      role="tabpanel"
-      aria-labelledby="home-tab"
-    >
-      <h4 class="register-heading">Registration</h4>
+  <h4 class="register-heading">Registration</h4>
+  <div class="register">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="row register-form">
           <div class="col-md-5 mr-md-4">
@@ -76,15 +71,6 @@
               />
             </div>
             <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="ideaForJob"
-                placeholder="Idea for a good job"
-                value=""
-              />
-            </div>
-            <div class="form-group">
               <select class="form-control" formControlName="category">
                 <option value="" disabled>Category</option>
                 <option *ngFor="let category of categories">
@@ -92,12 +78,23 @@
                 </option>
               </select>
             </div>
-            <button type="reset" class="btn btn-cancel" (click)="goToHome()" >Cancel</button>
-            <button type="submit" class="btn btn-register">Register</button>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="idea"
+                formControlName="ideaForJob"
+                placeholder="Idea for a good job"
+                value=""
+              />
+            </div>
           </div>
         </div>
       </form>
-    </div>
   </div>
+<div class="buttons">
+<button type="reset" class="btn btn-cancel" (click)="goToHome()" >Cancel</button>
+<button type="submit" class="btn btn-register">Register</button>
+</div>
 </div>
 
