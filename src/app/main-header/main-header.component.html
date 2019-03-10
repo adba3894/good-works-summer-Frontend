@@ -17,6 +17,7 @@
       src="../../assets/main_header_logo.png"
       height="70"
       width="70"
+      (click)="goHome()"
     />
     <div class="main-text">
       <h1>DO GOOD THIS SUMMER</h1>
@@ -35,18 +36,20 @@
           <span></span>
           <span></span>
           <ul class="topBotomBordersOut navbar-nav mx-auto text-center">
-            <li class="navbar-item"><a class="nav-link" (click)="goHome()">HOME</a></li>
             <li class="navbar-item">
-              <a class="nav-link" href="#">PROJECT</a>
-            </li>
-            <li class="navbar-item"><a class="nav-link" href="#">IDEAS</a></li>
-            <li class="navbar-item">
-              <a class="nav-link" href="#">JOBS DONE</a>
+              <a class="nav-link" (click)="goHome()">HOME</a>
             </li>
             <li class="navbar-item">
-              <a class="nav-link" href="#">GALLERY</a>
+              <a class="nav-link">PROJECT</a>
             </li>
-            <li class="navbar-item"><a class="nav-link" href="#">FAQ</a></li>
+            <li class="navbar-item"><a class="nav-link">IDEAS</a></li>
+            <li class="navbar-item">
+              <a class="nav-link">JOBS DONE</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link">GALLERY</a>
+            </li>
+            <li class="navbar-item"><a class="nav-link">FAQ</a></li>
           </ul>
         </div>
       </nav>
