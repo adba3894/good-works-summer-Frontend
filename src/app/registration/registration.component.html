@@ -140,28 +140,6 @@
               </div>
             </div>
             <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="ideaForJob"
-                placeholder="Idea for a good job"
-                value=""
-                [ngClass]="{
-                  'is-invalid':
-                    submitted && registerFormControls.ideaForJob.errors
-                }"
-                required
-              />
-              <div
-                *ngIf="submitted && registerFormControls.ideaForJob.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="registerFormControls.ideaForJob.errors.required">
-                  Idea for a job is required
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
               <select
                 class="form-control"
                 formControlName="category"
@@ -182,6 +160,28 @@
               >
                 <div *ngIf="registerFormControls.category.errors.required">
                   Category is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="ideaForJob"
+                placeholder="Idea for a good job"
+                value=""
+                [ngClass]="{
+                  'is-invalid':
+                    submitted && registerFormControls.ideaForJob.errors
+                }"
+                required
+              />
+              <div
+                *ngIf="submitted && registerFormControls.ideaForJob.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="registerFormControls.ideaForJob.errors.required">
+                  Idea for a job is required
                 </div>
               </div>
             </div>
