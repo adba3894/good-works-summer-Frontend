@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {validate} from 'codelyzer/walkerFactory/walkerFn';
 
 @Component({
   selector: 'app-registration',
@@ -30,9 +31,9 @@ export class RegistrationComponent implements OnInit {
       this.categories = data;
     });
     this.registerForm = this.formBuilder.group({
-      teamLeadName: ['', Validators.required],
-      teamLeadEmail: ['', Validators.required],
-      teamName: ['', Validators.required],
+      teamLeadName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
+      teamLeadEmail: ['', [Validators.required, Validators.email]],
+      teamName: ['', [Validators.required, Validators.maxLength(30)]],
       city: ['', Validators.required],
       organization: ['', Validators.required],
       ideaForJob: ['', Validators.required],
