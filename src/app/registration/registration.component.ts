@@ -2,9 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
-
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {validate} from 'codelyzer/walkerFactory/walkerFn';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -20,7 +18,6 @@ export class RegistrationComponent implements OnInit {
   teamForm: FormGroup;
   submitted = false;
 
-
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
 
   }
@@ -32,7 +29,7 @@ export class RegistrationComponent implements OnInit {
     this.getCategories().subscribe(data => {
       this.categories = data;
     });
-    this.registerForm = this.formBuilder.group({
+    this.teamForm = this.formBuilder.group({
       teamLeadName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
       teamLeadEmail: ['', [Validators.required, Validators.email]],
       teamName: ['', [Validators.required, Validators.maxLength(30)]],
@@ -49,16 +46,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   getCities() {
-    this.getData(this.citiesApiUrl).subscribe(data => {
-      this.cities = data;
-    })
-    // return this.getData(this.categoryApiUrl);
+    return this.getData(this.citiesApiUrl);
   }
 
   getCategories() {
-    this.getData(this.categoryApiUrl).subscribe(data => {
-      this.categories = data;
-    })
+    return this.getData(this.categoryApiUrl);
   }
 
   get registerFormControls() {
@@ -71,16 +63,14 @@ export class RegistrationComponent implements OnInit {
 
   goToSuccess() {
     this.router.navigateByUrl('registration/success');
-    console.log(this.teamForm)
   }
 
   onSubmit() {
-    // this.submitted = true;
-    console.log(this.teamForm.value)
+    this.submitted = true;
+    if (this.teamForm.invalid) {
+      return;
+    }
+    alert('SUCCESS!!');
     this.goToSuccess();
-  }
-
-  get f() {
-    return this.teamForm.controls;
   }
 }
