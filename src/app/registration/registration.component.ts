@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   categories = [];
   cities = [];
 
-  registerForm: FormGroup;
+  teamForm: FormGroup;
   submitted = false;
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
     this.getCategories().subscribe(data => {
       this.categories = data;
     });
-    this.registerForm = this.formBuilder.group({
+    this.teamForm = this.formBuilder.group({
       teamLeadName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
       teamLeadEmail: ['', [Validators.required, Validators.email]],
       teamName: ['', [Validators.required, Validators.maxLength(30)]],
@@ -54,7 +54,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   get registerFormControls() {
-    return this.registerForm.controls;
+    return this.teamForm.controls;
   }
 
   goToHome() {
@@ -67,7 +67,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if (this.registerForm.invalid) {
+    if (this.teamForm.invalid) {
       return;
     }
     alert('SUCCESS!!');
