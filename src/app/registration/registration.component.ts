@@ -23,12 +23,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCities().subscribe(data => {
-      this.cities = data;
-    });
-    this.getCategories().subscribe(data => {
-      this.categories = data;
-    });
+    this.getCities()
+    this.getCategories()
     this.teamForm = this.formBuilder.group({
       teamLeadName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
       teamLeadEmail: ['', [Validators.required, Validators.email]],
@@ -50,7 +46,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   getCategories() {
-    return this.getData(this.categoryApiUrl);
+    this.getData(this.categoryApiUrl).subscribe(data => {
+      this.categories = data;
+    })
   }
 
   get registerFormControls() {
@@ -66,11 +64,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    if (this.teamForm.invalid) {
-      return;
-    }
-    alert('SUCCESS!!');
+    // this.submitted = true;
     this.goToSuccess();
   }
 }

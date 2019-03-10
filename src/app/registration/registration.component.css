@@ -1,24 +1,31 @@
-
 .container-register {
-  position: absolute;
-  width: 700px;
-  height: 300px;
-  z-index: 15;
-  top: 50%;
-  left: 43%;
-  margin: -100px 0 0 -150px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: auto;
+  margin-top: 3%;
+
+}
+
+.register{
+  border-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-width: 3px;
+  border-color: rgba(252, 206, 36, 1);
 }
 
 .register-heading {
   font: 20px Century Gothic, monospace;
-
+  margin-buttom: 3%;
+}
+.buttons{
+ margin-top: 2%;
+  margin-left: 55%;
 }
 
 .btn-cancel{
   background-color: whitesmoke;
-  position: absolute;
-  right: 160px;
-  top: 160px;
   text-align: center;
   padding: 10px 24px;
   font-family:  Century Gothic, monospace;
@@ -26,13 +33,11 @@
 }
 .btn-register {
   background-color: rgba(252, 206, 36,36);
-  position: absolute;
-  right: 15px;
-  top: 160px;
   text-align: center;
   padding: 10px 24px;
   font-family:  Century Gothic, monospace;
   font-size: 18px;
+  margin-left: 3%;
 }
 
 .btn-cancel:active,
@@ -41,3 +46,6 @@
   margin-bottom: -3px;
 }
 
+#idea{
+  height: 90px !important;
+}

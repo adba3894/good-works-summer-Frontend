@@ -1,93 +1,95 @@
-.w3-content{
-  height: 600px;
-}
-.carouselComponent {
-    display: contents;
-    position: relative;
-    height: 100%;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    border-radius: 6px ;
-    color: rgba(0,0,0,.87);
-    background: #fff;
-    width: 100%;
-    background-attachment: fixed;
-    left: 12%;
+.w3-content {
+  background-attachment: scroll;
+  height: auto;
+  max-height: 500px;
+  width: auto;
+  max-width: 650px;
 }
 
+.carouselComponent {
+  display: contents;
+  position: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, .9);
+  background: #fff;
+  left: 12%;
+}
+
+
 .active {
-    transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
 }
 
 .w3-display-container {
-    display: block;
+  display: block;
+  z-index: 0 !important;
 }
 
 .w3-center {
-    font-family: "Courier New", Courier, monospace;
-    font-size: 36px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 36px;
 }
 
-html *{
-    -webkit-font-smoothing: antialiased;
-}
 
 .control-next {
-    z-index: 5;
-    display: inline-block;
-    font-size: 50px;
-    margin-top: -5%;
-    color: rgba(255, 255, 255, 0.9) !important;
-    left: 12.3%; /* 12% */
+  z-index: 2;
+  display: inline-block;
+  font-size: 50px;
+  margin-top: -2%;
+  color: rgba(255, 255, 255, 0.9) !important;
+  left: -2%; /* 12% */
 }
 
 .control-prev {
-    z-index: 5;
-    display: inline-block;
-    font-size: 50px;
-    margin-top: -5%;
-    color: rgba(255, 255, 255, 0.9) !important;
-    right: 14%; /* 14% */
+  z-index: 2;
+  display: inline-block;
+  font-size: 50px;
+  margin-top: -2%;
+  color: rgba(255, 255, 255, 0.9) !important;
+  right: -2%; /* 14% */
 }
 
 .image-style {
-    width: 726px;
-    height: 500px;
-    position: center;
-    align-self: auto;
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  position: center;
+  align-self: center;
 }
 
 .media-style-youtube-video {
-    width: 726px;
-    height: 500px;
-    background-attachment: fixed;
-    position: center;
-    align-self: auto;
+  width: 100%;
+  min-height: 350px;
+  height: auto;
+  position: center;
+  align-self: auto;
 }
 
 .carousel-indicators {
-    margin: 0px;
-    height: 0px;
-    color: azure;
+  margin: 0px;
+  height: 0px;
+  color: azure;
 }
 
 .carousel-indicators ol {
-    width: 50%;
+  width: 50%;
 }
 
 .carousel-indicators li {
-    height: 1px !important;
-    border-radius: 0px !important;
-    width: 10%;
+  height: 1px !important;
+  border-radius: 0px !important;
+  width: 10%;
 }
 
-button:focus{
-  outline:none !important;
+button:focus {
+  outline: none !important;
 }
 
 .w3-button:hover {
   background-color: transparent !important;
-  color:rgba(252, 206, 36, 0.7) !important;
+  color: rgba(252, 206, 36, 0.7) !important;
 }
 
 .w3-button {
@@ -96,31 +98,31 @@ button:focus{
 }
 
 .w3-border-white .w3-hover-border-white:hover {
-    border: none !important;
+  border: none !important;
 }
 
 .w3-display-right {
-    border-style: none !important;
-    border-color: transparent !important;
-    border-right: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  border-right: 0 !important;
 }
 
 .w3-display-left {
-    border-style: none !important;
-    border-color: transparent !important;
-    border-left: 0 !important;
+  border-style: none !important;
+  border-color: transparent !important;
+  border-left: 0 !important;
 }
 
 .w3-black {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 .carousel-fade {
-    z-index: 2;
-    left: 0;
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    transition-property: opacity;
+  z-index: -1;
+  left: 0;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition-property: opacity;
 }
 
 .w3-button {
@@ -130,3 +132,4 @@ button:focus{
 .w3-content:hover .w3-button {
   opacity: 1;
 }
+

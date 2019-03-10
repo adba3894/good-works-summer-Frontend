@@ -140,9 +140,18 @@
               </div>
             </div>
             <div class="form-group">
+              <select class="form-control" formControlName="category">
+                <option value="" disabled>Category</option>
+                <option *ngFor="let category of categories">
+                  {{ category }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
               <input
                 type="text"
                 class="form-control"
+                id="idea"
                 formControlName="ideaForJob"
                 placeholder="Idea for a good job"
                 value=""
@@ -197,6 +206,9 @@
           </div>
         </div>
       </form>
-    </div>
   </div>
+<div class="buttons">
+<button type="reset" class="btn btn-cancel" (click)="goToHome()" >Cancel</button>
+<button type="submit" class="btn btn-register">Register</button>
+</div>
 </div>

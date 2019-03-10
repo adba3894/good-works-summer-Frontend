@@ -1,18 +1,51 @@
-.error-message {
-    font-size: 100px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(252, 81, 81);
-    text-align: center;
-    text-shadow: 9px;
-    position: relative;
+.jumbotron{
+  padding-top: 3%;
+  background-color: rgb(249,249,249)
 }
 
-.lower-text {
-    font-size: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(39, 39, 39);
-    text-align: center;
-    position: absolute;
-    left: 41.7%;
-    top: 77%;
+*{
+  background-color: rgb(249,249,249);
 }
+.message{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: auto;
+  border-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-width: 3px;
+  border-color: rgba(252, 206, 36, 1);
+}
+
+.display-3{
+  padding-top: 15px;
+  text-align:  center;
+  font-size: 55px;
+  font-family:  Century Gothic, monospace;
+  color: red;
+}
+.lead{
+  padding-top: 2%;
+  text-align:  center;
+  font-size: 18px;
+  font-family:  Century Gothic, monospace;
+}
+
+a:hover{
+  background-color: rgba(252, 206, 36, 0.9);
+  border-color: transparent !important;
+}
+
+.btn-primary{
+  color: black;
+  background-color: rgba(252, 206, 36, 0.7);
+  border-color: transparent !important;
+}
+
+button:focus{
+  outline:none !important;
+}
+
+
+
