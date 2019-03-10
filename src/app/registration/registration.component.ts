@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
@@ -9,13 +9,16 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
 export class RegistrationComponent implements OnInit {
   private categoryApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories';
   private citiesApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
+  readonly rootApiUrl = "https://good-works-summer-backend.herokuapp.com";
   categories = [];
   cities = [];
 
   teamForm: FormGroup;
+  jsonForm: FormGroup;
   submitted = false;
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
@@ -65,6 +68,30 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl('registration/success');
   }
 
+  submitForPost(teamForm: FormGroup) {
+    if (teamForm.valid) {
+      this.jsonForm = this.formBuilder.group({	
+        "leadName": teamForm.get('teamLeadName').value,
+        "leadEmail": teamForm.get('teamLeadEmail').value,
+        "teamName": teamForm.get('teamName').value,
+        "city": { 
+          "id": this.cities.find(Name => Name.name == teamForm.get('city').value).id,
+          "name": teamForm.get('city').value
+        },
+        "ideas": [[{
+          "description": teamForm.get('ideaForJob').value,
+          "project": {
+            "category": teamForm.get('category').value.toUpperCase().replace(/ /g,"_")
+          }
+        }]],
+        "organization": teamForm.get('organization').value
+      });
+      let formObject = this.jsonForm.getRawValue();
+      this.http.post(this.rootApiUrl + '/registration', formObject).subscribe(res => {
+    });
+  }
+}
+
   onSubmit() {
     this.submitted = true;
     if (this.teamForm.invalid) {
@@ -72,5 +99,6 @@ export class RegistrationComponent implements OnInit {
     }
     alert('SUCCESS!!');
     this.goToSuccess();
+    this.submitForPost(this.teamForm);
   }
 }
