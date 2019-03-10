@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
-
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +18,6 @@ export class RegistrationComponent implements OnInit {
   teamForm: FormGroup;
   submitted = false;
 
-
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
 
   }
@@ -28,9 +26,9 @@ export class RegistrationComponent implements OnInit {
     this.getCities()
     this.getCategories()
     this.teamForm = this.formBuilder.group({
-      teamLeadName: ['', Validators.required],
-      teamLeadEmail: ['', Validators.required],
-      teamName: ['', Validators.required],
+      teamLeadName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
+      teamLeadEmail: ['', [Validators.required, Validators.email]],
+      teamName: ['', [Validators.required, Validators.maxLength(30)]],
       city: ['', Validators.required],
       organization: ['', Validators.required],
       ideaForJob: ['', Validators.required],
@@ -44,10 +42,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   getCities() {
-    this.getData(this.citiesApiUrl).subscribe(data => {
-      this.cities = data;
-    })
-    // return this.getData(this.categoryApiUrl);
+    return this.getData(this.citiesApiUrl);
   }
 
   getCategories() {
@@ -66,15 +61,10 @@ export class RegistrationComponent implements OnInit {
 
   goToSuccess() {
     this.router.navigateByUrl('registration/success');
-    console.log(this.teamForm)
   }
 
   onSubmit() {
     // this.submitted = true;
     this.goToSuccess();
-  }
-
-  get f() {
-    return this.teamForm.controls;
   }
 }
