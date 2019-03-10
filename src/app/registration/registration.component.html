@@ -61,7 +61,7 @@
                 <div *ngIf="registerFormControls.teamLeadEmail.errors.required">
                   Team Lead e-mail is required
                 </div>
-                <div *ngIf="registerFormControls.teamLeadEmail.errors.pattern">
+                <div *ngIf="registerFormControls.teamLeadEmail.errors.email">
                   Team Lead e-mail must be valid
                 </div>
               </div>
@@ -80,14 +80,13 @@
                 value=""
               />
               <div
-                *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
+                *ngIf="submitted && registerFormControls.teamName.errors"
                 class="invalid-feedback"
               >
-                <div
-                  *ngIf="registerFormControls.teamLeadEmail.errors.maxLength">
+                <div *ngIf="registerFormControls.teamName.errors.maxlength">
                   Team name must not exceed 30 characters
                 </div>
-                <div *ngIf="registerFormControls.teamLeadEmail.errors.required">
+                <div *ngIf="registerFormControls.teamName.errors.required">
                   Team name is required
                 </div>
               </div>
@@ -107,7 +106,7 @@
                 </option>
               </select>
               <div
-                *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
+                *ngIf="submitted && registerFormControls.city.errors"
                 class="invalid-feedback"
               >
                 <div *ngIf="registerFormControls.city.errors.required">
@@ -153,10 +152,10 @@
                 required
               />
               <div
-                *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
+                *ngIf="submitted && registerFormControls.ideaForJob.errors"
                 class="invalid-feedback"
               >
-                <div *ngIf="registerFormControls.city.errors.required">
+                <div *ngIf="registerFormControls.ideaForJob.errors.required">
                   Idea for a job is required
                 </div>
               </div>
@@ -167,7 +166,7 @@
                 formControlName="category"
                 [ngClass]="{
                   'is-invalid':
-                    submitted && registerFormControls.ideaForJob.errors
+                    submitted && registerFormControls.category.errors
                 }"
                 required
               >

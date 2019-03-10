@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {validate} from 'codelyzer/walkerFactory/walkerFn';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
