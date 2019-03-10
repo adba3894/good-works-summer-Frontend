@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
+
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {validate} from 'codelyzer/walkerFactory/walkerFn';
 
@@ -16,8 +17,9 @@ export class RegistrationComponent implements OnInit {
   categories = [];
   cities = [];
 
-  registerForm: FormGroup;
+  teamForm: FormGroup;
   submitted = false;
+
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
 
@@ -47,15 +49,20 @@ export class RegistrationComponent implements OnInit {
   }
 
   getCities() {
-    return this.getData(this.citiesApiUrl);
+    this.getData(this.citiesApiUrl).subscribe(data => {
+      this.cities = data;
+    })
+    // return this.getData(this.categoryApiUrl);
   }
 
   getCategories() {
-    return this.getData(this.categoryApiUrl);
+    this.getData(this.categoryApiUrl).subscribe(data => {
+      this.categories = data;
+    })
   }
 
   get registerFormControls() {
-    return this.registerForm.controls;
+    return this.teamForm.controls;
   }
 
   goToHome() {
@@ -64,14 +71,16 @@ export class RegistrationComponent implements OnInit {
 
   goToSuccess() {
     this.router.navigateByUrl('registration/success');
+    console.log(this.teamForm)
   }
 
   onSubmit() {
-    this.submitted = true;
-    if (this.registerForm.invalid) {
-      return;
-    }
-    alert('SUCCESS!!');
+    // this.submitted = true;
+    console.log(this.teamForm.value)
     this.goToSuccess();
+  }
+
+  get f() {
+    return this.teamForm.controls;
   }
 }
