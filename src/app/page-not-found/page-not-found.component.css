@@ -1,11 +1,12 @@
-.jumbotron{
+.jumbotron {
   padding-top: 3%;
-  background-color: rgb(249,249,249)
+  background-color: rgb(255, 255, 255)
 }
 
-*{
-  background-color: rgb(249,249,249);
+* {
+  background-color: rgb(255, 255, 255);
 }
+
 .message{
   margin-left: auto;
   margin-right: auto;
@@ -18,34 +19,32 @@
   border-color: rgba(252, 206, 36, 1);
 }
 
-.display-3{
+.display-3 {
   padding-top: 15px;
   text-align:  center;
   font-size: 55px;
   font-family:  Century Gothic, monospace;
   color: red;
 }
-.lead{
+
+.lead {
   padding-top: 2%;
   text-align:  center;
   font-size: 18px;
   font-family:  Century Gothic, monospace;
 }
 
-a:hover{
+a:hover {
   background-color: rgba(252, 206, 36, 0.9);
   border-color: transparent !important;
 }
 
-.btn-primary{
+.btn-primary {
   color: black;
   background-color: rgba(252, 206, 36, 0.7);
   border-color: transparent !important;
 }
 
-button:focus{
+button:focus {
   outline:none !important;
 }
-
-
-

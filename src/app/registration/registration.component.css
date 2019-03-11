@@ -7,7 +7,7 @@
 
 }
 
-.register{
+.register {
   border-style: solid;
   border-left-style: none;
   border-right-style: none;
@@ -17,20 +17,22 @@
 
 .register-heading {
   font: 20px Century Gothic, monospace;
-  margin-buttom: 3%;
+  margin-bottom: 3%;
 }
-.buttons{
+
+.buttons {
  margin-top: 2%;
   margin-left: 55%;
 }
 
-.btn-cancel{
+.btn-cancel {
   background-color: whitesmoke;
   text-align: center;
   padding: 10px 24px;
   font-family:  Century Gothic, monospace;
   font-size: 18px;
 }
+
 .btn-register {
   background-color: rgba(252, 206, 36,36);
   text-align: center;
@@ -46,6 +48,6 @@
   margin-bottom: -3px;
 }
 
-#idea{
+#idea {
   height: 90px;
 }
