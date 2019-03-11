@@ -68,17 +68,17 @@
             </div>
             <div class="form-group">
               <input
-                type="text"
-                class="form-control"
-                formControlName="teamName"
-                [ngClass]="{
+              type="text"
+              class="form-control"
+              formControlName="teamName"
+              [ngClass]="{
                   'is-invalid':
                     submitted && registerFormControls.teamName.errors
                 }"
-                required
-                placeholder="Team Name"
-                value=""
-              />
+              required
+              placeholder="Team Name"
+              value=""
+            />
               <div
                 *ngIf="submitted && registerFormControls.teamName.errors"
                 class="invalid-feedback"

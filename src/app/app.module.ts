@@ -12,6 +12,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MainPageComponent} from './main-page/main-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
 
 const routes: Routes = [
   {path: '', component: MainPageCarouselComponent},
@@ -35,6 +36,7 @@ const routes: Routes = [
     PageNotFoundComponent,
     MainPageComponent,
     AdminLoginComponent,
+    AdminProjectComponent,
   ],
   imports: [
     BrowserModule,
