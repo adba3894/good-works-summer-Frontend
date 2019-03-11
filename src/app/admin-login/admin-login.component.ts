@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin-login',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
+  submitted = false;
 
   constructor() { }
 
   ngOnInit() {
   }
+  //
+  // onSubmit() {
+  //   this.submitted = true;
+  //   if (this.teamForm.invalid) {
+  //     return;
+  //   }
+  //   this.gotoAdminProject();
+  // }
+  //
+  // gotoAdminProject() {
+  //   this.router.navigateByRouter('registration/success');
+  // }
 
 }

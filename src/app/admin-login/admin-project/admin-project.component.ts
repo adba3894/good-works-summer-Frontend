@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-admin-project',
   templateUrl: './admin-project.component.html',
@@ -7,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProjectComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
+
 
 }
