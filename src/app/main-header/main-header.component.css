@@ -64,122 +64,102 @@ body {
 
 @media only screen and (max-width: 800px) {
 
-
-  h1{
+  h1 {
     font-size: 28px;
     padding-bottom: 15px;
   }
 
-  .top-image{
+  .top-image {
     height: 160px;
   }
 
-  .logo{
+  .logo {
     display: none;
   }
 
-  .register-button{
+  .register-button {
     font-size: 14px;
   }
 
   .top-text {
-    buttom: 20% !important;
+    bottom: 20% !important;
   }
-  .main-text{
+  .main-text {
     margin-top: 0px;
   }
 
-
-  #menuToggle
-  {
+  #menuToggle {
     position: absolute;
     top: 0px;
     left: 10px;
     z-index: 1;
-
     -webkit-user-select: none;
     user-select: none;
   }
 
-  #menuToggle input
-  {
+  #menuToggle input {
     display: block;
     width: 40px;
     height: 100%;
     position: absolute;
     top: -7px;
     left: -5px;
-
     cursor: pointer;
-
-    opacity: 0; /* hide this */
-    z-index: 2; /* and place it over the hamburger */
-
+    opacity: 0;
+    z-index: 2;
     -webkit-touch-callout: none;
   }
 
-
-  #menuToggle span
-  {
+  #menuToggle span {
     display: block !important;
     width: 33px !important;
     height: 4px !important;
     margin-bottom: 5px !important;
     position: relative !important;
-
     background: #cdcdcd;
     border-radius: 0px;
-
     z-index: 6;
-
     transform-origin: 4px 0px;
-
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
     opacity 0.55s ease;
   }
 
-  #menuToggle span:first-child
-  {
+  #menuToggle span:first-child {
     transform-origin: 0% 0%;
   }
-  #menuToggle span:nth-last-child(2)
-  {
+
+  #menuToggle span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
 
-  #menuToggle input:checked ~ span
-  {
+  #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #232323;
   }
-  #menuToggle input:checked ~ span:nth-last-child(3)
-  {
+
+  #menuToggle input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
-  #menuToggle input:checked ~ span:nth-last-child(2)
-  {
+
+  #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
-  .nav-link
-  {
+  .nav-link {
     color: black !important;
     padding: 10px 0;
     font-size: 22px;
     display: inline-block;
   }
 
-  #menuToggle input:checked ~ ul
-  {
+  #menuToggle input:checked ~ ul {
     transform: none;
   }
 
-
-  .hamburger-menu
-  {
+  .hamburger-menu {
     z-index: 1;
     position: absolute;
     width: auto !important;
@@ -192,13 +172,9 @@ body {
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
-
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
-
-
 }
-
 
 @media only screen and (min-width: 800px) {
 
@@ -206,7 +182,7 @@ body {
     color: #fff !important;
   }
 
-  ul{
+  ul {
     height: 100%;
     padding-top: 30px;
     display: flex;
@@ -268,11 +244,7 @@ body {
     background-color: rgb(228, 217, 120);
   }
 
-  #menuToggle input
-  {
+  #menuToggle input {
     display:none;
-
   }
-
 }
-
