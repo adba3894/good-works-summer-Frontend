@@ -1,4 +1,4 @@
 <div>
-  <app-main-header></app-main-header>
+  <app-main-headerr *ngIf="routes.indexOf('admin') > -1"></app-main-headerr>
   <router-outlet></router-outlet>
 </div>
