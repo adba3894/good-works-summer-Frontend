@@ -13,7 +13,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   private categoryApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories';
   private citiesApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
-  readonly rootApiUrl = "https://good-works-summer-backend.herokuapp.com";
+  readonly rootApiUrl = 'https://good-works-summer-backend.herokuapp.com';
   categories = [];
   cities = [];
 
@@ -71,26 +71,26 @@ export class RegistrationComponent implements OnInit {
   submitForPost(teamForm: FormGroup) {
     if (teamForm.valid) {
       this.jsonForm = this.formBuilder.group({	
-        "leadName": teamForm.get('teamLeadName').value,
-        "leadEmail": teamForm.get('teamLeadEmail').value,
-        "teamName": teamForm.get('teamName').value,
-        "city": { 
-          "id": this.cities.find(Name => Name.name == teamForm.get('city').value).id,
-          "name": teamForm.get('city').value
+        'leadName': teamForm.get('teamLeadName').value,
+        'leadEmail': teamForm.get('teamLeadEmail').value,
+        'teamName': teamForm.get('teamName').value,
+        'city': { 
+          'id': this.cities.find(city => city.name == teamForm.get('city').value).id,
+          'name': teamForm.get('city').value
         },
-        "ideas": [[{
-          "description": teamForm.get('ideaForJob').value,
-          "project": {
-            "category": teamForm.get('category').value.toUpperCase().replace(/ /g,"_")
+        'ideas': [[{
+          'description': teamForm.get('ideaForJob').value,
+          'project': {
+            'category': teamForm.get('category').value.toUpperCase().replace(/ /g,'_')
           }
         }]],
-        "organization": teamForm.get('organization').value
+        'organization': teamForm.get('organization').value
       });
-      let formObject = this.jsonForm.getRawValue();
-      this.http.post(this.rootApiUrl + '/registration', formObject).subscribe(res => {
-    });
+      let rawJsonFormValue = this.jsonForm.getRawValue();
+      this.http.post(this.rootApiUrl + '/registration', rawJsonFormValue).subscribe(res => {
+      });
+    }
   }
-}
 
   onSubmit() {
     this.submitted = true;
