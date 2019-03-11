@@ -11,6 +11,7 @@ import {MainPageCarouselComponent} from './main-page/main-page-carousel/main-pag
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MainPageComponent} from './main-page/main-page.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 const routes: Routes = [
   {path: '', component: MainPageCarouselComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'registration/success', component: SuccessPageComponent},
   {path: 'home', component: MainPageComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'admin', component: AdminLoginComponent},
   {path: '**', component: PageNotFoundComponent},
 ]
 
@@ -32,6 +34,7 @@ const routes: Routes = [
     MainPageCarouselComponent,
     PageNotFoundComponent,
     MainPageComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
