@@ -39,7 +39,7 @@
   font-size: 50px;
   margin-top: -2%;
   color: rgba(255, 255, 255, 0.9) !important;
-  left: -2%; /* 12% */
+  left: -2%;
 }
 
 .control-prev {
@@ -48,7 +48,7 @@
   font-size: 50px;
   margin-top: -2%;
   color: rgba(255, 255, 255, 0.9) !important;
-  right: -2%; /* 14% */
+  right: -2%;
 }
 
 .image-style {
@@ -132,4 +132,3 @@ button:focus {
 .w3-content:hover .w3-button {
   opacity: 1;
 }
-
