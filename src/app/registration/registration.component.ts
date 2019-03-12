@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {map} from 'rxjs/operators';
+import {Http} from '@angular/http';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {JobRegistrationService} from '../services/job-registration.service';
@@ -41,11 +40,6 @@ export class RegistrationComponent extends JobRegistrationService implements OnI
       ideaForJob: ['', Validators.required],
       category: ['', Validators.required],
     });
-  }
-
-  getData(ApiURL) {
-    return this.http.get(ApiURL)
-      .pipe(map((res: Response) => res.json()));
   }
 
   getCities() {

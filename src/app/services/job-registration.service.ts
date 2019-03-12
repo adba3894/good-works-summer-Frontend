@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class JobRegistrationService {
@@ -9,6 +10,11 @@ export class JobRegistrationService {
 
   constructor(private jobRegistrationServiceHttp: Http, private jobRegistrationServiceFormBuilder: FormBuilder) {
 
+  }
+
+  getData(ApiURL) {
+    return this.jobRegistrationServiceHttp.get(ApiURL)
+      .pipe(map((res: Response) => res.json()));
   }
 
   submitForPost(teamForm: FormGroup, cities: any[], rootApiUrl: string) {
