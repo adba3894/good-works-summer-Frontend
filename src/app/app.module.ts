@@ -1,29 +1,29 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {CommonModule} from '@angular/common';
-import {AppComponent} from './app.component';
-import {MainHeaderComponent} from './main-header/main-header.component';
-import {RegistrationComponent} from './registration/registration.component';
-import {SuccessPageComponent} from './registration/success-page/success-page.component';
-import {MainPageCarouselComponent} from './main-page/main-page-carousel/main-page-carousel.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {RouterModule, Routes} from '@angular/router';
-import {MainPageComponent} from './main-page/main-page.component';
-import {AdminLoginComponent} from './admin-login/admin-login.component';
-import {AdminProjectComponent} from './admin-login/admin-project/admin-project.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
+import { AppComponent } from './app.component';
+import { MainHeaderComponent } from './main-header/main-header.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { SuccessPageComponent } from './registration/success-page/success-page.component';
+import { MainPageCarouselComponent } from './main-page/main-page-carousel/main-page-carousel.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MainPageComponent } from './main-page/main-page.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
 
 const routes: Routes = [
-  {path: '', component: MainPageCarouselComponent},
-  {path: 'registration', component: RegistrationComponent},
-  {path: 'registration/success', component: SuccessPageComponent},
-  {path: 'home', component: MainPageComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'admin', component: AdminLoginComponent},
-  {path: 'admin/project', component: AdminProjectComponent},
-  {path: '**', component: PageNotFoundComponent}
-]
+  { path: '', component: MainPageCarouselComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'registration/success', component: SuccessPageComponent },
+  { path: 'home', component: MainPageComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'admin', component: AdminLoginComponent },
+  { path: 'admin/project', component: AdminProjectComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 
 @NgModule({
@@ -37,7 +37,7 @@ const routes: Routes = [
     PageNotFoundComponent,
     MainPageComponent,
     AdminLoginComponent,
-    AdminProjectComponent,
+    AdminProjectComponent
   ],
   imports: [
     BrowserModule,

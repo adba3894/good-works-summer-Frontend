@@ -6,7 +6,7 @@
   margin-top: 3%;
 }
 
-.register{
+.register {
   padding: 20px;
   border-style: solid;
   border-left-style: none;
@@ -15,7 +15,7 @@
   border-color: rgba(252, 206, 36, 1);
 }
 
-.register-box{
+.register-box {
   margin-left: auto;
   margin-right: auto;
 }
@@ -25,7 +25,7 @@
   padding-buttom: 4%;
 }
 
-.btn{
+.btn {
   margin-top: 10px;
   float: right;
 }
@@ -33,20 +33,20 @@
 .btn-register {
   background-color: rgba(252, 206, 36, 0.8);
   text-align: center;
-  font-family:  Century Gothic, monospace;
+  font-family: Century Gothic, monospace;
   font-size: 18px;
   margin-left: 2%;
 }
 
-.btn-cancel{
+.btn-cancel {
   background-color: whitesmoke;
   text-align: center;
-  font-family:  Century Gothic, monospace;
+  font-family: Century Gothic, monospace;
   font-size: 18px;
 }
 
-.idea input{
-  height: 90px!important;
+.idea input {
+  height: 90px !important;
 }
 
 @media only screen and (max-width: 800px) {

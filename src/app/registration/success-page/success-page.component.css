@@ -1,9 +1,9 @@
-.jumbotron{
+.jumbotron {
   padding-top: 3%;
   background-color: white;
 }
 
-.success-message{
+.success-message {
   margin-left: auto;
   margin-right: auto;
   width: 55%;
@@ -15,25 +15,26 @@
   border-color: rgba(252, 206, 36, 1);
 }
 
-.display-3{
+.display-3 {
   padding-top: 15px;
-  text-align:  center;
+  text-align: center;
   font-size: 25px;
-  font-family:  Century Gothic, monospace;
-}
-.lead{
-  padding-top: 2%;
-  text-align:  center;
-  font-size: 18px;
-  font-family:  Century Gothic, monospace;
+  font-family: Century Gothic, monospace;
 }
 
-a:hover{
+.lead {
+  padding-top: 2%;
+  text-align: center;
+  font-size: 18px;
+  font-family: Century Gothic, monospace;
+}
+
+a:hover {
   background-color: rgba(252, 206, 36, 0.9);
   border-color: transparent !important;
 }
 
-.success-img{
+.success-img {
   opacity: 0.9;
   padding-top: 15px;
   display: block;
@@ -41,27 +42,27 @@ a:hover{
   margin-right: auto;
 }
 
-.btn-primary{
+.btn-primary {
   color: black;
   background-color: rgba(252, 206, 36, 0.6);
   border-color: transparent !important;
 }
 
-button:focus{
-  outline:none !important;
+button:focus {
+  outline: none !important;
 }
 
 @media only screen and (max-width: 800px) {
 
-  .success-img{
+  .success-img {
     display: none;
   }
 
-  .display-3{
+  .display-3 {
     color: darkgreen;
   }
 
-  .lead{
+  .lead {
     font-size: 14px;
   }
 }

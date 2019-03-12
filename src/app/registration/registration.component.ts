@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Http} from '@angular/http';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {JobRegistrationService} from '../services/job-registration.service';
+import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { JobRegistrationService } from '../services/job-registration-service/job-registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -32,13 +32,13 @@ export class RegistrationComponent extends JobRegistrationService implements OnI
       this.categories = data;
     });
     this.teamForm = this.formBuilder.group({
-      teamLeadName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
-      teamLeadEmail: ['', [Validators.required, Validators.email]],
+      teamLeadName: ['', [Validators.required, Validators.pattern('^[a-zA-Z][ąčęėįšųūž -ĄČĘĖĮŠŲŪŽ]+$'), Validators.maxLength(100)]],
+      teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
       teamName: ['', [Validators.required, Validators.maxLength(30)]],
       city: ['', Validators.required],
-      organization: ['', Validators.required],
+      organization: ['', Validators.required, Validators.maxLength(100)],
       ideaForJob: ['', Validators.required],
-      category: ['', Validators.required],
+      category: ['', Validators.required]
     });
   }
 

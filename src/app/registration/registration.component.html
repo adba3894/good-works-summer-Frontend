@@ -1,180 +1,199 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <div class="container-register">
-      <h4 class="register-heading">Registration</h4>
-      <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
-        <div class="row register">
-          <div class="col-md-5 register-box">
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="teamLeadName"
-                [ngClass]="{
-                  'is-invalid':
-                    submitted && registerFormControls.teamLeadName.errors
-                }"
-                required
-                placeholder="Team Lead Name"
-                value=""
-              />
-              <div
-                *ngIf="submitted && registerFormControls.teamLeadName.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="registerFormControls.teamLeadName.errors.required">
-                  Team Lead Name is required
-                </div>
-                <div *ngIf="registerFormControls.teamLeadName.errors.pattern">
-                  Team Lead Name must consist of only alphabetical characters
-                </div>
-              </div>
+  <h4 class="register-heading">Registration</h4>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+    <div class="row register">
+      <div class="col-md-5 register-box">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="teamLeadName"
+            [ngClass]="{
+              'is-invalid':
+                submitted && registerFormControls.teamLeadName.errors
+            }"
+            required
+            placeholder="Team Lead Name"
+            value=""
+          />
+          <div
+            *ngIf="submitted && registerFormControls.teamLeadName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.teamLeadName.errors.required">
+              Team Lead Name is required
             </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="teamLeadEmail"
-                [ngClass]="{
-                  'is-invalid':
-                    submitted && registerFormControls.teamLeadEmail.errors
-                }"
-                required
-                placeholder="Team Lead E-mail"
-                value=""
-              />
-              <div
-                *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="registerFormControls.teamLeadEmail.errors.required">
-                  Team Lead e-mail is required
-                </div>
-                <div *ngIf="registerFormControls.teamLeadEmail.errors.email">
-                  Team Lead e-mail must be valid
-                </div>
-              </div>
+            <div *ngIf="registerFormControls.teamLeadName.errors.maxlength">
+              Team name must not exceed 100 characters
             </div>
-            <div class="form-group">
-              <input
-              type="text"
-              class="form-control"
-              formControlName="teamName"
-              [ngClass]="{
-                  'is-invalid':
-                    submitted && registerFormControls.teamName.errors
-                }"
-              required
-              placeholder="Team Name"
-              value=""
-            />
-              <div
-                *ngIf="submitted && registerFormControls.teamName.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="registerFormControls.teamName.errors.maxlength">
-                  Team name must not exceed 30 characters
-                </div>
-                <div *ngIf="registerFormControls.teamName.errors.required">
-                  Team name is required
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <select
-                class="form-control"
-                formControlName="city"
-                [ngClass]="{
-                  'is-invalid': submitted && registerFormControls.city.errors
-                }"
-                required
-              >
-                <option value="" disabled>Location</option>
-
-                <option *ngFor="let city of cities">
-                  {{ city.name }}
-                </option>
-              </select>
+            <div *ngIf="registerFormControls.teamLeadName.errors.pattern">
+              Team Lead Name must consist of only alphabetical characters
             </div>
           </div>
-          <div class="col-md-5 register-box">
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="organization"
-                placeholder="Organization"
-                value=""
-                [ngClass]="{
-                  'is-invalid':
-                    submitted && registerFormControls.organization.errors
-                }"
-                required
-              />
-              <div
-                *ngIf="submitted && registerFormControls.organization.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="registerFormControls.organization.errors.required">
-                  Organization is required
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <select
-                class="form-control"
-                formControlName="category"
-                [ngClass]="{
-                  'is-invalid':
-                    submitted && registerFormControls.category.errors
-                }"
-                required
-              >
-                <option value="" disabled>Category</option>
-                <option *ngFor="let category of categories">
-                  {{ category }}
-                </option>
-              </select>
-              <div
-                *ngIf="submitted && registerFormControls.category.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="registerFormControls.category.errors.required">
-                  Category is required
-                </div>
-              </div>
-            </div>
-            <div class="form-group idea">
-              <input
-                type="text"
-                class="form-control"
-                formControlName="ideaForJob"
-                placeholder="Idea for a good job"
-                value=""
-                [ngClass]="{
-                  'is-invalid':
-                    submitted && registerFormControls.ideaForJob.errors
-                }"
-                required
-              />
-              <div
-                *ngIf="submitted && registerFormControls.ideaForJob.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="registerFormControls.ideaForJob.errors.required">
-                  Idea for a job is required
-                </div>
-              </div>
-            </div>
         </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="teamLeadEmail"
+            [ngClass]="{
+              'is-invalid':
+                submitted && registerFormControls.teamLeadEmail.errors
+            }"
+            required
+            placeholder="Team Lead E-mail"
+            value=""
+          />
+          <div
+            *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.teamLeadEmail.errors.required">
+              Team Lead e-mail is required
+            </div>
+            <div *ngIf="registerFormControls.teamLeadEmail.errors.email">
+              Team Lead e-mail must be valid
+            </div>
+            <div *ngIf="registerFormControls.teamLeadEmail.errors.maxlength">
+              Team e-mail must not exceed 100 characters
+            </div>
+          </div>
         </div>
-             <button type="submit" class="btn btn-register">Submit</button>
-            <button type="button" class="btn btn-cancel" (click)="goToHome()" value="Cancel">Cancel</button>
-      </form>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="teamName"
+            [ngClass]="{
+              'is-invalid': submitted && registerFormControls.teamName.errors
+            }"
+            required
+            placeholder="Team Name"
+            value=""
+          />
+          <div
+            *ngIf="submitted && registerFormControls.teamName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.teamName.errors.maxlength">
+              Team name must not exceed 30 characters
+            </div>
+            <div *ngIf="registerFormControls.teamName.errors.required">
+              Team name is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <select
+            class="form-control"
+            formControlName="city"
+            [ngClass]="{
+              'is-invalid': submitted && registerFormControls.city.errors
+            }"
+            required
+          >
+            <option value="" disabled>Location</option>
+
+            <option *ngFor="let city of cities">
+              {{ city.name }}
+            </option>
+          </select>
+          <div
+            *ngIf="submitted && registerFormControls.city.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.teamName.errors.required">
+              Location is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 register-box">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="organization"
+            placeholder="Organization"
+            value=""
+            [ngClass]="{
+              'is-invalid':
+                submitted && registerFormControls.organization.errors
+            }"
+            required
+          />
+          <div
+            *ngIf="submitted && registerFormControls.organization.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.organization.errors.maxlength">
+              Organization name must not exceed 100 characters
+            </div>
+            <div *ngIf="registerFormControls.organization.errors.required">
+              Organization is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <select
+            class="form-control"
+            formControlName="category"
+            [ngClass]="{
+              'is-invalid': submitted && registerFormControls.category.errors
+            }"
+            required
+          >
+            <option value="" disabled>Category</option>
+            <option *ngFor="let category of categories">
+              {{ category }}
+            </option>
+          </select>
+          <div
+            *ngIf="submitted && registerFormControls.category.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.category.errors.required">
+              Category is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group idea">
+          <textarea
+            type="text"
+            class="form-control"
+            formControlName="ideaForJob"
+            placeholder="Idea for a good job"
+            value=""
+            maxlength="240"
+            [ngClass]="{
+              'is-invalid': submitted && registerFormControls.ideaForJob.errors
+            }"
+            required
+          ></textarea>
+          <div
+            *ngIf="submitted && registerFormControls.ideaForJob.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.ideaForJob.errors.required">
+              Idea for a job is required
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-
+    <button type="submit" class="btn btn-register">Submit</button>
+    <button
+      type="button"
+      class="btn btn-cancel"
+      (click)="goToHome()"
+      value="Cancel"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
