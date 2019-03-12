@@ -6,7 +6,7 @@
 .success-message{
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 55%;
   height: auto;
   border-style: solid;
   border-left-style: none;
@@ -33,7 +33,7 @@ a:hover{
   border-color: transparent !important;
 }
 
-.success-image{
+.success-img{
   opacity: 0.9;
   padding-top: 15px;
   display: block;
@@ -43,7 +43,7 @@ a:hover{
 
 .btn-primary{
   color: black;
-  background-color: rgba(252, 206, 36, 0.7);
+  background-color: rgba(252, 206, 36, 0.6);
   border-color: transparent !important;
 }
 
@@ -51,5 +51,19 @@ button:focus{
   outline:none !important;
 }
 
+@media only screen and (max-width: 800px) {
+
+  .success-img{
+    display: none;
+  }
+
+  .display-3{
+    color: darkgreen;
+  }
+
+  .lead{
+    font-size: 14px;
+  }
+}
 
 
