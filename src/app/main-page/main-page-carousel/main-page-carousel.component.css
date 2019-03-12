@@ -5,8 +5,8 @@
   width:  100%;
   height: 100%;
   object-fit: cover;
-  z-index: -3!important;
   position: relative;
+  z-index: -2;
 }
 
 .w3-center {
@@ -39,6 +39,7 @@ button:focus {
     padding-top: 5%;
     margin-left: 2px;
     margin-right: 2px;
+    overflow: visible!important;
   }
 
   .w3-button:hover {
@@ -53,10 +54,10 @@ button:focus {
   .carousel{
     margin-left:auto;
     margin-right:auto;
-  height: 400px;
-  width: auto;
-  max-width: 650px;
-  transform: translate(0);
+    height: 400px;
+    width: auto;
+    max-width: 650px;
+    transform: translate(0);
 }
   .w3-button {
     font-size: 100px;

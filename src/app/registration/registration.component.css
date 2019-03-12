@@ -4,8 +4,6 @@
   width: 55%;
   height: auto;
   margin-top: 3%;
-  position: relative;
-  z-index: -2;
 }
 
 .register{
@@ -58,4 +56,5 @@
     height: auto;
     margin-top: 3%;
   }
+
 }
