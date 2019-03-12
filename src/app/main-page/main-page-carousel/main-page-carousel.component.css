@@ -18,7 +18,6 @@ button:focus {
   outline: none !important;
 }
 
-
 @media only screen and (max-width:768px) {
 
   .carousel{
@@ -27,6 +26,7 @@ button:focus {
     height: 280px;
     width: auto;
     max-width: 450px;
+    transform: translate(0);
   }
 
   .w3-center {
@@ -36,17 +36,12 @@ button:focus {
   .w3-button {
     font-size: 60px;
     color: rgba(252, 206, 36, 0.7);
-    padding-top: 5%;
-    margin-left: 2px;
-    margin-right: 2px;
-    overflow: visible!important;
   }
 
   .w3-button:hover {
     background-color: transparent !important;
     color: rgba( 252, 252, 252, 0.7) !important;
   }
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -58,7 +53,8 @@ button:focus {
     width: auto;
     max-width: 650px;
     transform: translate(0);
-}
+  }
+
   .w3-button {
     font-size: 100px;
     transition: .2s ease !important;
