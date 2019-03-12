@@ -2,11 +2,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 </head>
-<body>
 <strong><h2 class="w3-center">Good works summer moments!</h2></strong>
-<div class="w3-content carousel-fade">
+  <div class="carousel">
   <button
-    class="w3-button w3-black w3-display-left control-next"
+    class="w3-button w3-display-left"
     (click)="navigateFromCurrentSlide(-1)"
   >
     &#10094;
@@ -28,10 +27,11 @@
     allowfullscreen
   ></iframe>
   <button
-    class="w3-button w3-black w3-display-right control-prev"
+    class="w3-button w3-display-right"
     (click)="navigateFromCurrentSlide(1)"
   >
     &#10095;
   </button>
-</div>
-</body>
+  </div>
+
+

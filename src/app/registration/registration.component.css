@@ -1,13 +1,13 @@
 .container-register {
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 55%;
   height: auto;
   margin-top: 3%;
-
 }
 
-.register {
+.register{
+  padding: 20px;
   border-style: solid;
   border-left-style: none;
   border-right-style: none;
@@ -15,39 +15,46 @@
   border-color: rgba(252, 206, 36, 1);
 }
 
+.register-box{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .register-heading {
   font: 20px Century Gothic, monospace;
-  margin-bottom: 3%;
+  padding-buttom: 4%;
 }
 
-.buttons {
- margin-top: 2%;
-  margin-left: 55%;
-}
-
-.btn-cancel {
-  background-color: whitesmoke;
-  text-align: center;
-  padding: 10px 24px;
-  font-family:  Century Gothic, monospace;
-  font-size: 18px;
+.btn{
+  margin-top: 10px;
+  float: right;
 }
 
 .btn-register {
-  background-color: rgba(252, 206, 36,36);
+  background-color: rgba(252, 206, 36, 0.8);
   text-align: center;
-  padding: 10px 24px;
   font-family:  Century Gothic, monospace;
   font-size: 18px;
-  margin-left: 3%;
+  margin-left: 2%;
 }
 
-.btn-cancel:active,
-.btn-register:active {
-  margin-top: 3px;
-  margin-bottom: -3px;
+.btn-cancel{
+  background-color: whitesmoke;
+  text-align: center;
+  font-family:  Century Gothic, monospace;
+  font-size: 18px;
 }
 
-#idea {
-  height: 90px;
+.idea input{
+  height: 90px!important;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .container-register {
+    width: 80%;
+    height: auto;
+    margin-top: 3%;
+  }
+
 }

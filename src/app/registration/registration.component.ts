@@ -1,8 +1,8 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {Http} from '@angular/http';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {JobRegistrationService} from '../services/job-registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.css']
 })
 
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent extends JobRegistrationService implements OnInit {
   private categoryApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories';
   private citiesApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
   readonly rootApiUrl = 'https://good-works-summer-backend.herokuapp.com';
@@ -18,11 +18,10 @@ export class RegistrationComponent implements OnInit {
   cities = [];
 
   teamForm: FormGroup;
-  jsonForm: FormGroup;
   submitted = false;
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
-
+    super(http, formBuilder);
   }
 
   ngOnInit() {
@@ -39,13 +38,8 @@ export class RegistrationComponent implements OnInit {
       city: ['', Validators.required],
       organization: ['', Validators.required],
       ideaForJob: ['', Validators.required],
-      category: ['', Validators.required]
+      category: ['', Validators.required],
     });
-  }
-
-  getData(ApiURL) {
-    return this.http.get(ApiURL)
-      .pipe(map((res: Response) => res.json()));
   }
 
   getCities() {
@@ -68,36 +62,12 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl('registration/success');
   }
 
-  submitForPost(teamForm: FormGroup) {
-    if (teamForm.valid) {
-      this.jsonForm = this.formBuilder.group({
-        'leadName': teamForm.get('teamLeadName').value,
-        'leadEmail': teamForm.get('teamLeadEmail').value,
-        'teamName': teamForm.get('teamName').value,
-        'city': {
-          'id': this.cities.find(city => city.name === teamForm.get('city').value).id,
-          'name': teamForm.get('city').value
-        },
-        'ideas': [[{
-          'description': teamForm.get('ideaForJob').value,
-          'project': {
-            'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_')
-          }
-        }]],
-        'organization': teamForm.get('organization').value
-      });
-      const rawJsonFormValue = this.jsonForm.getRawValue();
-      this.http.post(this.rootApiUrl + '/registration', rawJsonFormValue).subscribe(res => {
-      });
-    }
-  }
-
   onSubmit() {
     this.submitted = true;
     if (this.teamForm.invalid) {
       return;
     }
     this.goToSuccess();
-    this.submitForPost(this.teamForm);
+    this.submitForPost(this.teamForm, this.cities, this.rootApiUrl);
   }
 }
