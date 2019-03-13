@@ -36,7 +36,7 @@ export class RegistrationComponent extends JobRegistrationService implements OnI
       teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
       teamName: ['', [Validators.required, Validators.maxLength(30)]],
       city: ['', Validators.required],
-      organization: ['', Validators.required, Validators.maxLength(100)],
+      organization: ['', [Validators.required, Validators.maxLength(100)]],
       ideaForJob: ['', Validators.required],
       category: ['', Validators.required]
     });
