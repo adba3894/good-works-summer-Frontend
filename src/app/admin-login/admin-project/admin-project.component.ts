@@ -10,7 +10,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./admin-project.component.css']
 })
 export class AdminProjectComponent extends AdminProjectService implements OnInit {
-  readonly tableApiUrl = 'https://good-works-summer-backend.herokuapp.com';
+  readonly tableApiUrl = 'https://good-works-summer-backend.herokuapp.com/teams';
   teams = [];
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
@@ -26,4 +26,5 @@ export class AdminProjectComponent extends AdminProjectService implements OnInit
   getTeams() {
     return this.getData(this.tableApiUrl);
   }
+
 }

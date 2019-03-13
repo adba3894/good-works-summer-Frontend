@@ -1,15 +1,15 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AdminLoginService } from '../services/admin-login-service/admin-login.service';
 
 @Component({
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css']
 })
-export class AdminLoginComponent implements OnInit {
+export class AdminLoginComponent extends AdminLoginService implements OnInit {
 
   private adminApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/admin';
   adminCredentials = [];
@@ -18,7 +18,7 @@ export class AdminLoginComponent implements OnInit {
   submitted = false;
 
   constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
-
+    super(http, formBuilder);
   }
 
   ngOnInit() {
@@ -29,11 +29,6 @@ export class AdminLoginComponent implements OnInit {
 
   getAdminCredentials() {
     return this.getData(this.adminApiUrl);
-  }
-
-  getData(ApiURL) {
-    return this.http.get(ApiURL)
-      .pipe(map((res: Response) => res.json()));
   }
 
 }

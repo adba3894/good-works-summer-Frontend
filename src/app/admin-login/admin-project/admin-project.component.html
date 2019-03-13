@@ -19,17 +19,21 @@
       <th>Location</th>
       <th>Idea</th>
       <th>Category</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let team of teams">
+      <td>{{team.leadName}}</td>
+      <td>{{team.leadEmail}}</td>
+      <td>{{team.organization}}</td>
+      <td>{{team.teamName}}</td>
+      <td>{{team.city.name}}</td>
+      <td>{{team.ideas[0].description}}</td>
+      <td>{{team.ideas[0].project.category.toLocaleLowerCase().replace('_', ' ')}}</td>
+      <td><button class="jasmine-warning">
+        Approve
+      </button></td>
     </tr>
     </tbody>
   </table>

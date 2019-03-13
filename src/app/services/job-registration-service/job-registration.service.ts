@@ -3,7 +3,9 @@ import { Http, Response } from '@angular/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class JobRegistrationService {
 
   jsonForm: FormGroup;
@@ -24,8 +26,8 @@ export class JobRegistrationService {
         'leadEmail': teamForm.get('teamLeadEmail').value,
         'teamName': teamForm.get('teamName').value,
         'city': {
-          'id': cities.find(city => city.name === teamForm.get('city').value).id,
-          'name': teamForm.get('city').value
+          'id': 2, // cities.find(city => city.name === teamForm.get('city').value).id,
+          'name': 'Vilnius' // teamForm.get('city').value
         },
         'ideas': [[{
           'description': teamForm.get('ideaForJob').value,
