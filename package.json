@@ -8,10 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod && maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js && cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
+    "bootstrap": "^3.4.1",
     "@angular/animations": "~7.2.0",
     "@angular/cli": "^7.3.4",
     "@angular/common": "~7.2.0",
@@ -25,6 +26,7 @@
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
+    "jquery": "^3.3.1",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
