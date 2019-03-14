@@ -21,32 +21,30 @@ export class JobRegistrationService {
   }
 
   submitForPost(teamForm: FormGroup, cities: any[], rootApiUrl: string): Observable<any> {
-    if (teamForm.valid) {
-      this.jsonForm = this.jobRegistrationServiceFormBuilder.group({
-        'leadName': teamForm.get('teamLeadName').value.trim(),
-        'leadEmail': teamForm.get('teamLeadEmail').value.trim(),
-        'teamName': teamForm.get('teamName').value.trim(),
-        'city': {
-          'id': cities.find(city => city.name === teamForm.get('city').value).id,
-          'name': teamForm.get('city').value
-        },
-        'ideas': [[{
-          'description': teamForm.get('ideaForJob').value.trim(),
-          'project': {
-            'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_')
-          }
-        }]],
-        'organization': teamForm.get('organization').value.trim()
-      });
-      const rawJsonFormValue = this.jsonForm.getRawValue();
-      const options = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-        })
-      };
-      return this.jobRegistrationServiceHttp.post<any>(rootApiUrl + '/registration', rawJsonFormValue, options)
-        .pipe(catchError((errorMessage: any) => throwError(errorMessage)));
-    }
+    this.jsonForm = this.jobRegistrationServiceFormBuilder.group({
+      'leadName': teamForm.get('teamLeadName').value.trim(),
+      'leadEmail': teamForm.get('teamLeadEmail').value.trim(),
+      'teamName': teamForm.get('teamName').value.trim(),
+      'city': {
+        'id': cities.find(city => city.name === teamForm.get('city').value).id,
+        'name': teamForm.get('city').value
+      },
+      'ideas': [[{
+        'description': teamForm.get('ideaForJob').value.trim(),
+        'project': {
+          'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_')
+        }
+      }]],
+      'organization': teamForm.get('organization').value.trim()
+    });
+    const rawJsonFormValue = this.jsonForm.getRawValue();
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.jobRegistrationServiceHttp.post<any>(rootApiUrl + '/registration', rawJsonFormValue, options)
+      .pipe(catchError((errorMessage: any) => throwError(errorMessage)));
   }
 }
 
