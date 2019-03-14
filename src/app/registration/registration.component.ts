@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JobRegistrationService } from '../services/job-registration-service/job-registration.service';
-import { Constants } from '../services/job-registration-service/constants';
+import { ROOT_API_URL } from '../registration.const';
+import { CITIES_API_URL } from '../registration.const';
+import { CATEGORY_API_URL } from '../registration.const';
 
 @Component({
   selector: 'app-registration',
@@ -22,10 +24,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.jobRegistrationService.getCitiesData(Constants.citiesApiUrl).subscribe(data => {
+    this.jobRegistrationService.getCitiesData(CITIES_API_URL).subscribe(data => {
       this.cities = data;
     });
-    this.jobRegistrationService.getCategoriesData(Constants.categoryApiUrl)
+    this.jobRegistrationService.getCategoriesData(CATEGORY_API_URL)
       .subscribe(data => {
         this.categories = data;
       });
@@ -57,7 +59,7 @@ export class RegistrationComponent implements OnInit {
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
-      this.jobRegistrationService.submitForPost(this.teamForm, this.cities, Constants.rootApiUrl)
+      this.jobRegistrationService.submitForPost(this.teamForm, this.cities, ROOT_API_URL)
         .subscribe(() => {
           this.goToSuccess();
         }, (errorMessage) => {
