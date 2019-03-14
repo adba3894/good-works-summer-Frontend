@@ -2,7 +2,7 @@
   margin-bottom: 30px;
   margin-top: 30px;
   border-radius: 6px;
-  width:  100%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   position: relative;
@@ -18,11 +18,11 @@ button:focus {
   outline: none !important;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
 
-  .carousel{
-    margin-left:auto;
-    margin-right:auto;
+  .carousel {
+    margin-left: auto;
+    margin-right: auto;
     height: 280px;
     width: auto;
     max-width: 450px;
@@ -40,15 +40,15 @@ button:focus {
 
   .w3-button:hover {
     background-color: transparent !important;
-    color: rgba( 252, 252, 252, 0.7) !important;
+    color: rgba(252, 252, 252, 0.7) !important;
   }
 }
 
 @media only screen and (min-width: 769px) {
 
-  .carousel{
-    margin-left:auto;
-    margin-right:auto;
+  .carousel {
+    margin-left: auto;
+    margin-right: auto;
     height: 400px;
     width: auto;
     max-width: 650px;

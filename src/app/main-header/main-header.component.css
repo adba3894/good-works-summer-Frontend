@@ -47,42 +47,40 @@ h1 {
   background-color: rgba(252, 206, 36, 0.4);
 }
 
-button:focus{
-  outline:none !important;
+button:focus {
+  outline: none !important;
 }
 
 @media only screen and (max-width: 768px) {
 
-  h1{
+  h1 {
     font-size: 28px;
     padding-bottom: 10px;
     padding-top: 25px;
     cursor: pointer;
   }
 
-  .top-image{
+  .top-image {
     height: 160px;
     width: auto;
   }
 
-  .logo{
+  .logo {
     display: none;
   }
 
-  .register-button{
+  .register-button {
     font-size: 14px;
   }
 
-  #menuToggle
-  {
+  #menuToggle {
     position: absolute;
     top: 0px;
     left: 10px;
     z-index: 4;
   }
 
-  #menuToggle input
-  {
+  #menuToggle input {
     width: 40px;
     height: 100%;
     position: absolute;
@@ -98,8 +96,7 @@ button:focus{
   }
 
 
-  #menuToggle span
-  {
+  #menuToggle span {
     display: block !important;
     width: 33px !important;
     height: 4px !important;
@@ -111,33 +108,31 @@ button:focus{
     z-index: 2;
     transform-origin: 4px 0px;
 
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-    background 0.2s cubic-bezier(0.77,0.2,0.05,1.0),
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+    background 0.2s cubic-bezier(0.77, 0.2, 0.05, 1.0),
     opacity 0.2s ease;
   }
 
-  #menuToggle span:first-child
-  {
+  #menuToggle span:first-child {
     transform-origin: 0% 0%;
   }
-  #menuToggle span:nth-last-child(2)
-  {
+
+  #menuToggle span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
 
-  #menuToggle input:checked ~ span
-  {
+  #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #232323;
   }
-  #menuToggle input:checked ~ span:nth-last-child(3)
-  {
+
+  #menuToggle input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
-  #menuToggle input:checked ~ span:nth-last-child(2)
-  {
+
+  #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
   }
 
@@ -149,8 +144,8 @@ button:focus{
     float: left;
   }
 
-  .nav-link:hover{
-    color: white!important;
+  .nav-link:hover {
+    color: white !important;
   }
 
   #menuToggle input:checked ~ ul
@@ -159,7 +154,7 @@ button:focus{
   }
 
   .hamburger-menu {
-    overflow: hidden!important;
+    overflow: hidden !important;
     position: absolute;
     width: auto;
     height: auto;
@@ -168,7 +163,8 @@ button:focus{
     padding-top: 120px;
     padding-bottom: 150%;
     background: rgb(248, 222, 126);
-    list-style-type: none;transform-origin: 0% 0%;
+    list-style-type: none;
+    transform-origin: 0% 0%;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
   }
 
@@ -182,7 +178,7 @@ button:focus{
     color: #fff !important;
   }
 
-  ul{
+  ul {
     height: 100%;
     margin-top: 30px;
     display: inline-flex;
@@ -236,9 +232,8 @@ button:focus{
     background-color: rgb(228, 217, 120);
   }
 
-  #menuToggle input
-  {
-    display:none;
+  #menuToggle input {
+    display: none;
 
   }
 

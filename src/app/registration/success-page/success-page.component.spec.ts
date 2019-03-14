@@ -8,9 +8,9 @@ describe('SuccessPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SuccessPageComponent ]
+      declarations: [SuccessPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

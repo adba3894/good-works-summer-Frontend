@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { JobRegistrationService } from '../job-registration-service/job-registration.service';
 
 describe('JobRegistrationService', () => {

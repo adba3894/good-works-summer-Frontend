@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Http} from '@angular/http';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {JobRegistrationService} from '../services/job-registration-service/job-registration.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { JobRegistrationService } from '../services/job-registration-service/job-registration.service';
+import { Constants } from '../services/job-registration-service/constants';
 
 @Component({
   selector: 'app-registration',
@@ -10,44 +10,35 @@ import {JobRegistrationService} from '../services/job-registration-service/job-r
   styleUrls: ['./registration.component.css']
 })
 
-export class RegistrationComponent extends JobRegistrationService implements OnInit {
-  private categoryApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/categories';
-  private citiesApiUrl = 'https://good-works-summer-backend.herokuapp.com/initialdata/cities';
-  readonly rootApiUrl = 'https://good-works-summer-backend.herokuapp.com';
+export class RegistrationComponent implements OnInit {
   categories = [];
   cities = [];
+  public errorMsg;
 
   teamForm: FormGroup;
   submitted = false;
 
-  constructor(private http: Http, private router: Router, private formBuilder: FormBuilder) {
-    super(http, formBuilder);
+  constructor(private router: Router, private formBuilder: FormBuilder, private jobRegistrationService: JobRegistrationService) {
   }
 
   ngOnInit() {
-    this.getCities().subscribe(data => {
+    this.jobRegistrationService.getCitiesData(Constants.citiesApiUrl).subscribe(data => {
       this.cities = data;
     });
-    this.getCategories().subscribe(data => {
-      this.categories = data;
-    });
+    this.jobRegistrationService.getCategoriesData(Constants.categoryApiUrl)
+      .subscribe(data => {
+        this.categories = data;
+      });
     this.teamForm = this.formBuilder.group({
-      teamLeadName: ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
-      teamLeadEmail: ['', [Validators.required, Validators.email]],
+      teamLeadName: ['', [Validators.required,
+        Validators.pattern('^[a-zA-Z][ąčęėįšųūž -ĄČĘĖĮŠŲŪŽ]+$'), Validators.maxLength(100)]],
+      teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
       teamName: ['', [Validators.required, Validators.maxLength(30)]],
       city: ['', Validators.required],
-      organization: ['', Validators.required],
+      organization: ['', [Validators.required, Validators.maxLength(100)]],
       ideaForJob: ['', Validators.required],
-      category: ['', Validators.required],
+      category: ['', Validators.required]
     });
-  }
-
-  getCities() {
-    return this.getData(this.citiesApiUrl);
-  }
-
-  getCategories() {
-    return this.getData(this.categoryApiUrl);
   }
 
   get registerFormControls() {
@@ -63,11 +54,15 @@ export class RegistrationComponent extends JobRegistrationService implements OnI
   }
 
   onSubmit() {
+    this.errorMsg = '';
     this.submitted = true;
-    if (this.teamForm.invalid) {
-      return;
+    if (this.teamForm.valid) {
+      this.jobRegistrationService.submitForPost(this.teamForm, this.cities, Constants.rootApiUrl)
+        .subscribe(() => {
+          this.goToSuccess();
+        }, (errorMessage) => {
+          this.errorMsg = errorMessage.error.message;
+        });
     }
-    this.goToSuccess();
-    this.submitForPost(this.teamForm, this.cities, this.rootApiUrl);
   }
 }

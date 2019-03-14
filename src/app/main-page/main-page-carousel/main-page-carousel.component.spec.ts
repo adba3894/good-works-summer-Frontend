@@ -8,9 +8,9 @@ describe('MainPageCarouselComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainPageCarouselComponent ]
+      declarations: [MainPageCarouselComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
