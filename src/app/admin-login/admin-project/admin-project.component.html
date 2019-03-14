@@ -8,32 +8,44 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
   <table class="table table-hover">
-    <thead class="thead-color">
+    <thead class="thead-color col-md-4" style="text-align: center">
     <tr>
-      <th>Team Lead Name</th>
-      <th>Team Lead Email</th>
+      <th>Lead Name</th>
+      <th>Lead Email</th>
       <th>Organization</th>
       <th>Team Name</th>
       <th>Location</th>
       <th>Idea</th>
-      <th>Category</th>
+      <th width="250px">
+        Category:&nbsp;&nbsp;&nbsp;
+        <select formControlName="category">
+          <option value="" disabled>Category</option>
+          <option selected value="show-all">Show All</option>
+          <option *ngFor="let category of categories">
+            {{ category }}
+          </option>
+        </select>
+      </th>
       <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let team of teams">
-      <td>{{team.leadName}}</td>
-      <td>{{team.leadEmail}}</td>
-      <td>{{team.organization}}</td>
-      <td>{{team.teamName}}</td>
-      <td>{{team.city.name}}</td>
-      <td>{{team.ideas[0].description}}</td>
-      <td>{{team.ideas[0].project.category.toLocaleLowerCase().replace('_', ' ')}}</td>
-      <td><button class="jasmine-warning">
-        Approve
-      </button></td>
+      <td align="center left">{{team.leadName}}</td>
+      <td align="center left">{{team.leadEmail}}</td>
+      <td align="center left">{{team.organization}}</td>
+      <td align="center left">{{team.teamName}}</td>
+      <td align="center left">{{team.city.name}}</td>
+      <td align="center left">{{team.ideas[0].description}}</td>
+      <td class="m_title"
+          align="center left">{{team.ideas[0].project.category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
+      <td>
+        <button class="approve-button">
+          Approve
+        </button>
+      </td>
     </tr>
     </tbody>
   </table>
