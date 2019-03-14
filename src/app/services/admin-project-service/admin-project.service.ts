@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Response } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminProjectService {
 
-  constructor(private adminProjectHttp: Http, private adminProjectFormBuilder: FormBuilder) {
+  constructor(private adminProjectHttp: HttpClient, private adminProjectFormBuilder: FormBuilder) {
 
   }
 
