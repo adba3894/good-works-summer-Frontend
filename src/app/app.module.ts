@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobRegistrationService } from './services/job-registration-service/job-registration.service';
+import { AdminIdeasComponent } from './admin-ideas/admin-ideas.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'registration/success', component: SuccessPageComponent },
   { path: 'home', component: MainPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'ideas', component: AdminIdeasComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 
@@ -34,6 +36,7 @@ const routes: Routes = [
     MainPageCarouselComponent,
     PageNotFoundComponent,
     MainPageComponent,
+    AdminIdeasComponent,
   ],
   imports: [
     BrowserModule,
