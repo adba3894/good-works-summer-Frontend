@@ -49,7 +49,7 @@
   height: 90px !important;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 769px) {
 
   .container-register {
     width: 80%;

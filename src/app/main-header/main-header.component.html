@@ -11,39 +11,35 @@
     <img
       class="logo"
       src="../../assets/main_header_logo.png"
-      height="70"
-      width="70"
+      height="60"
+      width="60"
       (click)="goHome()"
     />
     <div class="main-text">
-      <h1>DO GOOD THIS SUMMER</h1>
+       <h1 (click)="goHome()" > DO GOOD THIS SUMMER </h1>
       <button (click)="goToRegistration()" class="register-button">
         REGISTER YOUR JOB HERE
       </button>
     </div>
     <nav role="navigation" class=" navbar-expand-md">
-      <div class="container" id="menuToggle">
-        <input type="checkbox"/>
-        <span></span>
-        <span></span>
-        <span></span>
-        <ul class="topBotomBordersOut hamburger-menu">
-          <li class="navbar-item">
-            <a class="nav-link" (click)="goHome()">HOME</a>
-          </li>
-          <li class="navbar-item">
-            <a class="nav-link">PROJECT</a>
-          </li>
-          <li class="navbar-item"><a class="nav-link">IDEAS</a></li>
-          <li class="navbar-item">
-            <a class="nav-link">JOBS DONE</a>
-          </li>
-          <li class="navbar-item">
-            <a class="nav-link">GALLERY</a>
-          </li>
-          <li class="navbar-item"><a class="nav-link">FAQ</a></li>
-        </ul>
-
+        <div class="container" id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul class="topBotomBordersOut hamburger-menu">
+            <li class="navbar-item">
+              <a class="nav-link">PROJECT</a>
+            </li>
+            <li class="navbar-item"><a class="nav-link">IDEAS</a></li>
+            <li class="navbar-item">
+              <a class="nav-link">JOBS DONE</a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link">GALLERY</a>
+            </li>
+            <li class="navbar-item"><a class="nav-link">FAQ</a></li>
+          </ul>
       </div>
     </nav>
   </div>

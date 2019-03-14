@@ -1,11 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {map} from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class JobRegistrationService {
 
   jsonForm: FormGroup;
@@ -21,6 +19,7 @@ export class JobRegistrationService {
 
   submitForPost(teamForm: FormGroup, cities: any[], rootApiUrl: string) {
     if (teamForm.valid) {
+
       this.jsonForm = this.jobRegistrationServiceFormBuilder.group({
         'leadName': teamForm.get('teamLeadName').value,
         'leadEmail': teamForm.get('teamLeadEmail').value,

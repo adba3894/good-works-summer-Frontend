@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { JobRegistrationService } from '../services/job-registration-service/job-registration.service';
+import {Component, OnInit} from '@angular/core';
+import {Http} from '@angular/http';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {JobRegistrationService} from '../services/job-registration-service/job-registration.service';
 
 @Component({
   selector: 'app-registration',
