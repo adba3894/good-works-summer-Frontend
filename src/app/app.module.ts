@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JobRegistrationService } from './services/job-registration-service/job-registration.service';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -47,7 +48,7 @@ const routes: Routes = [
     [RouterModule],
     [MainHeaderComponent]
   ],
-  providers: [],
+  providers: [JobRegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

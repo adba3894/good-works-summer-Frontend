@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { map, catchError } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class JobRegistrationService {
@@ -14,8 +13,12 @@ export class JobRegistrationService {
 
   }
 
-  getData(ApiURL): Observable<any> {
-    return this.jobRegistrationServiceHttp.get(ApiURL);
+  getCategoriesData(categoryApiUrl): Observable<any> {
+    return this.jobRegistrationServiceHttp.get(categoryApiUrl);
+  }
+
+  getCitiesData(citiesApiUrl): Observable<any> {
+    return this.jobRegistrationServiceHttp.get(citiesApiUrl);
   }
 
   submitForPost(teamForm: FormGroup, cities: any[], rootApiUrl: string): Observable<any> {
@@ -36,12 +39,6 @@ export class JobRegistrationService {
       'organization': teamForm.get('organization').value.trim()
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    return this.jobRegistrationServiceHttp.post<any>(rootApiUrl + '/registration', rawJsonFormValue, options)
-      .pipe(catchError((errorMessage: any) => throwError(errorMessage)));
+    return this.jobRegistrationServiceHttp.post<any>(rootApiUrl + '/registration', rawJsonFormValue);
   }
 }

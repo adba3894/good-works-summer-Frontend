@@ -1,10 +1,8 @@
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <div class="container-register">
-  <h4 class="register-heading">Assign your team here. All the effort matters!</h4>
+  <h4 class="register-heading">Registration</h4>
   <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
     <div class="row register">
       <div class="col-md-5 register-box">
@@ -18,7 +16,7 @@
                 submitted && registerFormControls.teamLeadName.errors
             }"
             required
-            placeholder="Team Lead Name and Surname"
+            placeholder="Team Lead Name"
             value=""
           />
           <div
@@ -26,7 +24,7 @@
             class="invalid-feedback"
           >
             <div *ngIf="registerFormControls.teamLeadName.errors.required">
-              Team Lead Name and Surname is required
+              Team Lead Name is required
             </div>
             <div *ngIf="registerFormControls.teamLeadName.errors.maxlength">
               Team name must not exceed 100 characters
