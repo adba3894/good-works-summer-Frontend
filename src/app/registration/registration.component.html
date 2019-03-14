@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <div class="container-register">
-  <h4 class="register-heading">Registration</h4>
+  <h4 class="register-heading">Assign your team here. All the effort matters!</h4>
   <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
     <div class="row register">
       <div class="col-md-5 register-box">
@@ -18,7 +18,7 @@
                 submitted && registerFormControls.teamLeadName.errors
             }"
             required
-            placeholder="Team Lead Name"
+            placeholder="Team Lead Name and Surname"
             value=""
           />
           <div
@@ -26,7 +26,7 @@
             class="invalid-feedback"
           >
             <div *ngIf="registerFormControls.teamLeadName.errors.required">
-              Team Lead Name is required
+              Team Lead Name and Surname is required
             </div>
             <div *ngIf="registerFormControls.teamLeadName.errors.maxlength">
               Team name must not exceed 100 characters
@@ -195,5 +195,6 @@
     >
       Cancel
     </button>
+    <div class="validationMessage">{{errorMsg}}</div>
   </form>
 </div>

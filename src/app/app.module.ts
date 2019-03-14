@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -45,7 +46,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   exports: [
     [RouterModule],
