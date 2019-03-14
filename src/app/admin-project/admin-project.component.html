@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <table class="table table-hover">
+    <thead class="thead-color col-md-4"
+           style="text-align: center">
+    <tr>
+      <th>Lead Name</th>
+      <th>Lead Email</th>
+      <th>Organization</th>
+      <th>Team Name</th>
+      <th>Location</th>
+      <th>Idea</th>
+      <th width="250px" style="text-align: center">
+        Category:&nbsp;&nbsp;&nbsp;
+        <select formControlName="category">
+          <option value=""
+                  disabled>
+            Category
+          </option>
+          <option selected value="show-all">
+            Show All
+          </option>
+          <option *ngFor="let category of categories">
+            {{ category }}
+          </option>
+        </select>
+      </th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let team of teams"
+        style="text-align: center">
+      <td>
+        {{team.leadName}}
+      </td>
+      <td>
+        {{team.leadEmail}}
+      </td>
+      <td>
+        {{team.organization}}
+      </td>
+      <td>
+        {{team.teamName}}
+      </td>
+      <td>
+        {{team.city.name}}
+      </td>
+      <td>
+        {{team.ideas[0].description}}</td>
+      <td class="m_title">
+        {{team.ideas[0].project.category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
+      <td style="text-align: center">
+        <button class="approve-button">
+          Approve
+        </button>
+        &nbsp;&nbsp;
+        <button class="reject-button">
+          Reject
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
