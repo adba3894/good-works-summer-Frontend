@@ -9,7 +9,6 @@ export class JobRegistrationService {
 
   jsonForm: FormGroup;
 
-
   constructor(private jobRegistrationServiceHttp: HttpClient,
               private jobRegistrationServiceFormBuilder: FormBuilder) {
 
@@ -46,4 +45,3 @@ export class JobRegistrationService {
       .pipe(catchError((errorMessage: any) => throwError(errorMessage)));
   }
 }
-
