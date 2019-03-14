@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Http, Response } from '@angular/http';
+import { Response } from '@angular/http';
 import { FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdminLoginService {
 
-  constructor(private adminLoginServiceHttp: Http, private adminLoginServiceFormBuilder: FormBuilder) {
+  constructor(private adminLoginServiceHttp: HttpClient, private adminLoginServiceFormBuilder: FormBuilder) {
   }
 
   getData(ApiURL) {
