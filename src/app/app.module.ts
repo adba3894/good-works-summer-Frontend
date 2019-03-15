@@ -61,7 +61,7 @@ const routes: Routes = [
     [RouterModule],
     [MainHeaderComponent]
   ],
-  providers: [JobRegistrationService, ProjectPageService],
+  providers: [JobRegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
