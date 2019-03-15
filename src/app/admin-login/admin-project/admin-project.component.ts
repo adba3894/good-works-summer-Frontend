@@ -3,7 +3,6 @@ import { AdminProjectService } from '../../services/admin-project-service/admin-
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { TEAMS_API_URL } from '../../registration.const';
-// import { FILTERED_TEAMS_API_URL } from '../../registration.const';
 import { CATEGORY_API_URL } from '../../registration.const';
 
 @Component({
@@ -15,8 +14,6 @@ export class AdminProjectComponent implements OnInit {
   readonly tableApiUrl = 'https://good-works-summer-backend.herokuapp.com';
   teams = [];
   categories = [];
-  // filteredTeams = [];
-  // private pathCategory: string;
 
   constructor(private router: Router, private formBuilder: FormBuilder, private adminProjectService: AdminProjectService) {
   }
