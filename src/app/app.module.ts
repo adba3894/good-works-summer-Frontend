@@ -13,8 +13,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobRegistrationService } from './services/job-registration-service/job-registration.service';
-import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
+import { ProjectPageComponent } from './project-page/project-page.component';
+import { ProjectPageService } from './services/project-page-service/project-page.service';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},
   { path: 'admin/project', component: AdminProjectComponent },
+  { path: 'project', component: ProjectPageComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -40,6 +43,7 @@ const routes: Routes = [
     MainPageComponent,
     AdminLoginComponent,
     AdminProjectComponent,
+    ProjectPageComponent,
   ],
   imports: [
     BrowserModule,

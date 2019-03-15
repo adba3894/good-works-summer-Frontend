@@ -21,4 +21,8 @@ export class MainHeaderComponent implements OnInit {
   goHome() {
     this.router.navigateByUrl('/home');
   }
+
+  goToProject() {
+    this.router.navigateByUrl('/project');
+  }
 }
