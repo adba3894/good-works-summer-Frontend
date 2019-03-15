@@ -7,7 +7,9 @@
 .thead-color {
   background-color: rgb(252, 238, 164);
 }
-
+.nav{
+  cursor: pointer;
+}
 .m_title {
   text-transform: capitalize;
 }

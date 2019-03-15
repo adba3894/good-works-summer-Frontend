@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminIdeaService } from '../../services/admin-idea-service/admin-idea.service';
 import { CATEGORY_API_URL, CITIES_API_URL, ROOT_API_URL } from '../../registration.const';
@@ -45,5 +45,12 @@ export class AdminIdeaComponent implements OnInit {
           this.SuccessMsg = 'Idea successfully submitted';
         });
     }
+  }
+  goToAdminIdea() {
+    this.router.navigateByUrl('/admin/idea');
+  }
+
+  goToAdminProject() {
+    this.router.navigateByUrl('/admin/project');
   }
 }
