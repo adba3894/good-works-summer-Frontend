@@ -19,21 +19,21 @@ export class AdminProjectComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTeams().subscribe(data => {
-      this.teams = data;
-    });
-    this.getCategories().subscribe(data => {
-      this.categories = data;
-    });
+    //     this.getTeams().subscribe(data => {
+    //       this.teams = data;
+    //     });
+    //     this.getCategories().subscribe(data => {
+    //       this.categories = data;
+    // });
   }
-
-  getTeams() {
-    return this.adminProjectService.getTeamsData(TEAMS_API_URL);
-  }
-
-  getCategories() {
-    return this.adminProjectService.getCategoriesData(CATEGORY_API_URL);
-  }
+  //
+  // getTeams() {
+  //   return this.adminProjectService.getTeamsData(TEAMS_API_URL);
+  // }
+  //
+  // getCategories() {
+  //   return this.adminProjectService.getCategoriesData(CATEGORY_API_URL);
+  // }
 
   goToAdminIdea() {
     this.router.navigateByUrl('/admin/idea');

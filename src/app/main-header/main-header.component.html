@@ -1,10 +1,14 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <div class="top-image">
   <div class="top-text">
@@ -16,32 +20,33 @@
       (click)="goHome()"
     />
     <div class="main-text">
-       <h1 (click)="goHome()" > DO GOOD THIS SUMMER </h1>
+      <h1 (click)="goHome()">DO GOOD THIS SUMMER</h1>
       <button (click)="goToRegistration()" class="register-button">
         REGISTER YOUR JOB HERE
       </button>
     </div>
     <nav role="navigation" class=" navbar-expand-md">
-        <div class="container" id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul class="topBotomBordersOut hamburger-menu">
-            <li  (click)="goToProject()" class="navbar-item">
-              <a class="nav-link">PROJECT</a>
-            </li>
-            <li class="navbar-item"><a class="nav-link">IDEAS</a></li>
-            <li class="navbar-item">
-              <a class="nav-link">JOBS DONE</a>
-            </li>
-            <li class="navbar-item">
-              <a class="nav-link">GALLERY</a>
-            </li>
-            <li class="navbar-item"><a class="nav-link">FAQ</a></li>
-          </ul>
+      <div class="container" id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="topBotomBordersOut hamburger-menu">
+          <li (click)="goToProject()" class="navbar-item">
+            <a class="nav-link">PROJECT</a>
+          </li>
+          <li (click)="goToIdeas()" class="navbar-item">
+            <a class="nav-link">IDEAS</a>
+          </li>
+          <li class="navbar-item">
+            <a class="nav-link">JOBS DONE</a>
+          </li>
+          <li class="navbar-item">
+            <a class="nav-link">GALLERY</a>
+          </li>
+          <li class="navbar-item"><a class="nav-link">FAQ</a></li>
+        </ul>
       </div>
     </nav>
   </div>
 </div>
-
