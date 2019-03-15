@@ -22,7 +22,8 @@ export class AdminIdeaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.adminIdeaService.getCitiesData(CITIES_API_URL).subscribe(data => {
+    this.adminIdeaService.getCitiesData(CITIES_API_URL)
+      .subscribe(data => {
       this.cities = data;
     });
     this.adminIdeaService.getCategoriesData(CATEGORY_API_URL)

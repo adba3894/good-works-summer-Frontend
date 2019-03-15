@@ -19,12 +19,12 @@ export class AdminProjectComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.getTeams().subscribe(data => {
-        this.teams = data;
-      });
-      this.getCategories().subscribe(data => {
-        this.categories = data;
-      });
+    //     this.getTeams().subscribe(data => {
+    //       this.teams = data;
+    //     });
+    //     this.getCategories().subscribe(data => {
+    //       this.categories = data;
+    // });
   }
   //
   // getTeams() {

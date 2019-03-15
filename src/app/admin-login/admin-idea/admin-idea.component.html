@@ -29,7 +29,6 @@
             required
           >
             <option value="" disabled>Location</option>
-
             <option *ngFor="let city of cities">
               {{ city.name }}
             </option>
@@ -38,7 +37,7 @@
             *ngIf="submitted && adminIdeaFormControls.city.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="adminIdeaFormControls.teamName.errors.required">
+            <div *ngIf="adminIdeaFormControls.city.errors.required">
               Location is required
             </div>
           </div>
@@ -119,6 +118,6 @@
     </div>
     <button type="submit" class="btn btn-register">Submit</button>
     <div class="successMessage">{{ successMsg }}</div>
-    <div class="validationMessage">{{errorMsg}}</div>
+    <div class="validationMessage">{{ errorMsg }}</div>
   </form>
 </div>
