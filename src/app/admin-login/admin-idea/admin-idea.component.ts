@@ -14,10 +14,11 @@ export class AdminIdeaComponent implements OnInit {
   cities = [];
   teamForm: FormGroup;
   submitted = false;
-  SuccessMsg;
+  public SuccessMsg;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
-              private adminIdeaService: AdminIdeaService) { }
+              private adminIdeaService: AdminIdeaService) {
+  }
 
   ngOnInit() {
     this.adminIdeaService.getCitiesData(CITIES_API_URL).subscribe(data => {
@@ -28,25 +29,21 @@ export class AdminIdeaComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
-      city: ['', Validators.required],
-      organization: ['', [Validators.required, Validators.maxLength(100)]],
-      ideaForJob: ['', Validators.required],
-      category: ['', Validators.required]
+      city: [],
+      organization: [],
+      ideaForJob: [],
+      category: []
     });
   }
+
   onSubmit() {
     this.SuccessMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
       this.adminIdeaService.submitForPost(this.teamForm, this.cities, ROOT_API_URL)
-        .subscribe((SuccessMsg) => {
-          SuccessMsg = 'Idea successfully submitted';
+        .subscribe(() => {
+          this.SuccessMsg = 'Idea successfully submitted';
         });
     }
   }
-
-  get adminIdeasFormControls() {
-    return this.teamForm.controls;
-  }
-
 }
