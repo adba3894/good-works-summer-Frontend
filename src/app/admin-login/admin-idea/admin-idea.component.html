@@ -1,84 +1,41 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <div class="container-register">
-  <h4 class="register-heading">Registration</h4>
+  <h4 class="register-heading">Register new idea</h4>
   <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
     <div class="row register">
       <div class="col-md-5 register-box">
         <div class="form-group">
           <select
             class="form-control"
-            formControlName="city"
-            [ngClass]="{
-              'is-invalid': submitted && adminIdeasFormControls.city.errors
-            }"
-            required
-          >
+            formControlName="city">
             <option value="" disabled>Location</option>
-
             <option *ngFor="let city of cities">
               {{ city.name }}
             </option>
           </select>
-          <div
-            *ngIf="submitted && adminIdeasFormControls.city.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeasFormControls.teamName.errors.required">
-              Location is required
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="col-md-5 register-box">
         <div class="form-group">
           <input
             type="text"
             class="form-control"
             formControlName="organization"
             placeholder="Organization"
-            value=""
-            [ngClass]="{
-              'is-invalid':
-                submitted && adminIdeasFormControls.organization.errors
-            }"
-            required
-          />
-          <div
-            *ngIf="submitted && adminIdeasFormControls.organization.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeasFormControls.organization.errors.maxlength">
-              Organization name must not exceed 100 characters
-            </div>
-            <div *ngIf="adminIdeasFormControls.organization.errors.required">
-              Organization is required
-            </div>
-          </div>
+            value=""/>
         </div>
+      </div>
+      <div class="col-md-5 register-box">
         <div class="form-group">
           <select
             class="form-control"
-            formControlName="category"
-            [ngClass]="{
-              'is-invalid': submitted && adminIdeasFormControls.category.errors
-            }"
-            required
-          >
+            formControlName="category">
             <option value="" disabled>Category</option>
             <option *ngFor="let category of categories">
               {{ category }}
             </option>
           </select>
-          <div
-            *ngIf="submitted && adminIdeasFormControls.category.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeasFormControls.category.errors.required">
-              Category is required
-            </div>
-          </div>
         </div>
         <div class="form-group idea">
           <textarea
@@ -87,20 +44,7 @@
             formControlName="ideaForJob"
             placeholder="Idea for a good job"
             value=""
-            maxlength="240"
-            [ngClass]="{
-              'is-invalid': submitted && adminIdeasFormControls.ideaForJob.errors
-            }"
-            required
-          ></textarea>
-          <div
-            *ngIf="submitted && adminIdeasFormControls.ideaForJob.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeasFormControls.ideaForJob.errors.required">
-              Idea for a job is required
-            </div>
-          </div>
+            maxlength="240"></textarea>
         </div>
       </div>
     </div>
