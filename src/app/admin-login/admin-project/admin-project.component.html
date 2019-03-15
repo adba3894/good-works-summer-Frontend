@@ -28,25 +28,25 @@
       <th>Location</th>
       <th>Idea</th>
       <th width="250px" style="text-align: center">
-        Category:&nbsp;&nbsp;&nbsp;
-        <select formControlName="category">
-          <option value=""
-                  disabled>
-            Category
-          </option>
-          <option selected value="show-all">
-            Show All
-          </option>
-          <option *ngFor="let category of categories">
-            {{ category }}
-          </option>
-        </select>
+        Category
+        <!--<select formControlName="category">-->
+          <!--<option value=""-->
+                  <!--disabled>-->
+            <!--Category-->
+          <!--</option>-->
+          <!--<option selected value="show-all">-->
+            <!--Show All-->
+          <!--</option>-->
+          <!--<option *ngFor="let category of categories">-->
+            <!--{{ category }}-->
+          <!--</option>-->
+        <!--</select>-->
       </th>
       <th></th>
       <th></th>
     </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="'value' === 'show-all'">
     <tr *ngFor="let team of teams"
         style="text-align: center">
       <td>

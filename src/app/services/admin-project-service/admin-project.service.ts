@@ -5,9 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AdminProjectService {
 
   constructor(private adminProjectHttp: HttpClient, private adminProjectFormBuilder: FormBuilder) {
