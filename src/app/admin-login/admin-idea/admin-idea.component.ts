@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminIdeaService } from '../../services/admin-idea-service/admin-idea.service';
-import { CATEGORY_API_URL, CITIES_API_URL, ROOT_API_URL } from '../../registration.const';
+import { ADMIN_IDEA_ENDPOINT, ADMIN_PROJECT_ENDPOINT, CATEGORY_API_URL, CITIES_API_URL, ROOT_API_URL } from '../../registration.const';
 
 @Component({
   selector: 'app-admin-idea',
@@ -47,10 +47,10 @@ export class AdminIdeaComponent implements OnInit {
     }
   }
   goToAdminIdea() {
-    this.router.navigateByUrl('/admin/idea');
+    this.router.navigateByUrl(ADMIN_IDEA_ENDPOINT);
   }
 
   goToAdminProject() {
-    this.router.navigateByUrl('/admin/project');
+    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
   }
 }

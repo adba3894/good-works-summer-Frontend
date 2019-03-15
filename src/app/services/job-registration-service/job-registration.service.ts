@@ -35,7 +35,10 @@ export class JobRegistrationService {
         },
         'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_'),
         'organization': teamForm.get('organization').value.trim(),
-        'project': {}
+        'project': {
+          'done': false,
+          'approved': true
+        }
       }]]
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();

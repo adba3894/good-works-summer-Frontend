@@ -52,11 +52,15 @@
       <td>
         {{team.ideas[0].city.name}}
       </td>
-      <td>
-        {{team.ideas[0].description}}</td>
+      <td *ngFor="let idea of team.ideas">
+        {{idea.description}}</td>
       <td class="m_title">
         {{team.ideas[0].category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
       <td style="text-align: center">
+        <button class="approve-button">
+          Done
+        </button>
+        &nbsp;&nbsp;
         <button class="approve-button">
           Approve
         </button>
@@ -71,16 +75,3 @@
 </div>
 </body>
 </html>
-
-<!--{-->
-<!--"leadName":"ANTRASDALYKELIS",-->
-<!--"leadEmail":"vaiki@specam.com",-->
-<!--"teamName":"miai",-->
-<!--"ideas": [{-->
-<!--"description":"Clel",-->
-<!--"city":{"id":2,"name":"Vilnius"},-->
-<!--"category": "BEAUTIFUL_ENVIRONMENT",-->
-<!--"organization":"Kaimieciai",-->
-<!--"project": {}-->
-<!--}]-->
-<!--}-->

@@ -5,5 +5,5 @@ export const FILTERED_TEAMS_API_URL = 'https://good-works-summer-backend.herokua
 export const CATEGORY_API_URL = 'https://good-works-summer-backend.herokuapp.com/categories';
 export const REGISTER_API_URL = 'https://good-works-summer-backend.herokuapp.com/register';
 export const ADMIN_API_URL = 'https://good-works-summer-backend.herokuapp.com/admin';
-export const ADMIN_IDEA_API_URL = 'https://good-works-summer-backend.herokuapp.com/admin/idea';
-export const ADMIN_PROJECT_API_URL = 'https://good-works-summer-backend.herokuapp.com/admin/project';
+export const ADMIN_IDEA_ENDPOINT = 'admin/idea';
+export const ADMIN_PROJECT_ENDPOINT = 'admin/project';

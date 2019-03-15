@@ -27,8 +27,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},
   { path: 'admin/project', component: AdminProjectComponent },
-  { path: 'project', component: ProjectPageComponent},
   { path: 'admin/idea', component: AdminIdeaComponent },
+  { path: 'project', component: ProjectPageComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -46,7 +46,7 @@ const routes: Routes = [
     AdminLoginComponent,
     AdminProjectComponent,
     ProjectPageComponent,
-    AdminIdeaComponent,
+    AdminIdeaComponent
   ],
   imports: [
     BrowserModule,
