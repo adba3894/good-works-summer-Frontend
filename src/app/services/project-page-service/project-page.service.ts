@@ -5,14 +5,14 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProjectPageService {
-  constructor(private jobRegistrationServiceHttp: HttpClient) {
+  constructor(private projectPageServiceHttp: HttpClient) {
   }
 
   getCategoriesData(categoryApiUrl): Observable<any> {
-    return this.jobRegistrationServiceHttp.get(categoryApiUrl);
+    return this.projectPageServiceHttp.get(categoryApiUrl);
   }
   getTeamsData(teamsApiUrl): Observable<any> {
-    return this.jobRegistrationServiceHttp.get(teamsApiUrl);
+    return this.projectPageServiceHttp.get(teamsApiUrl);
   }
 }
 
