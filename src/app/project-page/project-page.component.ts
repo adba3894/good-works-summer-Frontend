@@ -18,7 +18,8 @@ export class ProjectPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.projectPageService.getTeamsData(TEAMS_API_URL).subscribe(data => {
+    this.projectPageService.getTeamsData(TEAMS_API_URL)
+      .subscribe(data => {
       this.teams = data;
     });
     this.projectPageService.getCategoriesData(CATEGORY_API_URL)
