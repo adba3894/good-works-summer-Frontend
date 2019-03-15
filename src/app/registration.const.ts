@@ -12,4 +12,4 @@ export const ADMIN_PROJECT_APPROVE_API_URL = 'https://good-works-summer-backend.
 export const ADMIN_PROJECT_DONE_API_URL = 'https://good-works-summer-backend.herokuapp.com/projects/done/';
 export const IDEAS_ADD_API_URL = 'https://good-works-summer-backend.herokuapp.com/ideas/add';
 export const IDEAS_API_URL = 'https://good-works-summer-backend.herokuapp.com/ideas/free';
-
+export const ADMIN_API_URL = 'https://good-works-summer-backend.herokuapp.com/admin';
