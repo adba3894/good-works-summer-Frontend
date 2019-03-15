@@ -14,14 +14,14 @@ export class ProjectPageComponent implements OnInit {
   categories = [];
   teams = [];
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private projectService: ProjectPageService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private projectPageService: ProjectPageService) {
   }
 
   ngOnInit() {
-    this.projectService.getTeamsData(TEAMS_API_URL).subscribe(data => {
+    this.projectPageService.getTeamsData(TEAMS_API_URL).subscribe(data => {
       this.teams = data;
     });
-    this.projectService.getCategoriesData(CATEGORY_API_URL)
+    this.projectPageService.getCategoriesData(CATEGORY_API_URL)
       .subscribe(data => {
         this.categories = data;
       });

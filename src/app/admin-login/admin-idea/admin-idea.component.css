@@ -1,0 +1,53 @@
+.container-register {
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  height: auto;
+  margin-top: 3%;
+}
+
+.register {
+  padding: 20px;
+  border-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-width: 3px;
+  border-color: rgba(252, 206, 36, 1);
+}
+
+.register-box {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.register-heading {
+  font: 20px Century Gothic, monospace;
+  padding-buttom: 4%;
+}
+
+.btn {
+  margin-top: 10px;
+  float: right;
+}
+
+.btn-register {
+  background-color: rgba(252, 206, 36, 0.8);
+  text-align: center;
+  font-family: Century Gothic, monospace;
+  font-size: 18px;
+  margin-left: 2%;
+}
+
+.idea input {
+  height: 90px !important;
+}
+
+@media only screen and (max-width: 769px) {
+
+  .container-register {
+    width: 80%;
+    height: auto;
+    margin-top: 3%;
+  }
+
+}
