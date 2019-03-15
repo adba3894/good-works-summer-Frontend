@@ -27,7 +27,7 @@ export class AdminLoginComponent implements OnInit {
   }
 
   getAdminCredentials() {
-    return this.adminLoginService.getCredentialsData(ADMIN_API_URL); // apiURL laikinai tuscias
+    return this.adminLoginService.getCredentialsData(ADMIN_API_URL);
   }
 
 }
