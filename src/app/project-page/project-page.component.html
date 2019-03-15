@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container">
+  <nav>
+    <div *ngFor="let category of categories">
+      <button class="nav-item"> {{category}} </button>
+    </div>
+  </nav>
+  <div class="tab-content">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Lead Name</th>
+        <th>Team Name</th>
+        <th>Organization</th>
+        <th>Activities</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let team of teams">
+        <td>{{team.leadName}}</td>
+        <td>{{team.teamName}}</td>
+        <td>{{team.organization}}</td>
+        <td>{{team.ideas[0].description}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
