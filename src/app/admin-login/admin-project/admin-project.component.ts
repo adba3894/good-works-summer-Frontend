@@ -35,4 +35,13 @@ export class AdminProjectComponent implements OnInit {
     return this.adminProjectService.getCategoriesData(CATEGORY_API_URL);
   }
 
+  goToAdminIdea() {
+    this.router.navigateByUrl('/admin/idea');
+  }
+
+  goToAdminProject() {
+    this.router.navigateByUrl('/admin/project');
+  }
+
+
 }
