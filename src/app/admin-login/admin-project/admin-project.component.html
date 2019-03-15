@@ -29,24 +29,12 @@
       <th>Idea</th>
       <th width="250px" style="text-align: center">
         Category
-        <!--<select formControlName="category">-->
-          <!--<option value=""-->
-                  <!--disabled>-->
-            <!--Category-->
-          <!--</option>-->
-          <!--<option selected value="show-all">-->
-            <!--Show All-->
-          <!--</option>-->
-          <!--<option *ngFor="let category of categories">-->
-            <!--{{ category }}-->
-          <!--</option>-->
-        <!--</select>-->
       </th>
       <th></th>
       <th></th>
     </tr>
     </thead>
-    <tbody *ngIf="'value' === 'show-all'">
+    <tbody>
     <tr *ngFor="let team of teams"
         style="text-align: center">
       <td>
@@ -56,18 +44,18 @@
         {{team.leadEmail}}
       </td>
       <td>
-        {{team.organization}}
+        {{team.ideas[0].organization}}
       </td>
       <td>
         {{team.teamName}}
       </td>
       <td>
-        {{team.city.name}}
+        {{team.ideas[0].city.name}}
       </td>
       <td>
         {{team.ideas[0].description}}</td>
       <td class="m_title">
-        {{team.ideas[0].project.category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
+        {{team.ideas[0].category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
       <td style="text-align: center">
         <button class="approve-button">
           Approve
@@ -83,3 +71,16 @@
 </div>
 </body>
 </html>
+
+<!--{-->
+<!--"leadName":"ANTRASDALYKELIS",-->
+<!--"leadEmail":"vaiki@specam.com",-->
+<!--"teamName":"miai",-->
+<!--"ideas": [{-->
+<!--"description":"Clel",-->
+<!--"city":{"id":2,"name":"Vilnius"},-->
+<!--"category": "BEAUTIFUL_ENVIRONMENT",-->
+<!--"organization":"Kaimieciai",-->
+<!--"project": {}-->
+<!--}]-->
+<!--}-->

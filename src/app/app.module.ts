@@ -13,8 +13,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobRegistrationService } from './services/job-registration-service/job-registration.service';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
@@ -61,7 +61,7 @@ const routes: Routes = [
     [RouterModule],
     [MainHeaderComponent]
   ],
-  providers: [JobRegistrationService],
+  providers: [JobRegistrationService, ProjectPageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
