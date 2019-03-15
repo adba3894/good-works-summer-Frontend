@@ -14,6 +14,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobRegistrationService } from './services/job-registration-service/job-registration.service';
 import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
+import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminLoginComponent},
   { path: 'admin/project', component: AdminProjectComponent },
   { path: 'project', component: ProjectPageComponent},
+  { path: 'admin/idea', component: AdminIdeaComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -44,6 +46,7 @@ const routes: Routes = [
     AdminLoginComponent,
     AdminProjectComponent,
     ProjectPageComponent,
+    AdminIdeaComponent,
   ],
   imports: [
     BrowserModule,
