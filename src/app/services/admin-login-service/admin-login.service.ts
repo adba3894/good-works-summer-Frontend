@@ -4,7 +4,9 @@ import { Response } from '@angular/http';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AdminLoginService {
 
   constructor(private adminLoginServiceHttp: HttpClient, private adminLoginServiceFormBuilder: FormBuilder) {
