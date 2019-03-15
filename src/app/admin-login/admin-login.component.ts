@@ -15,7 +15,8 @@ export class AdminLoginComponent implements OnInit {
   adminForm: FormGroup;
   submitted = false;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private adminLoginService: AdminLoginService) {
+  constructor(private router: Router, private formBuilder: FormBuilder,
+              private adminLoginService: AdminLoginService) {
   }
 
   ngOnInit() {
@@ -25,7 +26,7 @@ export class AdminLoginComponent implements OnInit {
   }
 
   getAdminCredentials() {
-    return this.adminLoginService.getData(''); // apiURL laikinai tuscias
+    return this.adminLoginService.getCredentialsData(''); // apiURL laikinai tuscias
   }
 
 }

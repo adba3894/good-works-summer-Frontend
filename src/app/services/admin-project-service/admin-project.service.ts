@@ -3,6 +3,7 @@ import { Response } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,17 @@ export class AdminProjectService {
 
   }
 
-  getData(tableApiUrl: string) {
-    return this.adminProjectHttp.get(tableApiUrl)
-      .pipe(map((res: Response) => res.json()));
+  // getData(tableApiUrl: string) {
+  //   return this.adminProjectHttp.get(tableApiUrl)
+  //     .pipe(map((res: Response) => res.json()));
+  // }
+
+  getTeamsData(teamsApiUrl): Observable<any> {
+    return this.adminProjectHttp.get(teamsApiUrl);
   }
 
+  getCategoriesData(categoriesApiUrl): Observable<any> {
+    return this.adminProjectHttp.get(categoriesApiUrl);
+  }
 
 }
