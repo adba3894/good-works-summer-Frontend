@@ -9,3 +9,4 @@ export const ADMIN_IDEA_ENDPOINT = 'admin/idea';
 export const ADMIN_PROJECT_ENDPOINT = 'admin/project';
 export const ADMIN_PROJECT_APPROVE_API_URL = 'https://good-works-summer-backend.herokuapp.com/project/approved/';
 export const ADMIN_PROJECT_DONE_API_URL = 'https://good-works-summer-backend.herokuapp.com/project/done/'
+export const IDEAS_API_URL = 'https://good-works-summer-backend.herokuapp.com/ideas';
