@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ADMIN_SIGN_UP_API_URL } from '../../registration.const';
+import { ADMIN_LOGIN_API_URL } from '../../registration.const';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AdminLoginService {
       'password': adminForm.get('password').value,
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
-    return this.adminLoginServiceHttp.post<any>(ADMIN_SIGN_UP_API_URL, rawJsonFormValue);
+    return this.adminLoginServiceHttp.post<any>(ADMIN_LOGIN_API_URL, rawJsonFormValue);
   }
 
 }
