@@ -2,31 +2,50 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<div class="container">
-  <nav>
-    <div *ngFor="let category of categories">
-      <button class="nav-item"> {{category}} </button>
+<section class="project-tab">
+  <div class="container">
+    <div class="text">
+      <p>"Do Good This Summer" is extraordinary initiative were you can give back to society, help animals or share your
+        knowledge. This can make you a part of special
+        project were not only you will be helping, but we believe that your good jobs will bring back many great
+        emotions to you as well!
+      </p>
+      <p>Register your team by pressing on
+        <a (click)="goToRegistration()"> "REGISTER YOUR JOB HERE" </a>
+        or by assigning your team to one of already existing initiatives in
+        <a (click)="goToIdeas()"> "IDEAS" section </a>
+      </p>
     </div>
-  </nav>
-  <div class="tab-content">
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Lead Name</th>
-        <th>Team Name</th>
-        <th>Organization</th>
-        <th>Activities</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let team of teams">
-        <td>{{team.leadName}}</td>
-        <td>{{team.teamName}}</td>
-        <td>{{team.organization}}</td>
-        <td>{{team.ideas[0].description}}</td>
-      </tr>
-      </tbody>
-    </table>
+    <nav class="nav">
+      <div class="nav-tabs ">
+        <a class="nav-item" (click)="ngOnInit()"> All projects </a>
+        <a class="nav-item" (click)="get_giving_back_data()"> Giving Back To Society </a>
+        <a class="nav-item" (click)="get_helping_animals_data()"> Helping Animals </a>
+        <a class="nav-item" (click)="get_sharing_knowledge_data()"> Sharing Knowledge </a>
+        <a class="nav-item" (click)="get_beautiful_environment_data()"> Beautiful enviroment </a>
+      </div>
+    </nav>
+    <div class="tab-content">
+      <div class="tab-pane fade show active">
+        <table class="table">
+          <thead>
+          <tr>
+            <th class="team"> Team</th>
+            <th class="organization"> Organization</th>
+            <th class="plan"> Plan of action</th>
+            <th class="location"> Location</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let team of teams">
+          <tr *ngIf="team.ideas[0].project.approved">
+            <td>{{team.teamName}}</td>
+            <td>{{team.ideas[0].organization}}</td>
+            <td>{{team.ideas[0].description}}</td>
+            <td>{{team.ideas[0].city.name}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</div>
-
+</section>
