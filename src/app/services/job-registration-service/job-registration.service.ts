@@ -22,7 +22,7 @@ export class JobRegistrationService {
     return this.jobRegistrationServiceHttp.get(citiesApiUrl);
   }
 
-  submitForPost(teamForm: FormGroup, cities: any[], rootApiUrl: string): Observable<any> {
+  submitForPost(teamForm: FormGroup, cities: any[]): Observable<any> {
     this.jsonForm = this.jobRegistrationServiceFormBuilder.group({
       'leadName': teamForm.get('teamLeadName').value.trim(),
       'leadEmail': teamForm.get('teamLeadEmail').value.trim(),

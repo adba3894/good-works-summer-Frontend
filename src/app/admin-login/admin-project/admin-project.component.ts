@@ -33,4 +33,11 @@ export class AdminProjectComponent implements OnInit {
     this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
   }
 
+  approveProject(projectId: any) {
+    this.adminProjectService.changeProjectValueToApproved(projectId);
+  }
+
+  markProjectAsDone(projectId: any) {
+    this.adminProjectService.changeProjectValueToDone(projectId);
+  }
 }
