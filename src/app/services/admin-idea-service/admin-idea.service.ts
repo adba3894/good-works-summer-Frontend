@@ -23,19 +23,16 @@ export class AdminIdeaService {
 
   submitForPost(teamForm: FormGroup, cities: any[], rootApiUrl: string): Observable<any> {
     this.jsonForm = this.adminIdeaServiceFormBuilder.group({
+      'description': teamForm.get('ideaForJob').value.trim(),
       'city': {
         'id': cities.find(city => city.name === teamForm.get('city').value).id,
         'name': teamForm.get('city').value
       },
-      'ideas': [[{
-        'description': teamForm.get('ideaForJob').value.trim(),
-        'project': {
-          'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_')
-        }
-      }]],
-      'organization': teamForm.get('organization').value.trim()
+      'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_'),
+      'organization': teamForm.get('organization').value.trim(),
+      'project': {}
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
-    return this.adminIdeaServiceHttp.post<any>(rootApiUrl + '/admin/idea', rawJsonFormValue);
+    return this.adminIdeaServiceHttp.post<any>(rootApiUrl + '/admin/ideas', rawJsonFormValue);
   }
 }

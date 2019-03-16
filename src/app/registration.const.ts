@@ -7,3 +7,4 @@ export const REGISTER_API_URL = 'https://good-works-summer-backend.herokuapp.com
 export const ADMIN_API_URL = 'https://good-works-summer-backend.herokuapp.com/admin';
 export const ADMIN_IDEA_ENDPOINT = 'admin/idea';
 export const ADMIN_PROJECT_ENDPOINT = 'admin/project';
+export const IDEAS_API_URL = 'https://good-works-summer-backend.herokuapp.com/ideas';
