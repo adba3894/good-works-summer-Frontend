@@ -24,11 +24,12 @@ const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'registration/success', component: SuccessPageComponent },
+  { path: 'registration/:organization/:description/:cities/:category', component: RegistrationComponent},
   { path: 'home', component: MainPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},
   { path: 'admin/project', component: AdminProjectComponent },
-  { path: 'admin/idea', component: AdminIdeaComponent },
+  { path: 'admin/ideas', component: AdminIdeaComponent },
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
   { path: '**', component: PageNotFoundComponent }

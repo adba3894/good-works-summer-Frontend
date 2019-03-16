@@ -5,6 +5,7 @@ import { JobRegistrationService } from '../services/job-registration-service/job
 import { ROOT_API_URL } from '../registration.const';
 import { CITIES_API_URL } from '../registration.const';
 import { CATEGORY_API_URL } from '../registration.const';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -16,11 +17,17 @@ export class RegistrationComponent implements OnInit {
   categories = [];
   cities = [];
   public errorMsg;
+  public organizationParam;
+  public descriptionParam;
+  public locationParam;
+  public categoryParam;
 
   teamForm: FormGroup;
   submitted = false;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private jobRegistrationService: JobRegistrationService) {
+  constructor(private router: Router, private formBuilder: FormBuilder,
+              private jobRegistrationService: JobRegistrationService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -41,6 +48,14 @@ export class RegistrationComponent implements OnInit {
       ideaForJob: ['', Validators.required],
       category: ['', Validators.required]
     });
+    const organization = this.route.snapshot.paramMap.get('organization');
+    this.organizationParam = organization;
+    const description = this.route.snapshot.paramMap.get('description');
+    this.descriptionParam = description;
+    const location = this.route.snapshot.paramMap.get('location');
+    this.locationParam = location;
+    const category = this.route.snapshot.paramMap.get('category');
+    this.categoryParam = category;
   }
 
   get registerFormControls() {

@@ -1,6 +1,3 @@
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-</head>
 <div class="container-register">
   <h4 class="register-heading">Registration</h4>
   <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
@@ -17,7 +14,6 @@
             }"
             required
             placeholder="Team Lead Name"
-            value=""
           />
           <div
             *ngIf="submitted && registerFormControls.teamLeadName.errors"
@@ -95,6 +91,7 @@
             }"
             required
           >
+            <option value="locationParam"></option>
             <option value="" disabled>Location</option>
 
             <option *ngFor="let city of cities">
@@ -105,7 +102,7 @@
             *ngIf="submitted && registerFormControls.city.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="registerFormControls.cityw.errors.required">
+            <div *ngIf="registerFormControls.city.errors.required">
               Location is required
             </div>
           </div>
@@ -117,8 +114,8 @@
             type="text"
             class="form-control"
             formControlName="organization"
+            value="{{ organizationParam }}"
             placeholder="Organization"
-            value=""
             [ngClass]="{
               'is-invalid':
                 submitted && registerFormControls.organization.errors
@@ -145,6 +142,7 @@
               'is-invalid': submitted && registerFormControls.category.errors
             }"
             required
+            [value]="categoryParam"
           >
             <option value="" disabled>Category</option>
             <option *ngFor="let category of categories">
@@ -166,7 +164,7 @@
             class="form-control"
             formControlName="ideaForJob"
             placeholder="Idea for a good job"
-            value=""
+            value="{{ descriptionParam }}"
             maxlength="240"
             [ngClass]="{
               'is-invalid': submitted && registerFormControls.ideaForJob.errors
@@ -193,6 +191,6 @@
     >
       Cancel
     </button>
-    <div class="successMessage">{{errorMsg}}</div>
+    <div class="successMessage">{{ errorMsg }}</div>
   </form>
 </div>

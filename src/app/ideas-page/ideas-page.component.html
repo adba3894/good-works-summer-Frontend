@@ -1,36 +1,42 @@
-<h4 class="register-heading">We believe that you can find a great initiative in this page for your team to work on.
-  All the work done by you will benefit this society greatly. Lets Do Good This Summer TOGETHER! <br>  Please press on the "icon"
-next to the good job which interests you and fill in missing information. If you have any additional questions do not hesitate
-  to check FAQ section or contact info@dogoodthissummer.net</h4>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<h4 class="register-heading">
+  We believe that you can find a great initiative in this page for your team to
+  work on. All the work done by you will benefit this society greatly. Lets Do
+  Good This Summer TOGETHER! <br />
+  Please press on the "icon" next to the good job which interests you and fill
+  in missing information. If you have any additional questions do not hesitate
+  to check FAQ section or contact info@dogoodthissummer.net
+</h4>
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <div class="container">
   <nav>
     <div *ngFor="let category of categories">
-      <button class="nav-item"> {{category}} </button>
+      <button class="nav-item">{{ category }}</button>
     </div>
   </nav>
   <div class="tab-content">
-    <table class="table">
+    <table class="table" style="overflow-x:auto">
       <thead>
-      <tr>
-        <th>Lead Name</th>
-        <th>Team Name</th>
-        <th>Organization</th>
-        <th>Activities</th>
-      </tr>
+        <tr>
+          <th>Organization</th>
+          <th>Description</th>
+          <th>Location</th>
+        </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let team of teams">
-        <td>{{team.leadName}}</td>
-        <td>{{team.teamName}}</td>
-        <td>{{team.organization}}</td>
-        <td>{{team.ideas[0].description}}</td>
-      </tr>
+        <tr *ngFor="let idea of ideas">
+          <td>{{ idea.organization }}</td>
+          <td>{{ idea.description }}</td>
+          <td>{{ idea.city.name }}</td>
+          <button (click)="onSelect(idea.organization, idea.description, idea.city.name, idea.category)">ADD</button>
+        </tr>
       </tbody>
     </table>
   </div>
 </div>
-
