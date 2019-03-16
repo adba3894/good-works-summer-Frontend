@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AdminLoginService } from '../services/admin-login-service/admin-login.service';
+import { ADMIN_API_URL } from '../registration.const';
 
 @Component({
   selector: 'app-admin-login',
@@ -26,7 +27,7 @@ export class AdminLoginComponent implements OnInit {
   }
 
   getAdminCredentials() {
-    return this.adminLoginService.getCredentialsData(''); // apiURL laikinai tuscias
+    return this.adminLoginService.getCredentialsData(ADMIN_API_URL);
   }
 
 }
