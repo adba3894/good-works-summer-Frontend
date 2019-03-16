@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminLoginService } from '../services/admin-login-service/admin-login.service';
-import { ADMIN_SIGN_UP_API_URL } from '../registration.const';
+import { ADMIN_PROJECT_ENDPOINT } from '../registration.const';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,10 +10,9 @@ import { ADMIN_SIGN_UP_API_URL } from '../registration.const';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
-
-  adminCredentials = [];
-
-  adminForm: FormGroup;
+  adminCredentials: FormGroup;
+  public errorMsg;
+  public successMsg;
   submitted = false;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
@@ -21,13 +20,32 @@ export class AdminLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAdminCredentials().subscribe(data => {
-      this.adminCredentials = data;
+    this.adminCredentials = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
-  getAdminCredentials() {
-    return this.adminLoginService.getCredentialsData(ADMIN_SIGN_UP_API_URL);
+  get loginWithAdminCredentials() {
+    return this.adminCredentials.controls;
   }
 
+  onLogin() {
+    this.errorMsg = '';
+    this.successMsg = '';
+    this.submitted = true;
+    if (this.adminCredentials.valid) {
+      this.adminLoginService.postAdminCredentials(this.adminCredentials)
+        .subscribe(() => {
+          this.successMsg = 'Login successful';
+          this.navigateToAdminProject();
+        }, (errorMessage) => {
+          this.errorMsg = errorMessage.error.message;
+        });
+    }
+  }
+
+  navigateToAdminProject() {
+    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
+  }
 }
