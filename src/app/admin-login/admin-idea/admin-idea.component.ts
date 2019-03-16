@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminIdeaService } from '../../services/admin-idea-service/admin-idea.service';
 import { ADMIN_IDEA_ENDPOINT, ADMIN_PROJECT_ENDPOINT, CATEGORY_API_URL, CITIES_API_URL, ROOT_API_URL } from '../../registration.const';
@@ -14,14 +14,16 @@ export class AdminIdeaComponent implements OnInit {
   cities = [];
   teamForm: FormGroup;
   submitted = false;
-  public SuccessMsg;
+  public successMsg;
+  public errorMsg;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
               private adminIdeaService: AdminIdeaService) {
   }
 
   ngOnInit() {
-    this.adminIdeaService.getCitiesData(CITIES_API_URL).subscribe(data => {
+    this.adminIdeaService.getCitiesData(CITIES_API_URL)
+      .subscribe(data => {
       this.cities = data;
     });
     this.adminIdeaService.getCategoriesData(CATEGORY_API_URL)
@@ -29,28 +31,36 @@ export class AdminIdeaComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
-      city: [],
-      organization: [],
-      ideaForJob: [],
-      category: []
+      city: ['', Validators.required],
+      organization: ['', [Validators.required, Validators.maxLength(100)]],
+      ideaForJob: ['', Validators.required],
+      category: ['', Validators.required]
     });
   }
 
   onSubmit() {
-    this.SuccessMsg = '';
+    this.errorMsg = '';
+    this.successMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
       this.adminIdeaService.submitForPost(this.teamForm, this.cities, ROOT_API_URL)
         .subscribe(() => {
-          this.SuccessMsg = 'Idea successfully submitted';
+          this.successMsg = 'Idea registered successfully'
+        }, (errorMessage) => {
+          this.errorMsg = errorMessage.error.message;
         });
     }
   }
+
   goToAdminIdea() {
     this.router.navigateByUrl(ADMIN_IDEA_ENDPOINT);
   }
 
   goToAdminProject() {
     this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
+  }
+
+  get adminIdeaFormControls() {
+    return this.teamForm.controls;
   }
 }

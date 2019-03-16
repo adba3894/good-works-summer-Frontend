@@ -18,6 +18,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
+import { IdeasPageComponent } from './ideas-page/ideas-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'admin/project', component: AdminProjectComponent },
   { path: 'admin/idea', component: AdminIdeaComponent },
   { path: 'project', component: ProjectPageComponent},
+  { path: 'ideas', component: IdeasPageComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -46,7 +48,8 @@ const routes: Routes = [
     AdminLoginComponent,
     AdminProjectComponent,
     ProjectPageComponent,
-    AdminIdeaComponent
+    AdminIdeaComponent,
+    IdeasPageComponent
   ],
   imports: [
     BrowserModule,

@@ -105,7 +105,7 @@
             *ngIf="submitted && registerFormControls.city.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="registerFormControls.teamName.errors.required">
+            <div *ngIf="registerFormControls.cityw.errors.required">
               Location is required
             </div>
           </div>
@@ -193,6 +193,6 @@
     >
       Cancel
     </button>
-    <div class="validationMessage">{{errorMsg}}</div>
+    <div class="successMessage">{{errorMsg}}</div>
   </form>
 </div>

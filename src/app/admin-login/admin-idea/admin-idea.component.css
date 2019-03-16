@@ -10,6 +10,18 @@
   cursor: pointer;
 }
 
+.successMessage {
+  font-family: Century Gothic, monospace;
+  font-size: 14px;
+  color: green;
+}
+
+.validationMessage {
+  font-family: Century Gothic, monospace;
+  font-size: 14px;
+  color: red;
+}
+
 .register {
   padding: 20px;
   border-style: solid;
@@ -47,11 +59,9 @@
 }
 
 @media only screen and (max-width: 769px) {
-
   .container-register {
     width: 80%;
     height: auto;
     margin-top: 3%;
   }
-
 }
