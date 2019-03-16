@@ -8,13 +8,10 @@ import { Observable } from 'rxjs';
 export class ProjectPageService {
   constructor(private projectPageServiceHttp: HttpClient) {
   }
-
-  getCategoriesData(categoryApiUrl): Observable<any> {
-    return this.projectPageServiceHttp.get(categoryApiUrl);
-  }
   getTeamsData(teamsApiUrl): Observable<any> {
     return this.projectPageServiceHttp.get(teamsApiUrl);
   }
+
 }
 
 
