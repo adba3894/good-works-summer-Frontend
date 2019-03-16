@@ -20,28 +20,18 @@ export class AdminProjectService {
 
   changeProjectValueToApproved(projectId: any) {
     this.jsonForm = this.adminProjectServiceFormBuilder.group({
-      'project': {
-        'id': projectId,
-        'approved': true
-      }
+      'approved': true
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
-    // console.log('approved project with id' + projectId);
-    // console.log(rawJsonFormValue);
-    return this.adminProjectHttp.put<any>(ADMIN_PROJECT_APPROVE_API_URL + projectId, rawJsonFormValue);
+    return this.adminProjectHttp.put<any>(ADMIN_PROJECT_APPROVE_API_URL + projectId, rawJsonFormValue).subscribe();
   }
 
   changeProjectValueToDone(projectId: any) {
     this.jsonForm = this.adminProjectServiceFormBuilder.group({
-      'project': {
-        'id': projectId,
-        'done': true
-      }
+      'done': true
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
-    // console.log('done project NO' + projectId);
-    // console.log(rawJsonFormValue);
-    return this.adminProjectHttp.put<any>(ADMIN_PROJECT_DONE_API_URL + projectId, rawJsonFormValue);
+    return this.adminProjectHttp.put<any>(ADMIN_PROJECT_DONE_API_URL + projectId, rawJsonFormValue).subscribe();
   }
 
 }

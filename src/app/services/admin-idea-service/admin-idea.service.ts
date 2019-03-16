@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { IDEAS_ADD_API_URL } from '../../registration.const';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AdminIdeaService {
     return this.adminIdeaServiceHttp.get(citiesApiUrl);
   }
 
-  submitForPost(teamForm: FormGroup, cities: any[], rootApiUrl: string): Observable<any> {
+  submitForPost(teamForm: FormGroup, cities: any[]): Observable<any> {
     this.jsonForm = this.adminIdeaServiceFormBuilder.group({
       'description': teamForm.get('ideaForJob').value.trim(),
       'city': {
@@ -33,6 +34,6 @@ export class AdminIdeaService {
       'project': {}
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
-    return this.adminIdeaServiceHttp.post<any>(rootApiUrl + '/admin/ideas', rawJsonFormValue);
+    return this.adminIdeaServiceHttp.post<any>(IDEAS_ADD_API_URL, rawJsonFormValue);
   }
 }

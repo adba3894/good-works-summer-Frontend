@@ -43,9 +43,9 @@ export class AdminIdeaComponent implements OnInit {
     this.successMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
-      this.adminIdeaService.submitForPost(this.teamForm, this.cities, IDEAS_API_URL)
+      this.adminIdeaService.submitForPost(this.teamForm, this.cities)
         .subscribe(() => {
-          this.successMsg = 'Idea registered successfully';
+          this.successMsg = 'Idea registered successfully'
         }, (errorMessage) => {
           this.errorMsg = errorMessage.error.message;
         });
