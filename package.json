@@ -12,7 +12,6 @@
   },
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.4.1",
     "@angular/animations": "~7.2.0",
     "@angular/cli": "^7.3.4",
     "@angular/common": "~7.2.0",
@@ -24,6 +23,8 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@auth0/angular-jwt": "^2.1.0",
+    "bootstrap": "^3.4.1",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
