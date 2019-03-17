@@ -29,4 +29,8 @@ export class MainHeaderComponent implements OnInit {
   goToIdeas() {
     this.router.navigateByUrl('/ideas');
   }
+
+  goToFaq() {
+    this.router.navigateByUrl('/faq');
+  }
 }

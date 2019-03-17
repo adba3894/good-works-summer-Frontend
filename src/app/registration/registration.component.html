@@ -96,8 +96,7 @@
             }"
             required
           >
-            <option value="" disabled>Location</option>
-
+            <option *ngIf="cityParam == null" value="" disabled>Location</option>
             <option *ngFor="let city of cities">
               {{ city.name }}
             </option>
@@ -106,7 +105,7 @@
             *ngIf="submitted && registerFormControls.city.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="registerFormControls.cityw.errors.required">
+            <div *ngIf="registerFormControls.city.errors.required">
               Location is required
             </div>
           </div>
@@ -118,8 +117,8 @@
             type="text"
             class="form-control"
             formControlName="organization"
-            placeholder="Organization"
-            value=""
+            placeholder="organization"
+            value="{{organizationParam}}"
             [ngClass]="{
               'is-invalid':
                 submitted && registerFormControls.organization.errors
@@ -147,7 +146,8 @@
             }"
             required
           >
-            <option value="" disabled>Category</option>
+            <option value="" disabled >Location</option>
+            <option *ngIf="categoryParam != null">{{categoryParam.split('_').join(' ') | titlecase}}</option>
             <option *ngFor="let category of categories">
               {{ category }}
             </option>
@@ -167,7 +167,7 @@
             class="form-control"
             formControlName="ideaForJob"
             placeholder="Idea for a good job"
-            value=""
+            value="{{descriptionParam}}"
             maxlength="240"
             [ngClass]="{
               'is-invalid': submitted && registerFormControls.ideaForJob.errors
