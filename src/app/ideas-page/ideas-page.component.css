@@ -1,9 +1,49 @@
-.register-heading {
-  font: 20px Century Gothic, monospace;
-  padding-buttom: 4%;
+.project-tab{
+  padding-top: 3%;
   margin-left: auto;
   margin-right: auto;
   width: 55%;
-  height: auto;
-  margin-top: 3%;
 }
+
+.project-tab a{
+  cursor: pointer;
+}
+
+.nav{
+  padding-top: 3%;
+  margin-bottom: 20px;
+}
+
+.nav-item{
+  margin: 20px;
+  font-size: 16px;
+}
+
+.nav-item:hover{
+  background-color: yellow;
+}
+
+.nav-tabs{
+  display: inline-block;
+  width: 100%;
+  border-buttom-style: solid;
+  border-width: 3px;
+  border-color: rgba(252, 206, 36, 1);
+  text-align: center !important;
+}
+
+.project-tab thead{
+  background: #f3f3f3;
+  color: #333;
+}
+
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+table th, table td {
+  overflow: hidden;
+}
+
+
