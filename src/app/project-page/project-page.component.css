@@ -1,19 +1,20 @@
 * {
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 
-p{
+p {
   padding: 3px;
 }
 
 .project-tab {
-  padding-top: 3%;
+  padding-top: 2%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .text {
-  text-align: initial;
+  text-align: justify;
 }
 
 .link:hover {
@@ -23,29 +24,70 @@ p{
 
 .nav-item:hover {
   cursor: pointer;
-  color: green !important;
 }
 
 .project-tab thead {
   background: #f3f3f3;
   color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
 }
+
+div.nav-tabs {
+  margin-top: 2%;
+  background-color: rgba(252, 206, 36, 0.5);
+  overflow: auto;
+  white-space: nowrap;
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1);
+}
+
+div.nav-tabs a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 19px;
+  text-decoration: none;
+}
+
+div.nav-tabs a:hover {
+  background-color: rgba(232, 186, 36, 0.4);
+}
+
 
 @media only screen and (max-width: 768px) {
 
-  .project-tab {
-    width: 80%;
+  tbody {
+    border-top: none !important;
   }
 
-  .nav-tabs{
-    border-buttom-style: solid;
-    border-width: 3px;
-    border-color: rgba(252, 206, 36, 1);
-    text-align: center !important;
+  .table-heading {
+    display: none;
   }
-  .nav-item{
+
+  .table-content {
+    display: block;
+    padding: .2rem 0;
+    border: none;
+  }
+
+  .table-row {
+    display: block;
+    border-bottom: 2px solid rgba(252, 206, 36, 1);
+  }
+
+  .table-content:before {
+    content: attr(data-heading);
     display: inline-block;
-    width: 100%;
+    width: 40%;
+    color: #999;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .project-tab {
+    width: 90%;
   }
 }
 
@@ -55,32 +97,9 @@ p{
     max-width: 950px;
   }
 
-  .nav {
-    position: relative;
-    padding-top: 3%;
-    margin-bottom: 20px;
-  }
-
-  .nav-item {
-    margin: 10px;
-    font-size: 16px;
-  }
-
-  .nav-tabs {
-    width: 100%;
-    display: inline-block;
-    border-buttom-style: solid;
-    border-width: 3px;
-    border-color: rgba(252, 206, 36, 1);
-    text-align: center !important;
-  }
-
-  table {
-    table-layout: fixed;
-    word-wrap: break-word;
-  }
-
-  table th, table td {
+  .tab-content {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    margin: auto;
     overflow: hidden;
   }
 
@@ -92,3 +111,5 @@ p{
     width: 40%;
   }
 }
+
+

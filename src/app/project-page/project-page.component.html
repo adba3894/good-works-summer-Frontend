@@ -25,29 +25,28 @@
       </div>
     </nav>
     <div class="tab-content">
-      <div class="tab-pane fade show active">
-        <table class="table">
-          <thead>
-          <tr>
-            <th class="tab team"> Team</th>
-            <th class="tab organization"> Organization</th>
-            <th class="tab tab-large plan"> Plan of action</th>
-            <th class="tab tab-right location"> Location</th>
-          </tr>
-          </thead>
-          <tr *ngIf="!teams.length">
-            <td colspan="4">There is no existing projects in this category.
-          </tr>
-          <tbody *ngFor="let team of teams">
-          <tr *ngIf="team.ideas[0].project.approved">
-            <td>{{team.teamName}}</td>
-            <td>{{team.ideas[0].organization}}</td>
-            <td>{{team.ideas[0].description}}</td>
-            <td>{{team.ideas[0].city.name}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th class="table-heading team"> Team</th>
+          <th class="table-heading organization"> Organization</th>
+          <th class="table-heading tab-large plan" width="230"> Plan of action</th>
+          <th class="table-heading tab-right location"> Location</th>
+        </tr>
+        </thead>
+        <tr *ngIf="!teams.length">
+          <td colspan="4">There is no existing projects in this category.
+        </tr>
+        <tbody *ngFor="let team of teams">
+        <tr class="table-row" *ngIf="team.ideas[0].project.approved">
+          <td class="table-content" data-heading="Team">{{team.teamName}}</td>
+          <td class="table-content" data-heading="Organization">{{team.ideas[0].organization}}</td>
+          <td class="table-content" data-heading="Plan of action">{{team.ideas[0].description}}</td>
+          <td class="table-content" data-heading="Location">{{team.ideas[0].city.name}}</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
+
