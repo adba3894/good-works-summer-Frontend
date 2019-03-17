@@ -2,6 +2,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <div class="container-register">
+  <div class="container">
   <h4 class="register-heading">Registration</h4>
   <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
     <div class="row register">
@@ -195,4 +196,5 @@
     </button>
     <div class="successMessage">{{errorMsg}}</div>
   </form>
+</div>
 </div>

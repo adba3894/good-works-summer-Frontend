@@ -1,19 +1,18 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <section class="project-tab">
   <div class="container">
     <div class="text">
-      <p>"Do Good This Summer" is extraordinary initiative were you can give back to society, help animals or share your
+      <p><strong>"Do Good This Summer"</strong> is extraordinary initiative were you can give back to society, help
+        animals or share your
         knowledge. This can make you a part of special
         project were not only you will be helping, but we believe that your good jobs will bring back many great
         emotions to you as well!
       </p>
       <p>Register your team by pressing on
-        <a (click)="goToRegistration()"> "REGISTER YOUR JOB HERE" </a>
+        <strong class="link" (click)="goToRegistration()"> "REGISTER YOUR JOB HERE" </strong>
         or by assigning your team to one of already existing initiatives in
-        <a (click)="goToIdeas()"> "IDEAS" section </a>
+        <strong class="link" (click)="goToIdeas()"> "IDEAS"</strong> section.
       </p>
     </div>
     <nav class="nav">
@@ -30,12 +29,15 @@
         <table class="table">
           <thead>
           <tr>
-            <th class="team"> Team</th>
-            <th class="organization"> Organization</th>
-            <th class="plan"> Plan of action</th>
-            <th class="location"> Location</th>
+            <th class="tab team"> Team</th>
+            <th class="tab organization"> Organization</th>
+            <th class="tab tab-large plan"> Plan of action</th>
+            <th class="tab tab-right location"> Location</th>
           </tr>
           </thead>
+          <tr *ngIf="!teams.length">
+            <td colspan="4">There is no existing projects in this category.
+          </tr>
           <tbody *ngFor="let team of teams">
           <tr *ngIf="team.ideas[0].project.approved">
             <td>{{team.teamName}}</td>

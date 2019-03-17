@@ -1,10 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url('https://fonts.googleapis.com/css?family=Cormorant:500|Montserrat');
 
 h1 {
-  font-family: "Courier New", Courier;
+  font-family: 'Cormorant', serif;
   font-size: 38px;
   margin: 0px !important;
   padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .logo {
@@ -14,7 +15,7 @@ h1 {
   cursor: pointer;
 }
 
-.top-image {
+.image {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(128, 128, 128, 0.6)), url('../../assets/main_header_image.jpg');
@@ -23,7 +24,7 @@ h1 {
   padding-top: 15px;
 }
 
-.top-text {
+.text {
   position: relative;
   text-align: center;
   color: white;
@@ -38,7 +39,7 @@ h1 {
   cursor: pointer;
   transition: .3s ease;
   padding: 5px 10px !important;
-  font-family: Century Gothic, monospace;
+  font-family: 'Cormorant', serif;
   font-size: 16px;
   color: white;
 }
@@ -60,7 +61,7 @@ button:focus {
     cursor: pointer;
   }
 
-  .top-image {
+  .image {
     height: 160px;
     width: auto;
   }
@@ -184,6 +185,9 @@ button:focus {
     display: inline-flex;
 
   }
+  .container{
+
+  }
 
   .navbar-item {
     cursor: pointer;
@@ -193,7 +197,8 @@ button:focus {
 
   .navbar-item a {
     color: #FFF;
-    font: 20px Century Gothic, monospace;
+    font-family: 'Cormorant', serif;
+    font-size: 18px;
     position: relative;
   }
 
