@@ -12,7 +12,6 @@ import { FILTERED_TEAMS_API_URL } from '../registration.const';
   styleUrls: ['./project-page.component.css']
 })
 export class ProjectPageComponent implements OnInit {
-  categories = [];
   teams = [];
 
   constructor(private router: Router, private formBuilder: FormBuilder, private projectPageService: ProjectPageService) {
