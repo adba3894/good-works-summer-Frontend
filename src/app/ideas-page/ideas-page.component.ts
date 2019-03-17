@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CITIES_API_URL, FILTERED_IDEAS_API_URL, IDEAS_API_URL } from '../registration.const';
+import { CITIES_API_URL, FILTERED_IDEAS_API_URL, FREE_IDEAS_API_URL } from '../registration.const';
 import { IdeasPageService } from '../services/ideas-page-service/ideas-page.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class IdeasPageComponent implements OnInit {
     this.ideasPageService.getCitiesData(CITIES_API_URL).subscribe(data => {
       this.cities = data;
     });
-    this.ideasPageService.getIdeasData(IDEAS_API_URL)
+    this.ideasPageService.getIdeasData(FREE_IDEAS_API_URL)
       .subscribe(data => {
         this.ideas = data;
       });
