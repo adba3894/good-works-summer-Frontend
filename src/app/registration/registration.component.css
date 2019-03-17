@@ -1,11 +1,18 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
 .container-register {
   margin-left: auto;
   margin-right: auto;
-  width: 55%;
+  width: auto;
+  max-width: 950px;
   height: auto;
   margin-top: 3%;
 }
-
+.cointainer{
+  margin: 10px;
+}
 .register {
   padding: 20px;
   border-style: solid;
@@ -21,7 +28,7 @@
 }
 
 .register-heading {
-  font: 20px Century Gothic, monospace;
+  font-size: 18px;
   padding-buttom: 4%;
 }
 
@@ -33,24 +40,21 @@
 .btn-register {
   background-color: rgba(252, 206, 36, 0.8);
   text-align: center;
-  font-family: Century Gothic, monospace;
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 2%;
 }
 
 .btn-cancel {
   background-color: whitesmoke;
   text-align: center;
-  font-family: Century Gothic, monospace;
-  font-size: 18px;
+  font-size: 16px;
 }
 
-.idea input {
-  height: 90px !important;
+textarea{
+  height: 90px;
 }
 
 .successMessage {
-  font-family: Century Gothic, monospace;
   font-size: 14px;
   color: red;
 }
