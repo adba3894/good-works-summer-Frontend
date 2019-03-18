@@ -37,7 +37,7 @@ export class JobRegistrationService {
         'organization': teamForm.get('organization').value.trim(),
         'project': {
           'done': false,
-          'approved': true
+          'approved': false
         }
       }]]
     });
