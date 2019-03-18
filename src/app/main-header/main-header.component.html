@@ -19,13 +19,16 @@
         REGISTER YOUR JOB HERE
       </button>
     </div>
-    <nav role="navigation" class=" navbar-expand-md">
+    <nav role="navigation" class=" navbar-expand-sm">
       <div class="container" id="menuToggle">
         <input type="checkbox" />
         <span></span>
         <span></span>
         <span></span>
         <ul class="topBotomBordersOut hamburger-menu">
+          <li (click)="goHome()" class="navbar-item home">
+            <a class="nav-link">HOME</a>
+          </li>
           <li (click)="goToProject()" class="navbar-item">
             <a class="nav-link">PROJECT</a>
           </li>
@@ -35,10 +38,8 @@
           <li class="navbar-item">
             <a class="nav-link">JOBS DONE</a>
           </li>
-          <li class="navbar-item">
-            <a class="nav-link">GALLERY</a>
-          </li>
-          <li (click)="goToFaq()" class="navbar-item"><a class="nav-link">FAQ</a></li>
+          <li class="navbar-item"><a class="nav-link">FAQ</a></li>
+
         </ul>
       </div>
     </nav>
