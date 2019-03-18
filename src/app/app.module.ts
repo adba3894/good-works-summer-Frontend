@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'home', component: MainPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},
-  { path: 'admin/project', component: AdminProjectComponent, canActivate: [AuthGuard] }, // , canActivate: [AuthGuard]
+  { path: 'admin/project', component: AdminProjectComponent, canActivate: [AuthGuard] },
   { path: 'admin/idea', component: AdminIdeaComponent, canActivate: [AuthGuard] },
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},

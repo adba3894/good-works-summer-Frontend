@@ -22,8 +22,8 @@ export class AdminLoginService {
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
     const options = new RequestOptions({ headers: this.getHeaders() });
-    // this.saveToken(this.getHeaders());
-    return this.adminLoginServiceHttp.post(ADMIN_LOGIN_API_URL, rawJsonFormValue, options).pipe(map(res => {
+    return this.adminLoginServiceHttp.post(ADMIN_LOGIN_API_URL, rawJsonFormValue, options)
+      .pipe(map(res => {
       localStorage.setItem('token', res.headers.get('Authorization'));
     }));
   }
@@ -33,13 +33,6 @@ export class AdminLoginService {
       'Authorization': 'Bearer ' + Cookie.get('access_token')});
     return headers;
   }
-
-  // saveToken(token) {
-  //   const expireDate = new Date().getTime() + (1000 * token.expires_in);
-  //   Cookie.set('access_token', token.access_token, expireDate);
-  //   console.log('Obtained Access token');
-  //   this.router.navigate(['/admin/project']);
-  // }
 
   // butinai padarykit -> npm install ng2-cookies
 
