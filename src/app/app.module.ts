@@ -19,6 +19,7 @@ import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.componen
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
 import { IdeasPageComponent } from './ideas-page/ideas-page.component';
+import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 
 const routes: Routes = [
@@ -29,8 +30,8 @@ const routes: Routes = [
   { path: 'home', component: MainPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},
-  { path: 'admin/project', component: AdminProjectComponent },
-  { path: 'admin/ideas', component: AdminIdeaComponent },
+  { path: 'admin/project', component: AdminProjectComponent, canActivate: [AuthGuard] },
+  { path: 'admin/ideas', component: AdminIdeaComponent, canActivate: [AuthGuard] },
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
   { path: 'faq', component: FaqPageComponent},
@@ -68,7 +69,7 @@ const routes: Routes = [
     [RouterModule],
     [MainHeaderComponent]
   ],
-  providers: [JobRegistrationService, ProjectPageService],
+  providers: [JobRegistrationService, ProjectPageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

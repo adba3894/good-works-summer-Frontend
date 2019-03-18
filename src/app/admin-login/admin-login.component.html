@@ -3,20 +3,62 @@
   rel="stylesheet"
 />
 <div class="container">
+  <form [formGroup]="adminCredentials" (ngSubmit)="onLogin()">
   <div class="col-md-4 col-md-offset-4">
     <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: rgb(252, 238, 164)">
+      <div class="panel-heading"
+           style="background-color: rgb(252, 238, 164)">
         <h3 class="panel-title">Admin login</h3>
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Username" />
+          <input type="text"
+                 class="form-control"
+                 placeholder="Username"
+                 formControlName="username"
+                 [ngClass]="{
+              'is-invalid':
+                submitted && loginWithAdminCredentials.username.errors
+            }"
+                 required
+                 value=""
+          />
+          <div
+            *ngIf="submitted && loginWithAdminCredentials.username.errors"
+            class="invalid-feedback"
+          >
+          <div *ngIf="loginWithAdminCredentials.username.errors.required">
+            Username is required
+          </div></div>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password" />
+          <input type="password"
+                 class="form-control"
+                 placeholder="Password"
+                 formControlName="password"
+                 [ngClass]="{
+              'is-invalid':
+                submitted && loginWithAdminCredentials.password.errors
+            }"
+                 required
+                 value=""
+          />
+          <div
+            *ngIf="submitted && loginWithAdminCredentials.password.errors"
+            class="invalid-feedback"
+          >
+          <div *ngIf="loginWithAdminCredentials.password.errors.required">
+            Password is required
+          </div></div>
         </div>
-        <button type="submit" class="btn">Login</button>
+        <button type="submit"
+                class="btn">
+          Login
+        </button>
+        <div class="successMessage">{{ successMsg }}</div>
+        <div class="validationMessage">{{ errorMsg }}</div>
       </div>
     </div>
   </div>
+  </form>
 </div>

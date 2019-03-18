@@ -116,4 +116,46 @@ div.nav-tabs a:hover {
   }
 }
 
+@media only screen and (min-width: 769px) {
+  .project-tab {
+    width: auto;
+    max-width: 950px;
+  }
 
+  .nav {
+    position: relative;
+    padding-top: 3%;
+    margin-bottom: 20px;
+  }
+
+  .nav-item {
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  .nav-tabs {
+    width: 100%;
+    display: inline-block;
+    border-buttom-style: solid;
+    border-width: 3px;
+    border-color: rgba(252, 206, 36, 1);
+    text-align: center !important;
+  }
+
+  table {
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+
+  table th, table td {
+    overflow: hidden;
+  }
+
+  .tab {
+    width: 20%;
+  }
+
+  .tab-large {
+    width: 40%;
+  }
+}
