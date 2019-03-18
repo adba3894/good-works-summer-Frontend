@@ -1,53 +1,79 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
 
 <section class="project-tab">
   <div class="container">
     <div class="text">
-      <p><strong>"Do Good This Summer"</strong> is extraordinary initiative were you can give back to society, help
-        animals or share your
-        knowledge. This can make you a part of special
-        project were not only you will be helping, but we believe that your good jobs will bring back many great
+      <p>
+        <strong>"Do Good This Summer"</strong> is extraordinary initiative were
+        you can give back to society, help animals or share your knowledge. This
+        can make you a part of special project were not only you will be
+        helping, but we believe that your good jobs will bring back many great
         emotions to you as well!
       </p>
-      <p>Register your team by pressing on
-        <strong class="link" (click)="goToRegistration()"> "REGISTER YOUR JOB HERE" </strong>
+      <p>
+        Register your team by pressing on
+        <strong class="link" (click)="goToRegistration()">
+          "REGISTER YOUR JOB HERE"
+        </strong>
         or by assigning your team to one of already existing initiatives in
         <strong class="link" (click)="goToIdeas()"> "IDEAS"</strong> section.
+      </p>
+      <p>
+        Teams soon will be working one the following
       </p>
     </div>
     <nav class="nav">
       <div class="nav-tabs ">
         <a class="nav-item" (click)="ngOnInit()"> All projects </a>
-        <a class="nav-item" (click)="get_giving_back_data()"> Giving Back To Society </a>
-        <a class="nav-item" (click)="get_helping_animals_data()"> Helping Animals </a>
-        <a class="nav-item" (click)="get_sharing_knowledge_data()"> Sharing Knowledge </a>
-        <a class="nav-item" (click)="get_beautiful_environment_data()"> Beautiful enviroment </a>
+        <a class="nav-item" (click)="getGivingBackData()">
+          Giving Back To Society
+        </a>
+        <a class="nav-item" (click)="getHelpingAnimalsData()">
+          Helping Animals
+        </a>
+        <a class="nav-item" (click)="getSharingKnowledgeData()">
+          Sharing Knowledge
+        </a>
+        <a class="nav-item" (click)="getBeautifulEnvironmentData()">
+          Beautiful enviroment
+        </a>
       </div>
     </nav>
     <div class="tab-content">
-      <div class="tab-pane fade show active">
-        <table class="table">
-          <thead>
+      <table class="table">
+        <thead>
           <tr>
-            <th class="tab team"> Team</th>
-            <th class="tab organization"> Organization</th>
-            <th class="tab tab-large plan"> Plan of action</th>
-            <th class="tab tab-right location"> Location</th>
+            <th class="table-heading team">Team</th>
+            <th class="table-heading organization">Organization</th>
+            <th class="table-heading tab-large plan">Plan of action</th>
+            <th class="table-heading tab-right location">Location</th>
           </tr>
-          </thead>
-          <tr *ngIf="!teams.length">
-            <td colspan="4">There is no existing projects in this category.
+        </thead>
+        <tr *ngIf="!teams.length">
+          <td colspan="4">There is no existing projects in this category.</td>
+        </tr>
+
+        <tbody *ngFor="let team of teams">
+          <tr class="table-row" *ngIf="team.ideas[0].project.approved">
+            <td class="table-content" data-heading="Team">
+              {{ team.teamName }}
+            </td>
+            <td class="table-content" data-heading="Organization">
+              {{ team.ideas[0].organization }}
+            </td>
+            <td class="table-content" data-heading="Plan of action">
+              {{ team.ideas[0].description }}
+            </td>
+            <td class="table-content" data-heading="Location">
+              {{ team.ideas[0].city.name }}
+            </td>
           </tr>
-          <tbody *ngFor="let team of teams">
-          <tr *ngIf="team.ideas[0].project.approved">
-            <td>{{team.teamName}}</td>
-            <td>{{team.ideas[0].organization}}</td>
-            <td>{{team.ideas[0].description}}</td>
-            <td>{{team.ideas[0].city.name}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>

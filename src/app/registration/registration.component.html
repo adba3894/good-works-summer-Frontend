@@ -146,7 +146,7 @@
             }"
             required
           >
-            <option value="" disabled >Location</option>
+            <option value="" disabled >Category</option>
             <option *ngIf="categoryParam != null">{{categoryParam.split('_').join(' ') | titlecase}}</option>
             <option *ngFor="let category of categories">
               {{ category }}

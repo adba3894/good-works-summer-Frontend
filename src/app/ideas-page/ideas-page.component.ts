@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CITIES_API_URL, FILTERED_IDEAS_API_URL, IDEAS_API_URL } from '../registration.const';
+import { CITIES_API_URL, FILTERED_IDEAS_API_URL, FREE_IDEAS_API_URL } from '../registration.const';
 import { IdeasPageService } from '../services/ideas-page-service/ideas-page.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class IdeasPageComponent implements OnInit {
     this.ideasPageService.getCitiesData(CITIES_API_URL).subscribe(data => {
       this.cities = data;
     });
-    this.ideasPageService.getIdeasData(IDEAS_API_URL)
+    this.ideasPageService.getIdeasData(FREE_IDEAS_API_URL)
       .subscribe(data => {
         this.ideas = data;
       });
@@ -32,31 +32,35 @@ export class IdeasPageComponent implements OnInit {
   }
 
   get_beautiful_environment_data() {
-    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/BEAUTIFUL_ENVIRONMENT')
+    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/BEAUTIFUL_ENVIRONMENT' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
   }
 
   get_giving_back_data() {
-    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/GIVING_BACK_TO_SOCIETY')
+    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/GIVING_BACK_TO_SOCIETY' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
   }
 
   get_helping_animals_data() {
-    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/HELPING_ANIMALS')
+    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/HELPING_ANIMALS' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
   }
 
   get_sharing_knowledge_data() {
-    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/SHARING_KNOWLEDGE')
+    this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/SHARING_KNOWLEDGE' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
+  }
+
+  goToFaq() {
+    this.router.navigateByUrl('/faq');
   }
 
 }

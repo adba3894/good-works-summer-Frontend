@@ -183,11 +183,13 @@ button:focus {
     height: 100%;
     margin-top: 30px;
     display: inline-flex;
+    margin-right: 4%;
 
   }
   .container{
 
   }
+
 
   .navbar-item {
     cursor: pointer;
@@ -240,6 +242,10 @@ button:focus {
   #menuToggle input {
     display: none;
 
+  }
+
+  .home{
+    display: none;
   }
 
 }

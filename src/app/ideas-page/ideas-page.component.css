@@ -1,49 +1,120 @@
-.project-tab{
-  padding-top: 3%;
-  margin-left: auto;
-  margin-right: auto;
-  width: 55%;
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 
-.project-tab a{
+p {
+  padding: 3px;
+}
+
+.project-tab {
+  padding-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text {
+  text-align: justify;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: steelblue;
+}
+
+.nav-item:hover {
   cursor: pointer;
 }
 
-.nav{
-  padding-top: 3%;
-  margin-bottom: 20px;
-}
-
-.nav-item{
-  margin: 20px;
-  font-size: 16px;
-}
-
-.nav-item:hover{
-  background-color: yellow;
-}
-
-.nav-tabs{
-  display: inline-block;
-  width: 100%;
-  border-buttom-style: solid;
-  border-width: 3px;
-  border-color: rgba(252, 206, 36, 1);
-  text-align: center !important;
-}
-
-.project-tab thead{
+.project-tab thead {
   background: #f3f3f3;
   color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
 }
 
-table {
-  table-layout: fixed;
-  word-wrap: break-word;
+div.nav-tabs {
+  margin-top: 2%;
+  background-color: rgba(252, 206, 36, 0.5);
+  overflow: auto;
+  white-space: nowrap;
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1);
 }
 
-table th, table td {
-  overflow: hidden;
+div.nav-tabs a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 19px;
+  text-decoration: none;
+}
+
+div.nav-tabs a:hover {
+  background-color: rgba(232, 186, 36, 0.4);
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  tbody {
+    border-top: none !important;
+  }
+
+  .table-heading {
+    display: none;
+  }
+
+  .table-content {
+    display: block;
+    padding: .2rem 0;
+    border: none;
+  }
+
+  
+  .table-row {
+    display: block;
+    border-bottom: 2px solid rgba(252, 206, 36, 1);
+  }
+
+  .table-content:before {
+    content: attr(data-heading);
+    display: inline-block;
+    width: 40%;
+    color: #999;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .project-tab {
+    width: 90%;
+  }
+  .link{
+    color: steelblue;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .project-tab {
+    width: auto;
+    max-width: 950px;
+  }
+
+  .tab-content {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .tab {
+    width: 20%;
+  }
+
+  .tab-large {
+    width: 40%;
+  }
+
 }
 
 
