@@ -57,6 +57,11 @@ div.nav-tabs a:hover {
 
 @media only screen and (max-width: 768px) {
 
+  .table-content img{
+    position: sticky;
+    float:right;
+  }
+
   tbody {
     border-top: none !important;
   }
@@ -71,7 +76,6 @@ div.nav-tabs a:hover {
     border: none;
   }
 
-  
   .table-row {
     display: block;
     border-bottom: 2px solid rgba(252, 206, 36, 1);
@@ -88,10 +92,7 @@ div.nav-tabs a:hover {
   }
 
   .project-tab {
-    width: 90%;
-  }
-  .link{
-    color: steelblue;
+    width: 100%;
   }
 }
 

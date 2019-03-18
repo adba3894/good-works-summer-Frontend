@@ -37,7 +37,6 @@ p {
 div.nav-tabs {
   margin-top: 2%;
   background-color: rgba(252, 206, 36, 0.5);
-  overflow: auto;
   white-space: nowrap;
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1);
 }
@@ -79,7 +78,7 @@ div.nav-tabs a:hover {
   .table-content:before {
     content: attr(data-heading);
     display: inline-block;
-    width: 40%;
+    width: 50%;
     color: #999;
     font-size: .75rem;
     text-transform: uppercase;
@@ -87,7 +86,7 @@ div.nav-tabs a:hover {
   }
 
   .project-tab {
-    width: 90%;
+    width: 100%;
   }
 
   .link{
