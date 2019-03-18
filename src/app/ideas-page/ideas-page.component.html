@@ -16,9 +16,9 @@
         next to the good job which interests
         you and fill in missing information. If you have any additional
         questions do not hesitate to check
-        <a href="/faq">FAQ</a>
+        <strong class="link" href="/faq">FAQ</strong>
         section or contact
-        <a href="mailto:info@dogoodthissummer.net">info@dogoodthissummer.net</a>
+        <strong class="link" href="mailto:info@dogoodthissummer.net">info@dogoodthissummer.net</strong>
       </p>
     </div>
     <nav class="nav">
@@ -39,23 +39,24 @@
       </div>
     </nav>
     <div class="tab-content">
-      <div class="tab-pane fade show active">
         <table class="table">
           <thead>
           <tr>
-            <th class="organization">Organization</th>
-            <th class="plan">Plan of action</th>
-            <th class="location">Location</th>
+            <th class="table-heading organization">Organization</th>
+            <th class="table-heading plan">Plan of action</th>
+            <th class="table-heading location">Location</th>
+            <th class="table-heading"> </th>
           </tr>
           </thead>
           <tbody *ngFor="let idea of ideas">
-            <td>{{ idea.organization }}</td>
-            <td>{{ idea.description }}</td>
-            <td>{{ idea.city.name }}</td>
-          <img src="../../assets/add-icon.png" (click)="onSelect(idea.organization, idea.description, idea.category)">
+          <tr class="table-row">
+          <td class="table-content" data-heading="Organization">{{ idea.organization }}</td>
+          <td class="table-content" data-heading="Plan of action">{{ idea.description }}</td>
+          <td class="table-content" data-heading="Location">{{ idea.city.name }}</td>
+          <td class="table-content img"><img src="../../assets/add-icon.png" (click)="onSelect(idea.organization, idea.description, idea.category)"></td>
+          </tr>
           </tbody>
         </table>
       </div>
-    </div>
   </div>
 </section>
