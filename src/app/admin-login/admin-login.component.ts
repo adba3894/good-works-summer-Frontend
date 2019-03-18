@@ -36,12 +36,14 @@ export class AdminLoginComponent implements OnInit {
     this.submitted = true;
     if (this.adminCredentials.valid) {
       this.adminLoginService.postAdminCredentials(this.adminCredentials)
-        .subscribe(() => {
-          this.successMsg = 'Login successful';
-          this.navigateToAdminProject();
-        }, (errorMessage) => {
-          this.errorMsg = errorMessage.error.message;
-        });
+      .subscribe(() => {
+        this.successMsg = 'Login successful';
+        this.navigateToAdminProject();
+      }, (errorMessage) => {
+        console.log(errorMessage);
+        this.errorMsg = errorMessage.error.message;
+      });
+      this.navigateToAdminProject();
     }
   }
 
