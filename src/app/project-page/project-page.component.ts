@@ -24,28 +24,28 @@ export class ProjectPageComponent implements OnInit {
       });
   }
 
-  get_beautiful_environment_data() {
+  getBeautifulEnvironmentData() {
     this.projectPageService.getTeamsData(FILTERED_TEAMS_API_URL + '/BEAUTIFUL_ENVIRONMENT')
       .subscribe(data => {
         this.teams = data;
       });
   }
 
-  get_giving_back_data() {
+  getGivingBackData() {
     this.projectPageService.getTeamsData(FILTERED_TEAMS_API_URL + '/GIVING_BACK_TO_SOCIETY')
       .subscribe(data => {
         this.teams = data;
       });
   }
 
-  get_helping_animals_data() {
+  getHelpingAnimalsData() {
     this.projectPageService.getTeamsData(FILTERED_TEAMS_API_URL + '/HELPING_ANIMALS')
       .subscribe(data => {
         this.teams = data;
       });
   }
 
-  get_sharing_knowledge_data() {
+  getSharingKnowledgeData() {
     this.projectPageService.getTeamsData(FILTERED_TEAMS_API_URL + '/SHARING_KNOWLEDGE')
       .subscribe(data => {
         this.teams = data;
