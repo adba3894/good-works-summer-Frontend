@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { InjectionToken, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,7 @@ import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.componen
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
 import { IdeasPageComponent } from './ideas-page/ideas-page.component';
-import { AuthGuardService, AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
+import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 
 const routes: Routes = [
@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},
   { path: 'admin/project', component: AdminProjectComponent, canActivate: [AuthGuard] },
-  { path: 'admin/idea', component: AdminIdeaComponent, canActivate: [AuthGuard] },
+  { path: 'admin/ideas', component: AdminIdeaComponent, canActivate: [AuthGuard] },
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
   { path: 'faq', component: FaqPageComponent},
@@ -69,7 +69,7 @@ const routes: Routes = [
     [RouterModule],
     [MainHeaderComponent]
   ],
-  providers: [JobRegistrationService, ProjectPageService, AuthGuardService],
+  providers: [JobRegistrationService, ProjectPageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
