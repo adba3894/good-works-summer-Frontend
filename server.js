@@ -29,6 +29,9 @@ app.use(history({
 }));
 app.use(staticFileMiddleware);
 
+app.get = function(s, f) {
+  
+};
 app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/dist/index.html'));
 });
