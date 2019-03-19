@@ -11,13 +11,15 @@
         greatly. Lets Do Good This Summer TOGETHER!
       </p>
       <p>
-        Please press on the <img src="../../assets/add-icon.png">
-        next to the good job which interests
-        you and fill in missing information. If you have any additional
-        questions do not hesitate to check
-        <strong class="link" href="/faq">FAQ</strong>
+        Please press on the <img src="../../assets/add-plus.svg">
+        next to the good job which interests you and fill in missing
+        information. If you have any additional questions do not hesitate to
+        check
+        <strong class="link" (click)="goToFaq()">FAQ</strong>
         section or contact
-        <strong class="link" href="mailto:info@dogoodthissummer.net">info@dogoodthissummer.net</strong>
+        <strong class="link" href="mailto:info@dogoodthissummer.net"
+          >info@dogoodthissummer.net</strong
+        >
       </p>
     </div>
     <nav class="nav">
@@ -38,23 +40,38 @@
       </div>
     </nav>
     <div class="tab-content">
-        <table class="table">
-          <thead>
+      <table class="table">
+        <thead>
           <tr>
             <th class="table-heading organization">Organization</th>
             <th class="table-heading plan">Plan of action</th>
             <th class="table-heading location">Location</th>
-            <th class="table-heading"> </th>
+            <th class="table-heading add">Add</th>
+            <th class="table-heading"></th>
           </tr>
-          </thead>
-          <tbody *ngFor="let idea of ideas">
+        </thead>
+        <tbody *ngFor="let idea of ideas">
           <tr class="table-row">
-          <td class="table-content" data-heading="Organization">{{ idea.organization }}</td>
-          <td class="table-content" data-heading="Plan of action">{{ idea.description }}</td>
-          <td class="table-content" data-heading="Location">{{ idea.city.name }}</td>
-          <td class="table-content img"><img src="../../assets/add-icon.png" (click)="onSelect(idea.organization, idea.description, idea.category)"></td>
+            <td class="table-content" data-heading="Organization">
+              {{ idea.organization }}
+            </td>
+            <td class="table-content" data-heading="Plan of action">
+              {{ idea.description }}
+            </td>
+            <td class="table-content" data-heading="Location">
+              {{ idea.city.name }}
+            </td>
+            <td class="table-content img">
+              <img
+                src="../../assets/add-plus.svg"
+                (click)="
+                  onSelect(idea.organization, idea.description, idea.category)
+                "
+              />
+            </td>
           </tr>
           </tbody>
         </table>
       </div>
+
 </section>

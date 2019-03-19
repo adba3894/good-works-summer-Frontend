@@ -49,10 +49,10 @@ export class RegistrationComponent implements OnInit {
         Validators.pattern('^[a-zA-Z][ąčęėįšųūž -ĄČĘĖĮŠŲŪŽ]+$'), Validators.maxLength(100)]],
       teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
       teamName: ['', [Validators.required, Validators.maxLength(30)]],
-      city: ['', Validators.required],
+      city: [this.locationValue(), Validators.required],
       organization: [this.organizationParam, [Validators.required, Validators.maxLength(100)]],
       ideaForJob: [this.descriptionParam, Validators.required],
-      category: [this.categoryParam, Validators.required]
+      category: [this.categoryValue(), Validators.required]
     });
   }
 
@@ -78,6 +78,22 @@ export class RegistrationComponent implements OnInit {
         }, (errorMessage) => {
           this.errorMsg = errorMessage.error.message;
         });
+    }
+  }
+
+  categoryValue() {
+    if (this.categoryParam == null) {
+      return '';
+    } else {
+      return this.categoryParam;
+    }
+  }
+
+  locationValue() {
+    if (this.cityParam == null) {
+      return '';
+    } else {
+      return this.categoryParam;
     }
   }
 }

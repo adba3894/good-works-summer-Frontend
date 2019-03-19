@@ -183,6 +183,9 @@ button:focus {
     display: inline-flex;
     margin-right: 2%;
   }
+  .container{
+
+  }
 
   .navbar-item {
     cursor: pointer;

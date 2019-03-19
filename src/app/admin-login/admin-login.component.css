@@ -9,3 +9,15 @@
 .btn {
   float: right;
 }
+
+.successMessage {
+  font-family: Century Gothic, monospace;
+  font-size: 14px;
+  color: greenyellow;
+}
+
+.validationMessage {
+  font-family: Century Gothic, monospace;
+  font-size: 14px;
+  color: red;
+}
