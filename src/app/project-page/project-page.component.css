@@ -56,6 +56,11 @@ div.nav-tabs a:hover {
 
 @media only screen and (max-width: 968px) {
 
+  .table-content img{
+    position: sticky;
+    float:right;
+  }
+
   tbody {
     border-top: none !important;
   }
@@ -78,7 +83,7 @@ div.nav-tabs a:hover {
   .table-content:before {
     content: attr(data-heading);
     display: inline-block;
-    width: 50%;
+    width: 40%;
     color: #999;
     font-size: .75rem;
     text-transform: uppercase;
@@ -89,12 +94,14 @@ div.nav-tabs a:hover {
     width: 98%;
   }
 
-  .link{
-    color: steelblue;
+  div.nav-tabs {
+    overflow: auto;
   }
+
+
 }
 
-@media only screen and (min-width: 968px) {
+@media only screen and (min-width: 969px) {
   .project-tab {
     width: auto;
     max-width: 950px;
@@ -113,48 +120,7 @@ div.nav-tabs a:hover {
   .tab-large {
     width: 40%;
   }
+
 }
 
-@media only screen and (min-width: 769px) {
-  .project-tab {
-    width: auto;
-    max-width: 950px;
-  }
 
-  .nav {
-    position: relative;
-    padding-top: 3%;
-    margin-bottom: 20px;
-  }
-
-  .nav-item {
-    margin: 10px;
-    font-size: 16px;
-  }
-
-  .nav-tabs {
-    width: 100%;
-    display: inline-block;
-    border-buttom-style: solid;
-    border-width: 3px;
-    border-color: rgba(252, 206, 36, 1);
-    text-align: center !important;
-  }
-
-  table {
-    table-layout: fixed;
-    word-wrap: break-word;
-  }
-
-  table th, table td {
-    overflow: hidden;
-  }
-
-  .tab {
-    width: 20%;
-  }
-
-  .tab-large {
-    width: 40%;
-  }
-}
