@@ -13,6 +13,9 @@ export class JobRegistrationService {
               private jobRegistrationServiceFormBuilder: FormBuilder) {
 
   }
+  getIdeasData(ideasApiUrl): Observable<any> {
+    return this.jobRegistrationServiceHttp.get(ideasApiUrl);
+  }
 
   getCategoriesData(categoryApiUrl): Observable<any> {
     return this.jobRegistrationServiceHttp.get(categoryApiUrl);
@@ -22,12 +25,13 @@ export class JobRegistrationService {
     return this.jobRegistrationServiceHttp.get(citiesApiUrl);
   }
 
-  submitForPost(teamForm: FormGroup, cities: any[]): Observable<any> {
+  submitForPost(teamForm: FormGroup, cities: any[], ideas: any []): Observable<any> {
     this.jsonForm = this.jobRegistrationServiceFormBuilder.group({
       'leadName': teamForm.get('teamLeadName').value.trim(),
       'leadEmail': teamForm.get('teamLeadEmail').value.trim(),
       'teamName': teamForm.get('teamName').value.trim(),
       'ideas': [[{
+        'id': teamForm.get('ideasId'),
         'description': teamForm.get('ideaForJob').value.trim(),
         'city': {
           'id': cities.find(city => city.name === teamForm.get('city').value).id,

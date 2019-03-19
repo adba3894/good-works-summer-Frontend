@@ -27,8 +27,8 @@ export class IdeasPageComponent implements OnInit {
       });
   }
 
-  onSelect(organization, description, category) {
-    this.router.navigate(['/registration', organization, description, category]);
+  onSelect(organization, description, category, city, cityId, id) {
+    this.router.navigate(['/registration', organization, description, category, city, cityId, id]);
   }
 
   get_beautiful_environment_data() {
