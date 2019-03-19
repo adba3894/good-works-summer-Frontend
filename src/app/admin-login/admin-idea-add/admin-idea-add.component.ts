@@ -52,9 +52,11 @@ export class AdminIdeaAddComponent implements OnInit {
       this.adminIdeaService.submitForPost(this.teamForm, this.cities)
         .subscribe(() => {
           this.successMsg = 'Idea registered successfully';
-          this.teamForm.reset();
-          this.teamForm.markAsPristine();
-          this.teamForm.markAsUntouched();
+          this.submitted = false;
+          // this.teamForm.reset();
+          // this.teamForm.markAsPristine();
+          // this.teamForm.markAsUntouched();
+          // this.teamForm.clearValidators();
         }, (errorMessage) => {
           this.errorMsg = errorMessage.error.message;
         });
@@ -71,5 +73,10 @@ export class AdminIdeaAddComponent implements OnInit {
 
   goToAdminProject() {
     this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
+  }
+
+  logoutOfAdmin() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
   }
 }

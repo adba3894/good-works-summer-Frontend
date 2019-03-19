@@ -44,4 +44,9 @@ export class AdminProjectComponent implements OnInit {
   markProjectAsDone(projectId: any) {
     this.adminProjectService.changeProjectValueToDone(projectId);
   }
+
+  logoutOfAdmin() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
+  }
 }

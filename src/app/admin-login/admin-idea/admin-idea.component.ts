@@ -33,5 +33,8 @@ export class AdminIdeaComponent implements OnInit {
     this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
   }
 
-
+  logoutOfAdmin() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
+  }
 }
