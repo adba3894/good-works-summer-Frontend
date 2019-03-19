@@ -46,7 +46,7 @@ div.nav-tabs a {
   display: inline-block;
   color: black;
   text-align: center;
-  padding: 19px;
+  padding: 23px;
   text-decoration: none;
 }
 
@@ -55,7 +55,12 @@ div.nav-tabs a:hover {
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
+
+  .table-content img{
+    position: sticky;
+    float:right;
+  }
 
   tbody {
     border-top: none !important;
@@ -71,7 +76,6 @@ div.nav-tabs a:hover {
     border: none;
   }
 
-  
   .table-row {
     display: block;
     border-bottom: 2px solid rgba(252, 206, 36, 1);
@@ -88,14 +92,11 @@ div.nav-tabs a:hover {
   }
 
   .project-tab {
-    width: 90%;
-  }
-  .link{
-    color: steelblue;
+    width: 98%;
   }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 969px) {
   .project-tab {
     width: auto;
     max-width: 950px;

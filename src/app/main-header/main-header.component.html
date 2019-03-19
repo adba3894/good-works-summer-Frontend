@@ -2,7 +2,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <div class="image">
   <div class="text">
@@ -16,12 +16,12 @@
     <div class="main">
       <h1 (click)="goHome()">DO GOOD THIS SUMMER</h1>
       <button (click)="goToRegistration()" class="register-button">
-        REGISTER YOUR JOB HERE
+        REGISTER YOUR PROJECT HERE
       </button>
     </div>
     <nav role="navigation" class=" navbar-expand-sm">
-      <div class="container" id="menuToggle">
-        <input type="checkbox" />
+      <div  id="menuToggle">
+        <input type="checkbox"/>
         <span></span>
         <span></span>
         <span></span>
@@ -29,14 +29,14 @@
           <li (click)="goHome()" class="navbar-item home">
             <a class="nav-link">HOME</a>
           </li>
-          <li (click)="goToProject()" class="navbar-item">
-            <a class="nav-link">PROJECT</a>
-          </li>
           <li (click)="goToIdeas()" class="navbar-item">
-            <a class="nav-link">IDEAS</a>
+            <a class="nav-link">IDEAS FOR TEAM</a>
+          </li>
+          <li (click)="goToProject()" class="navbar-item">
+            <a class="nav-link">PROJECTS IN ACTION</a>
           </li>
           <li class="navbar-item">
-            <a class="nav-link">JOBS DONE</a>
+            <a class="nav-link">FINISHED PROJECTS</a>
           </li>
           <li (click)="goToFaq()" class="navbar-item"><a class="nav-link">FAQ</a></li>
         </ul>
