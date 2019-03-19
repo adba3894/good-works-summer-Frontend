@@ -21,6 +21,7 @@ import { ProjectPageService } from './services/project-page-service/project-page
 import { IdeasPageComponent } from './ideas-page/ideas-page.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
 import { FaqPageComponent } from './faq-page/faq-page.component';
+import { FinishedProjectsPageComponent } from './finished-projects-page/finished-projects-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -56,7 +57,8 @@ const routes: Routes = [
     ProjectPageComponent,
     AdminIdeaComponent,
     IdeasPageComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    FinishedProjectsPageComponent
   ],
   imports: [
     BrowserModule,
