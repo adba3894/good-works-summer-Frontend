@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'registration/success', component: SuccessPageComponent },
-  { path: 'registration/:organization/:description/:category', component: RegistrationComponent} ,
+  { path: 'registration/:organization/:description/:category/:city/:cityId/:id', component: RegistrationComponent} ,
   { path: 'home', component: MainPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},

@@ -18,3 +18,4 @@ export const IDEAS_API_URL = 'https://good-works-summer-backend.herokuapp.com/id
 export const ADMIN_PROJECT_API_URL = 'https://good-works-summer-backend.herokuapp.com/admin/project';
 export const ADMIN_ENDPOINT = '/admin';
 export const ADMIN_API_URL = 'https://good-works-summer-backend.herokuapp.com/admin';
+export const IDEAS_API_URL = 'https://good-works-summer-backend.herokuapp.com/ideas'
