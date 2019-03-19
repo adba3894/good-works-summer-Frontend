@@ -36,6 +36,7 @@ const routes: Routes = [
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
   { path: 'faq', component: FaqPageComponent},
+  { path: 'finished', component: FinishedProjectsPageComponent},
   { path: 'good-works-summer-frontend.herokuapp.com/admin', component: AdminLoginComponent },
   { path: 'good-works-summer-frontend.herokuapp.com/**', component: PageNotFoundComponent},
   { path: '**', component: PageNotFoundComponent }

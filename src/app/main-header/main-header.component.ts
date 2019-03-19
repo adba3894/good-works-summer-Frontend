@@ -33,4 +33,8 @@ export class MainHeaderComponent implements OnInit {
   goToFaq() {
     this.router.navigateByUrl('/faq');
   }
+
+  goToFinishedProjects() {
+    this.router.navigateByUrl('/finished');
+  }
 }
