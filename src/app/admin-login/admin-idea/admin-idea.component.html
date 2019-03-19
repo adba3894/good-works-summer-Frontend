@@ -3,31 +3,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" (click)="goToAdminIdea()">New Idea</a>
+    <a class="nav-link active" (click)="goToAdminNewIdea()">New Idea</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" (click)="goToAdminProject()">Project</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="goToAdminIdea()">Ideas</a>
   </li>
 </ul>
 <div class="container-fluid">
   <table class="table table-hover">
     <thead class="thead-color col-md-4"
-           style="text-align: center">
+           style="text-align: left">
     <tr>
-      <th>Lead Name</th>
-      <th>Lead Email</th>
       <th>Organization</th>
-      <th>Team Name</th>
       <th>Location</th>
       <th>Idea</th>
-      <th width="250px" style="text-align: center">
+      <th width="250px" style="text-align: left">
         Category
       </th>
       <th></th>
@@ -35,41 +32,20 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let team of teams"
-        style="text-align: center">
+    <tr *ngFor="let idea of ideas"
+        style="text-align: left">
       <td>
-        {{team.leadName}}
+        {{idea.organization}}
       </td>
       <td>
-        {{team.leadEmail}}
+        {{idea.city.name}}
       </td>
       <td>
-        {{team.ideas[0].organization}}
+        {{idea.description}}
       </td>
-      <td>
-        {{team.teamName}}
-      </td>
-      <td>
-        {{team.ideas[0].city.name}}
-      </td>
-      <td *ngFor="let idea of team.ideas">
-        {{idea.description}}</td>
       <td class="m_title">
-        {{team.ideas[0].category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
+        {{idea.category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
       <td style="text-align: center">
-        <button *ngIf="team.ideas[0].project.approved === false" class="approve-button" (click)="approveProject(team.ideas[0].project.id)">
-          Approve
-        </button>
-        <button *ngIf="team.ideas[0].project.approved === true" class="grey-button">
-          Approve
-        </button>
-        &nbsp;&nbsp;
-        <button *ngIf="team.ideas[0].project.done === false" class="approve-button" (click)="markProjectAsDone(team.ideas[0].project.id)">
-          Done
-        </button>
-        <button *ngIf="team.ideas[0].project.done === true" class="grey-button">
-          Done
-        </button>
       </td>
     </tr>
     </tbody>
