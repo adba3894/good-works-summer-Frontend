@@ -15,23 +15,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { JobRegistrationService } from './services/job-registration-service/job-registration.service';
 import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
+import { AdminIdeaAddComponent } from './admin-login/admin-idea-add/admin-idea-add.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
 import { IdeasPageComponent } from './ideas-page/ideas-page.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
-import { FaqPageComponent } from './faq-page/faq-page.component';
-import { FinishedProjectsPageComponent } from './finished-projects-page/finished-projects-page.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';import { FinishedProjectsPageComponent } from './finished-projects-page/finished-projects-page.component';
+import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'registration/success', component: SuccessPageComponent },
-  { path: 'registration/:organization/:description/:category', component: RegistrationComponent} ,
+  { path: 'registration/:organization/:description/:category/:city/:cityId/:id', component: RegistrationComponent} ,
   { path: 'home', component: MainPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'admin', component: AdminLoginComponent},
   { path: 'admin/project', component: AdminProjectComponent, canActivate: [AuthGuard] },
+  { path: 'admin/ideas/add', component: AdminIdeaAddComponent, canActivate: [AuthGuard] },
   { path: 'admin/ideas', component: AdminIdeaComponent, canActivate: [AuthGuard] },
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
@@ -56,10 +57,11 @@ const routes: Routes = [
     AdminLoginComponent,
     AdminProjectComponent,
     ProjectPageComponent,
-    AdminIdeaComponent,
+    AdminIdeaAddComponent,
     IdeasPageComponent,
     FaqPageComponent,
-    FinishedProjectsPageComponent
+    FinishedProjectsPageComponent,
+    AdminIdeaComponent
   ],
   imports: [
     BrowserModule,
