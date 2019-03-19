@@ -79,4 +79,8 @@ export class AdminIdeaAddComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigateByUrl('');
   }
+
+  get adminIdeaFormControls() {
+    return this.teamForm.controls;
+  }
 }
