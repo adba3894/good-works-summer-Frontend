@@ -22,6 +22,7 @@ import { IdeasPageComponent } from './ideas-page/ideas-page.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
+import { MainPageProgressBarComponent } from './main-page/main-page-progress-bar/main-page-progress-bar.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -59,7 +60,8 @@ const routes: Routes = [
     AdminIdeaAddComponent,
     IdeasPageComponent,
     FaqPageComponent,
-    AdminIdeaComponent
+    AdminIdeaComponent,
+    MainPageProgressBarComponent
   ],
   imports: [
     BrowserModule,
