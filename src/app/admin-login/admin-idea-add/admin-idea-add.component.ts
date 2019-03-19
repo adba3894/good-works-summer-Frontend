@@ -58,6 +58,10 @@ export class AdminIdeaAddComponent implements OnInit {
     }
   }
 
+  get adminIdeaAddFormControls() {
+    return this.teamForm.controls;
+  }
+
   goToAdminIdea() {
     this.router.navigateByUrl(ADMIN_IDEAS_ENDPOINT);
   }

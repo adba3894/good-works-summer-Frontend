@@ -27,7 +27,7 @@
             class="form-control"
             formControlName="city"
             [ngClass]="{
-              'is-invalid': submitted && adminIdeaFormControls.city.errors
+              'is-invalid': submitted && adminIdeaAddFormControls.city.errors
             }"
             required
           >
@@ -37,10 +37,10 @@
             </option>
           </select>
           <div
-            *ngIf="submitted && adminIdeaFormControls.city.errors"
+            *ngIf="submitted && adminIdeaAddFormControls.city.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="adminIdeaFormControls.city.errors.required">
+            <div *ngIf="adminIdeaAddFormControls.city.errors.required">
               Location is required
             </div>
           </div>
@@ -54,18 +54,18 @@
             value=""
             [ngClass]="{
               'is-invalid':
-                submitted && adminIdeaFormControls.organization.errors
+                submitted && adminIdeaAddFormControls.organization.errors
             }"
             required
           />
           <div
-            *ngIf="submitted && adminIdeaFormControls.organization.errors"
+            *ngIf="submitted && adminIdeaAddFormControls.organization.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="adminIdeaFormControls.organization.errors.maxlength">
+            <div *ngIf="adminIdeaAddFormControls.organization.errors.maxlength">
               Organization name must not exceed 100 characters
             </div>
-            <div *ngIf="adminIdeaFormControls.organization.errors.required">
+            <div *ngIf="adminIdeaAddFormControls.organization.errors.required">
               Organization is required
             </div>
           </div>
@@ -77,7 +77,7 @@
             class="form-control"
             formControlName="category"
             [ngClass]="{
-              'is-invalid': submitted && adminIdeaFormControls.category.errors
+              'is-invalid': submitted && adminIdeaAddFormControls.category.errors
             }"
             required
           >
@@ -87,10 +87,10 @@
             </option>
           </select>
           <div
-            *ngIf="submitted && adminIdeaFormControls.category.errors"
+            *ngIf="submitted && adminIdeaAddFormControls.category.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="adminIdeaFormControls.category.errors.required">
+            <div *ngIf="adminIdeaAddFormControls.category.errors.required">
               Category is required
             </div>
           </div>
@@ -104,15 +104,15 @@
             value=""
             maxlength="240"
             [ngClass]="{
-              'is-invalid': submitted && adminIdeaFormControls.ideaForJob.errors
+              'is-invalid': submitted && adminIdeaAddFormControls.ideaForJob.errors
             }"
             required
           ></textarea>
           <div
-            *ngIf="submitted && adminIdeaFormControls.ideaForJob.errors"
+            *ngIf="submitted && adminIdeaAddFormControls.ideaForJob.errors"
             class="invalid-feedback"
           >
-            <div *ngIf="adminIdeaFormControls.ideaForJob.errors.required">
+            <div *ngIf="adminIdeaAddFormControls.ideaForJob.errors.required">
               Idea for a job is required
             </div>
           </div>

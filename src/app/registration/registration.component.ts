@@ -49,15 +49,14 @@ export class RegistrationComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
-      id: [this.isValueNotNull(this.idParam)],
       teamLeadName: ['', [Validators.required,
         Validators.pattern('^[a-zA-Z][ąčęėįšųūž -ĄČĘĖĮŠŲŪŽ]+$'), Validators.maxLength(100)]],
       teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
       teamName: ['', [Validators.required, Validators.maxLength(30)]],
-      city: [this.isValueNotNull(this.cityParam), Validators.required],
+      city: [this.sanitizeValue(this.cityParam), Validators.required],
       organization: [this.organizationParam, [Validators.required, Validators.maxLength(100)]],
       ideaForJob: [this.descriptionParam, Validators.required],
-      category: [this.isValueNotNull(this.categoryParam), Validators.required]
+      category: [this.sanitizeValue(this.categoryParam), Validators.required]
     });
     this.jobRegistrationService.getIdeasData(IDEAS_API_URL)
       .subscribe(data => {
@@ -81,26 +80,16 @@ export class RegistrationComponent implements OnInit {
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
-      if (this.idParam != null) {
-        this.jobRegistrationService.submitForPut(this.teamForm)
+        this.jobRegistrationService.submitTeamRegistrationForm(this.teamForm, this.cities, this.idParam)
           .subscribe(() => {
             this.goToSuccess();
           }, (errorMessage) => {
             this.errorMsg = errorMessage.error.message;
           });
-      } else {
-        this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.ideas)
-          .subscribe(() => {
-            this.goToSuccess();
-          }, (errorMessage) => {
-            this.errorMsg = errorMessage.error.message;
-          });
-      }
-
     }
   }
 
-  isValueNotNull(param) {
+  sanitizeValue(param) {
     if (param == null) {
       return '';
     } else {
