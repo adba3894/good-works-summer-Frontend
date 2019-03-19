@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   descriptionParam = null;
   categoryParam = null;
   cityParam;
-  idParam;
+  idParam: string;
   ideas = [];
   public errorMsg;
 
@@ -49,7 +49,7 @@ export class RegistrationComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
-      ideaId: [this.isValueNotNull(this.idParam)],
+      id: [this.isValueNotNull(this.idParam)],
       teamLeadName: ['', [Validators.required,
         Validators.pattern('^[a-zA-Z][ąčęėįšųūž -ĄČĘĖĮŠŲŪŽ]+$'), Validators.maxLength(100)]],
       teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
@@ -81,12 +81,22 @@ export class RegistrationComponent implements OnInit {
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
-      this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.ideas)
-        .subscribe(() => {
-          this.goToSuccess();
-        }, (errorMessage) => {
-          this.errorMsg = errorMessage.error.message;
-        });
+      if (this.idParam != null) {
+        this.jobRegistrationService.submitForPut(this.teamForm)
+          .subscribe(() => {
+            this.goToSuccess();
+          }, (errorMessage) => {
+            this.errorMsg = errorMessage.error.message;
+          });
+      } else {
+        this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.ideas)
+          .subscribe(() => {
+            this.goToSuccess();
+          }, (errorMessage) => {
+            this.errorMsg = errorMessage.error.message;
+          });
+      }
+
     }
   }
 

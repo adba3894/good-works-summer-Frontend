@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminIdeaService } from '../../services/admin-idea-service/admin-idea.service';
-import { ADMIN_IDEAS_ENDPOINT, ADMIN_PROJECT_ENDPOINT, CATEGORY_API_URL, CITIES_API_URL } from '../../registration.const';
+import {
+  ADMIN_IDEAS_ADD_ENDPOINT,
+  ADMIN_IDEAS_ENDPOINT,
+  ADMIN_PROJECT_ENDPOINT,
+  CATEGORY_API_URL,
+  CITIES_API_URL
+} from '../../registration.const';
 
 @Component({
   selector: 'app-admin-idea-add',
@@ -56,11 +62,11 @@ export class AdminIdeaAddComponent implements OnInit {
     this.router.navigateByUrl(ADMIN_IDEAS_ENDPOINT);
   }
 
-  goToAdminProject() {
-    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
+  goToAdminNewIdea() {
+    this.router.navigateByUrl(ADMIN_IDEAS_ADD_ENDPOINT);
   }
 
-  get adminIdeaFormControls() {
-    return this.teamForm.controls;
+  goToAdminProject() {
+    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
   }
 }

@@ -22,6 +22,10 @@ export class AdminIdeaService {
     return this.adminIdeaServiceHttp.get(citiesApiUrl);
   }
 
+  getIdeasData(ideasApiUrl): Observable<any> {
+    return this.adminIdeaServiceHttp.get(ideasApiUrl);
+  }
+
   submitForPost(teamForm: FormGroup, cities: any[]): Observable<any> {
     this.jsonForm = this.adminIdeaServiceFormBuilder.group({
       'description': teamForm.get('ideaForJob').value.trim(),
