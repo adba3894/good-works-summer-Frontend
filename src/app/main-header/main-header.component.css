@@ -52,17 +52,17 @@ button:focus {
   outline: none !important;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
 
   h1 {
-    font-size: 28px;
+    font-size: 22px;
     padding-bottom: 10px;
-    padding-top: 25px;
+    padding-top: 35px;
     cursor: pointer;
   }
 
   .image {
-    height: 160px;
+    height: 140px;
     width: auto;
   }
 
@@ -71,7 +71,7 @@ button:focus {
   }
 
   .register-button {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   #menuToggle {
@@ -157,11 +157,11 @@ button:focus {
     overflow: hidden !important;
     position: absolute;
     width: auto;
-    height: auto;
+    min-height: 1000px;
     margin: -100px 0 0 -370px;
     padding: 50px;
     padding-top: 120px;
-    padding-bottom: 150%;
+    padding-bottom: 10%;
     background: rgb(248, 222, 126);
     list-style-type: none;
     transform-origin: 0% 0%;
@@ -170,7 +170,7 @@ button:focus {
 
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 969px) {
 
 
   a {
@@ -240,6 +240,8 @@ button:focus {
   .home {
     display: none;
   }
+
+
 
 }
 

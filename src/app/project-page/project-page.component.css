@@ -45,7 +45,7 @@ div.nav-tabs a {
   display: inline-block;
   color: black;
   text-align: center;
-  padding: 19px;
+  padding: 22px;
   text-decoration: none;
 }
 
@@ -54,7 +54,7 @@ div.nav-tabs a:hover {
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 968px) {
 
   tbody {
     border-top: none !important;
@@ -86,7 +86,7 @@ div.nav-tabs a:hover {
   }
 
   .project-tab {
-    width: 100%;
+    width: 98%;
   }
 
   .link{
@@ -94,7 +94,7 @@ div.nav-tabs a:hover {
   }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 968px) {
   .project-tab {
     width: auto;
     max-width: 950px;
