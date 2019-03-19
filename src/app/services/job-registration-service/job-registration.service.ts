@@ -37,7 +37,7 @@ export class JobRegistrationService {
           'id': cities.find(city => city.name === teamForm.get('city').value).id,
           'name': teamForm.get('city').value
         },
-        'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_'),
+        'category': teamForm.get ('category').value.toUpperCase().replace(/ /g, '_'),
         'organization': teamForm.get('organization').value.trim(),
         'project': {
           'done': false,
