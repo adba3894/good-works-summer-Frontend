@@ -37,7 +37,6 @@ p {
 div.nav-tabs {
   margin-top: 2%;
   background-color: rgba(252, 206, 36, 0.5);
-  overflow: auto;
   white-space: nowrap;
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1);
 }
@@ -93,6 +92,9 @@ div.nav-tabs a:hover {
 
   .project-tab {
     width: 98%;
+  }
+  div.nav-tabs {
+    overflow: auto;
   }
 }
 

@@ -75,8 +75,8 @@ button:focus {
   }
 
   #menuToggle {
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 15px;
     left: 10px;
     z-index: 4;
   }
@@ -84,8 +84,8 @@ button:focus {
   #menuToggle input {
     width: 40px;
     height: 100%;
-    position: absolute;
-    top: -7px;
+    position: fixed;
+    top: 7px;
     left: 10px;
 
     cursor: pointer;
@@ -157,7 +157,7 @@ button:focus {
     overflow: hidden !important;
     position: absolute;
     width: auto;
-    min-height: 1000px;
+    min-height: 600px;
     margin: -100px 0 0 -370px;
     padding: 50px;
     padding-top: 120px;
