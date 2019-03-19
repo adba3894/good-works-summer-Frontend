@@ -1,123 +1,79 @@
-<link
-  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-  rel="stylesheet"
-  id="bootstrap-css"
-/>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+<body>
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link" (click)="goToAdminIdea()">New Idea</a>
+    <a class="nav-link active" (click)="goToAdminIdea()">New Idea</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" (click)="goToAdminProject()">Project</a>
   </li>
 </ul>
-<div class="container-register">
-  <h4 class="register-heading">Register new idea</h4>
-  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
-    <div class="row register">
-      <div class="col-md-5 register-box">
-        <div class="form-group">
-          <select
-            class="form-control"
-            formControlName="city"
-            [ngClass]="{
-              'is-invalid': submitted && adminIdeaFormControls.city.errors
-            }"
-            required
-          >
-            <option value="" disabled>Location</option>
-            <option *ngFor="let city of cities">
-              {{ city.name }}
-            </option>
-          </select>
-          <div
-            *ngIf="submitted && adminIdeaFormControls.city.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeaFormControls.city.errors.required">
-              Location is required
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            formControlName="organization"
-            placeholder="Organization"
-            value=""
-            [ngClass]="{
-              'is-invalid':
-                submitted && adminIdeaFormControls.organization.errors
-            }"
-            required
-          />
-          <div
-            *ngIf="submitted && adminIdeaFormControls.organization.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeaFormControls.organization.errors.maxlength">
-              Organization name must not exceed 100 characters
-            </div>
-            <div *ngIf="adminIdeaFormControls.organization.errors.required">
-              Organization is required
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5 register-box">
-        <div class="form-group">
-          <select
-            class="form-control"
-            formControlName="category"
-            [ngClass]="{
-              'is-invalid': submitted && adminIdeaFormControls.category.errors
-            }"
-            required
-          >
-            <option value="" disabled>Category</option>
-            <option *ngFor="let category of categories">
-              {{ category }}
-            </option>
-          </select>
-          <div
-            *ngIf="submitted && adminIdeaFormControls.category.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeaFormControls.category.errors.required">
-              Category is required
-            </div>
-          </div>
-        </div>
-        <div class="form-group idea">
-          <textarea
-            type="text"
-            class="form-control"
-            formControlName="ideaForJob"
-            placeholder="Idea for a good job"
-            value=""
-            maxlength="240"
-            [ngClass]="{
-              'is-invalid': submitted && adminIdeaFormControls.ideaForJob.errors
-            }"
-            required
-          ></textarea>
-          <div
-            *ngIf="submitted && adminIdeaFormControls.ideaForJob.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="adminIdeaFormControls.ideaForJob.errors.required">
-              Idea for a job is required
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-register">Submit</button>
-    <div class="successMessage">{{ successMsg }}</div>
-    <div class="validationMessage">{{ errorMsg }}</div>
-  </form>
+<div class="container-fluid">
+  <table class="table table-hover">
+    <thead class="thead-color col-md-4"
+           style="text-align: center">
+    <tr>
+      <th>Lead Name</th>
+      <th>Lead Email</th>
+      <th>Organization</th>
+      <th>Team Name</th>
+      <th>Location</th>
+      <th>Idea</th>
+      <th width="250px" style="text-align: center">
+        Category
+      </th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let team of teams"
+        style="text-align: center">
+      <td>
+        {{team.leadName}}
+      </td>
+      <td>
+        {{team.leadEmail}}
+      </td>
+      <td>
+        {{team.ideas[0].organization}}
+      </td>
+      <td>
+        {{team.teamName}}
+      </td>
+      <td>
+        {{team.ideas[0].city.name}}
+      </td>
+      <td *ngFor="let idea of team.ideas">
+        {{idea.description}}</td>
+      <td class="m_title">
+        {{team.ideas[0].category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
+      <td style="text-align: center">
+        <button *ngIf="team.ideas[0].project.approved === false" class="approve-button" (click)="approveProject(team.ideas[0].project.id)">
+          Approve
+        </button>
+        <button *ngIf="team.ideas[0].project.approved === true" class="grey-button">
+          Approve
+        </button>
+        &nbsp;&nbsp;
+        <button *ngIf="team.ideas[0].project.done === false" class="approve-button" (click)="markProjectAsDone(team.ideas[0].project.id)">
+          Done
+        </button>
+        <button *ngIf="team.ideas[0].project.done === true" class="grey-button">
+          Done
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+</body>
+</html>
