@@ -27,11 +27,11 @@ export class IdeasPageComponent implements OnInit {
       });
   }
   onSelect(organization, description, category, city, id) {
-    // window.btoa(organization);
-    // window.btoa(description);
-    // window.btoa(category);
-    // window.btoa(city);
-    // window.btoa(id);
+    window.btoa(organization);
+    window.btoa(description);
+    window.btoa(category);
+    window.btoa(city);
+    window.btoa(id);
     this.router.navigate(['/registration', organization, description, category, city, id]);
   }
 

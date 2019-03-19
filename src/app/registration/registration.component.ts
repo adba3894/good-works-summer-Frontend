@@ -32,13 +32,13 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     const organization = this.route.snapshot.paramMap.get('organization');
-    this.organizationParam = organization;
+    this.organizationParam = window.atob(organization);
     const description = this.route.snapshot.paramMap.get('description');
-    this.descriptionParam = description;
+    this.descriptionParam = atob(description);
     const city = this.route.snapshot.paramMap.get('city');
-    this.cityParam = city;
+    this.cityParam = atob(city);
     const category = this.route.snapshot.paramMap.get('category');
-    this.categoryParam = category;
+    this.categoryParam = atob(category);
     const id = this.route.snapshot.paramMap.get('id');
     this.idParam = id;
     this.jobRegistrationService.getCitiesData(CITIES_API_URL).subscribe(data => {
