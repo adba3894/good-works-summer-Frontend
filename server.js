@@ -1,13 +1,22 @@
-const express = require('express');
-const app = express();
 
+var express = require('express');
+var compression = require('compression');
+var PORT = process.env.PORT || 8080;
+
+var buildPath = 'dist/';
+
+// Initialize
+var app = express();
+
+// Serve static resources from 'build' folder
+app.use(express.static(buildPath));
+
+// Enable gzip response compression
+app.use(compression());
+
+// Otherwise serve index.html
 app.get('*', function (req, res) {
-  res.sendFile(__dirname + buildPath + "/index.html");
+  res.sendFile(__dirname + "/" + buildPath + "/index.html");
 });
 
-// Run the app by serving the static files in the dist directory
-app.use(express.static(__dirname + '/dist'));
-
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
-
+app.listen(PORT);
