@@ -12,25 +12,28 @@ import { map } from 'rxjs/operators';
 })
 export class AdminLoginService {
   jsonForm: FormGroup;
+
   constructor(private adminLoginServiceHttp: Http, private adminLoginServiceFormBuilder: FormBuilder, private router: Router) {
   }
 
   postAdminCredentials(adminForm: FormGroup): Observable<any> {
     this.jsonForm = this.adminLoginServiceFormBuilder.group({
       'username': adminForm.get('username').value,
-      'password': adminForm.get('password').value,
+      'password': adminForm.get('password').value
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
     const options = new RequestOptions({ headers: this.getHeaders() });
     return this.adminLoginServiceHttp.post(ADMIN_LOGIN_API_URL, rawJsonFormValue, options)
       .pipe(map(res => {
-      localStorage.setItem('token', res.headers.get('Authorization'));
-    }));
+        localStorage.setItem('token', res.headers.get('Authorization'));
+      }));
   }
 
   getHeaders() {
-    const headers = new Headers({'Content-type': 'application/json',
-      'Authorization': 'Bearer ' + Cookie.get('access_token')});
+    const headers = new Headers({
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer ' + Cookie.get('access_token')
+    });
     return headers;
   }
 
