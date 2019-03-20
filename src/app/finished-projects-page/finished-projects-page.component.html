@@ -3,17 +3,17 @@
   <div class="flip-box" *ngFor="let team of teams">
     <div class="flip-box-inner" *ngIf="team.ideas[0].project.done">
       <div class="flip-box-front">
-        <div class="front-text" >
-          <div class="content" data-heading="Team Name">{{team.teamName}}</div>
-          <div class="content" data-heading="Organization">{{team.ideas[0].organization}}</div>
-        </div>
+        <div class="table-content" data-heading="Team Name">{{team.teamName}}</div>
+        <div class="table-content" data-heading="Organization">{{team.ideas[0].organization}}</div>
+        <div *ngIf="team.ideas[0].category == 'BEAUTIFUL_ENVIRONMENT'"><img class="icon" src="../assets/plant.png"> </div>
+        <div *ngIf="team.ideas[0].category == 'HELPING_ANIMALS'"><img class="icon" src="../assets/dog.png"> </div>
+        <div *ngIf="team.ideas[0].category == 'GIVING_BACK_TO_SOCIETY'"><img class="icon" src="../assets/social-care.png"> </div>
+        <div *ngIf="team.ideas[0].category == 'SHARING_KNOWLEDGE'"><img class="icon" src="../assets/idea.png"> </div>
+        <div class="table-content" data-heading="City">{{team.ideas[0].city.name}}</div>
       </div>
       <div class="flip-box-back">
-        <div class="back-text" >
-          <div class="table-content" data-heading="Lead Name">{{team.leadName}}</div>
-          <div class="table-content" data-heading="City">{{team.ideas[0].city.name}}</div>
-          <div class="table-content" data-heading="Activity">{{team.ideas[0].description}}</div>
-        </div>
+        <div class="table-content" data-heading="Lead Name">{{team.leadName}}</div>
+        <div class="table-content" data-heading="Activities and team members">{{team.ideas[0].description}}</div>
       </div>
     </div>
   </div>
