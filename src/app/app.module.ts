@@ -80,7 +80,10 @@ const routes: Routes = [
     [RouterModule],
     [MainHeaderComponent]
   ],
-  providers: [JobRegistrationService, ProjectPageService, AuthGuard],
+  providers: [
+    JobRegistrationService,
+    ProjectPageService,
+    AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

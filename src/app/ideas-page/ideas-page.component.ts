@@ -13,7 +13,6 @@ export class IdeasPageComponent implements OnInit {
   ideas = [];
   cities = [];
 
-
   constructor(private router: Router, private ideasPageService: IdeasPageService) {
   }
 
@@ -28,7 +27,21 @@ export class IdeasPageComponent implements OnInit {
   }
 
   onSelect(organization, description, category, city, cityId, id) {
-    this.router.navigate(['/registration', organization, description, category, city, cityId, id]);
+    this.router.navigate([
+      '/registration',
+      this.b64EncodeUnicode(organization),
+      this.b64EncodeUnicode(description),
+      this.b64EncodeUnicode(category),
+      this.b64EncodeUnicode(city),
+      this.b64EncodeUnicode(cityId),
+      this.b64EncodeUnicode(id)]);
+  }
+
+  b64EncodeUnicode(param) {
+    return btoa(encodeURIComponent(param).replace(/%([0-9A-F]{2})/g,
+      function toSolidBytes(match, p1) {
+        return String.fromCharCode(Number('0x' + p1));
+      }));
   }
 
   get_beautiful_environment_data() {
