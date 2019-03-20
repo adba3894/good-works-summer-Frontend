@@ -3,6 +3,7 @@ import { AdminProjectService } from '../../services/admin-project-service/admin-
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { ADMIN_IDEAS_ADD_ENDPOINT, ADMIN_IDEAS_ENDPOINT, ADMIN_PROJECT_ENDPOINT, TEAMS_API_URL } from '../../registration.const';
+import { AdminLoginService } from '../../services/admin-login-service/admin-login.service';
 
 @Component({
   selector: 'app-admin-project',
@@ -12,7 +13,8 @@ import { ADMIN_IDEAS_ADD_ENDPOINT, ADMIN_IDEAS_ENDPOINT, ADMIN_PROJECT_ENDPOINT,
 export class AdminProjectComponent implements OnInit {
   teams = [];
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private adminProjectService: AdminProjectService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private adminProjectService: AdminProjectService,
+              private adminLoginService: AdminLoginService) {
   }
 
   ngOnInit() {
@@ -46,7 +48,6 @@ export class AdminProjectComponent implements OnInit {
   }
 
   logoutOfAdmin() {
-    localStorage.removeItem('token');
-    this.router.navigateByUrl('');
+    this.adminLoginService.logoutAndNavigateToHome();
   }
 }

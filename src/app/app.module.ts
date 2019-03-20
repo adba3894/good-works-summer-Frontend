@@ -26,6 +26,7 @@ import { MainPageProgressBarComponent } from './main-page/main-page-progress-bar
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
+  { path: '', component: MainPageProgressBarComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'registration/success', component: SuccessPageComponent },
   { path: 'registration/:organization/:description/:category/:city/:cityId/:id', component: RegistrationComponent} ,

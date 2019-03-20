@@ -34,6 +34,11 @@ export class AdminLoginService {
     return headers;
   }
 
+  logoutAndNavigateToHome() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
+  }
+
   // butinai padarykit -> npm install ng2-cookies
 
 }

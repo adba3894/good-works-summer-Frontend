@@ -9,6 +9,7 @@ import {
   CATEGORY_API_URL,
   CITIES_API_URL
 } from '../../registration.const';
+import { AdminLoginService } from '../../services/admin-login-service/admin-login.service';
 
 @Component({
   selector: 'app-admin-idea-add',
@@ -24,7 +25,8 @@ export class AdminIdeaAddComponent implements OnInit {
   public errorMsg;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
-              private adminIdeaService: AdminIdeaService) {
+              private adminIdeaService: AdminIdeaService,
+              private adminLoginService: AdminLoginService) {
   }
 
   ngOnInit() {
@@ -53,14 +55,22 @@ export class AdminIdeaAddComponent implements OnInit {
         .subscribe(() => {
           this.successMsg = 'Idea registered successfully';
           this.submitted = false;
-          // this.teamForm.reset();
-          // this.teamForm.markAsPristine();
-          // this.teamForm.markAsUntouched();
-          // this.teamForm.clearValidators();
+          this.teamForm.reset({city: '', category: ''});
+          this.teamForm.markAsPristine();
+          this.teamForm.markAsUntouched();
+          this.teamForm.clearValidators();
         }, (errorMessage) => {
           this.errorMsg = errorMessage.error.message;
         });
     }
+  }
+
+  get adminIdeaFormControls() {
+    return this.teamForm.controls;
+  }
+
+  logoutOfAdmin() {
+    this.adminLoginService.logoutAndNavigateToHome();
   }
 
   goToAdminIdea() {
@@ -73,14 +83,5 @@ export class AdminIdeaAddComponent implements OnInit {
 
   goToAdminProject() {
     this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
-  }
-
-  logoutOfAdmin() {
-    localStorage.removeItem('token');
-    this.router.navigateByUrl('');
-  }
-
-  get adminIdeaFormControls() {
-    return this.teamForm.controls;
   }
 }
