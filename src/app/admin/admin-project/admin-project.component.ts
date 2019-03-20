@@ -27,27 +27,11 @@ export class AdminProjectComponent implements OnInit {
     return this.adminProjectService.getTeamsData(TEAMS_API_URL);
   }
 
-  goToAdminIdea() {
-    this.router.navigateByUrl(ADMIN_IDEAS_ENDPOINT);
-  }
-
-  goToAdminNewIdea() {
-    this.router.navigateByUrl(ADMIN_IDEAS_ADD_ENDPOINT);
-  }
-
-  goToAdminProject() {
-    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
-  }
-
   approveProject(projectId: any) {
     this.adminProjectService.changeProjectValueToApproved(projectId);
   }
 
   markProjectAsDone(projectId: any) {
     this.adminProjectService.changeProjectValueToDone(projectId);
-  }
-
-  logoutOfAdmin() {
-    this.adminLoginService.logoutAndNavigateToHome();
   }
 }
