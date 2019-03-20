@@ -26,10 +26,6 @@ export class AdminLoginComponent implements OnInit {
     });
   }
 
-  get loginWithAdminCredentials() {
-    return this.adminCredentials.controls;
-  }
-
   onLogin() {
     this.errorMsg = '';
     this.successMsg = '';
@@ -45,6 +41,10 @@ export class AdminLoginComponent implements OnInit {
       });
       this.navigateToAdminProject();
     }
+  }
+
+  get loginWithAdminCredentials() {
+    return this.adminCredentials.controls;
   }
 
   navigateToAdminProject() {

@@ -9,6 +9,7 @@ import {
   CATEGORY_API_URL,
   CITIES_API_URL
 } from '../../registration.const';
+import { AdminLoginService } from '../../services/admin-login-service/admin-login.service';
 
 @Component({
   selector: 'app-admin-idea-add',
@@ -24,7 +25,8 @@ export class AdminIdeaAddComponent implements OnInit {
   public errorMsg;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
-              private adminIdeaService: AdminIdeaService) {
+              private adminIdeaService: AdminIdeaService,
+              private adminLoginService: AdminLoginService) {
   }
 
   ngOnInit() {
@@ -51,11 +53,24 @@ export class AdminIdeaAddComponent implements OnInit {
     if (this.teamForm.valid) {
       this.adminIdeaService.submitForPost(this.teamForm, this.cities)
         .subscribe(() => {
-          this.successMsg = 'Idea registered successfully'
+          this.successMsg = 'Idea registered successfully';
+          this.submitted = false;
+          this.teamForm.reset({city: '', category: ''});
+          this.teamForm.markAsPristine();
+          this.teamForm.markAsUntouched();
+          this.teamForm.clearValidators();
         }, (errorMessage) => {
           this.errorMsg = errorMessage.error.message;
         });
     }
+  }
+
+  get adminIdeaFormControls() {
+    return this.teamForm.controls;
+  }
+
+  logoutOfAdmin() {
+    this.adminLoginService.logoutAndNavigateToHome();
   }
 
   goToAdminIdea() {
