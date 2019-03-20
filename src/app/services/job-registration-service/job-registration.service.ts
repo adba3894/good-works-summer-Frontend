@@ -40,8 +40,8 @@ export class JobRegistrationService {
           'name': teamForm.get('city').value
         },
         'project': {
-          'done': false,
-          'approved': false
+          'done': true,
+          'approved': true
         }
       }]]
     });

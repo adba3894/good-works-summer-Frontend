@@ -20,7 +20,7 @@ import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
 import { IdeasPageComponent } from './ideas-page/ideas-page.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
-import { FaqPageComponent } from './faq-page/faq-page.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';import { FinishedProjectsPageComponent } from './finished-projects-page/finished-projects-page.component';
 import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
 import { MainPageProgressBarComponent } from './main-page/main-page-progress-bar/main-page-progress-bar.component';
 
@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
   { path: 'faq', component: FaqPageComponent},
+  { path: 'finished', component: FinishedProjectsPageComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -59,6 +60,7 @@ const routes: Routes = [
     AdminIdeaAddComponent,
     IdeasPageComponent,
     FaqPageComponent,
+    FinishedProjectsPageComponent,
     AdminIdeaComponent,
     MainPageProgressBarComponent
   ],

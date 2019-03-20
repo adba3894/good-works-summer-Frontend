@@ -1,9 +1,3 @@
-<link
-  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-  rel="stylesheet"
-  id="bootstrap-css"
-/>
-
 <section class="project-tab">
     <div class="text">
       <p>Register your team by pressing on
@@ -47,7 +41,7 @@
         </tr>
 
         <tbody *ngFor="let team of teams">
-          <tr class="table-row" *ngIf="team.ideas[0].project.approved">
+          <tr class="table-row" *ngIf="team.ideas[0].project.approved && !team.ideas[0].project.done">
             <td class="table-content" data-heading="Team">
               {{ team.teamName }}
             </td>
