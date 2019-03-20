@@ -33,10 +33,6 @@
             <th class="table-heading tab-right location">Location</th>
           </tr>
         </thead>
-        <tr *ngIf="!teams.ideas.length">
-          <td colspan="4">There is no existing projects in this category.</td>
-        </tr>
-
         <tbody *ngFor="let team of teams">
           <tr class="table-row" *ngIf="team.ideas[0].project.approved && !team.ideas[0].project.done">
             <td class="table-content" data-heading="Team">

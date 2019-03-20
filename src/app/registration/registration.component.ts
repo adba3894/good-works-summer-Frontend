@@ -27,21 +27,22 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
-              private jobRegistrationService: JobRegistrationService,
-              private route: ActivatedRoute) {
+              private jobRegistrationService: JobRegistrationService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    const organization = this.route.snapshot.paramMap.get('organization');
-    this.organizationParam = this.b64DecodeUnicode(organization);
-    const description = this.route.snapshot.paramMap.get('description');
-    this.descriptionParam = this.b64DecodeUnicode(description);
-    const city = this.route.snapshot.paramMap.get('city');
-    this.cityParam = this.b64DecodeUnicode(city);
-    const category = this.route.snapshot.paramMap.get('category');
-    this.categoryParam = this.b64DecodeUnicode(category);
-    const id = this.route.snapshot.paramMap.get('id');
-    this.idParam = this.b64DecodeUnicode(id);
+    if ( this.router.url !== '/registration') {
+      const organization = this.route.snapshot.paramMap.get('organization');
+      this.organizationParam = this.b64DecodeUnicode(organization);
+      const description = this.route.snapshot.paramMap.get('description');
+      this.descriptionParam = this.b64DecodeUnicode(description);
+      const city = this.route.snapshot.paramMap.get('city');
+      this.cityParam = this.b64DecodeUnicode(city);
+      const category = this.route.snapshot.paramMap.get('category');
+      this.categoryParam = this.b64DecodeUnicode(category);
+      const id = this.route.snapshot.paramMap.get('id');
+      this.idParam = this.b64DecodeUnicode(id);
+    }
     this.jobRegistrationService.getCitiesData(CITIES_API_URL).subscribe(data => {
       this.cities = data;
     });
@@ -50,6 +51,7 @@ export class RegistrationComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
+      id: [this.isValueNotNull(this.idParam)],
       teamLeadName: ['', [Validators.required,
         Validators.pattern('^([a-zA-Ząčęėįšųūž \\-ĄČĘĖĮŠŲŪŽ])+$'), Validators.maxLength(100)]],
       teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
@@ -65,6 +67,12 @@ export class RegistrationComponent implements OnInit {
       });
   }
 
+  b64DecodeUnicode(param) {
+    return decodeURIComponent(atob(param).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+  }
+
   get registerFormControls() {
     return this.teamForm.controls;
   }
@@ -77,32 +85,16 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl('registration/success');
   }
 
-  b64DecodeUnicode(param) {
-    return decodeURIComponent(atob(param).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-  }
-
   onSubmit() {
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
-      if (this.idParam != null) {
-        this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.ideas)
-          .subscribe(() => {
-            this.goToSuccess();
-          }, (errorMessage) => {
-            this.errorMsg = errorMessage.error.message;
-          });
-      } else {
-        this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.ideas)
-          .subscribe(() => {
-            this.goToSuccess();
-          }, (errorMessage) => {
-            this.errorMsg = errorMessage.error.message;
-          });
-      }
-
+      this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.idParam)
+        .subscribe(() => {
+          this.goToSuccess();
+        }, (errorMessage) => {
+          this.errorMsg = errorMessage.error.message;
+        });
     }
   }
 
