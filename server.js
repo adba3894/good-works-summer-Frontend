@@ -3,7 +3,7 @@ var express = require('express');
 var compression = require('compression');
 var PORT = process.env.PORT || 8080;
 
-var buildPath = 'dist/';
+var buildPath = 'dist';
 
 // Initialize
 var app = express();
@@ -16,7 +16,7 @@ app.use(compression());
 
 // Otherwise serve index.html
 app.get('*', function (req, res) {
-  res.sendFile(__dirname + "/" + buildPath + "/index.html");
+  res.sendFile(__dirname + buildPath + "/index.html");
 });
 
 app.listen(PORT);
