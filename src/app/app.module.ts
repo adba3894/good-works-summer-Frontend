@@ -13,17 +13,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobRegistrationService } from './services/job-registration-service/job-registration.service';
-import { AdminProjectComponent } from './admin-login/admin-project/admin-project.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { AdminIdeaAddComponent } from './admin-login/admin-idea-add/admin-idea-add.component';
+import { AdminProjectComponent } from './admin/admin-project/admin-project.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminIdeaAddComponent } from './admin/admin-idea-add/admin-idea-add.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
 import { ProjectPageService } from './services/project-page-service/project-page.service';
 import { IdeasPageComponent } from './ideas-page/ideas-page.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { FinishedProjectsPageComponent } from './finished-projects-page/finished-projects-page.component';
-import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
+import { AdminIdeaComponent } from './admin/admin-idea/admin-idea.component';
 import { MainPageProgressBarComponent } from './main-page/main-page-progress-bar/main-page-progress-bar.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -63,7 +64,8 @@ const routes: Routes = [
     FaqPageComponent,
     FinishedProjectsPageComponent,
     AdminIdeaComponent,
-    MainPageProgressBarComponent
+    MainPageProgressBarComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
