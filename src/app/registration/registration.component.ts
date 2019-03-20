@@ -88,7 +88,14 @@ export class RegistrationComponent implements OnInit {
     this.submitted = true;
     if (this.teamForm.valid) {
       if (this.idParam != null) {
-        this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.idParam)
+        this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.ideas)
+          .subscribe(() => {
+            this.goToSuccess();
+          }, (errorMessage) => {
+            this.errorMsg = errorMessage.error.message;
+          });
+      } else {
+        this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.ideas)
           .subscribe(() => {
             this.goToSuccess();
           }, (errorMessage) => {

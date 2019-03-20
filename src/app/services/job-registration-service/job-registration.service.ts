@@ -42,7 +42,7 @@ export class JobRegistrationService {
         },
         'project': {
           'done': false,
-          'approved': true
+          'approved': false
         }
       }]]
     });
