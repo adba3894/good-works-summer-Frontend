@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box
+}
+
+.container {
+  width: 60%;
+  background-color: grey;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  width: 60%;
+  position: relative;
+}

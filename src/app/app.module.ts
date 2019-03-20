@@ -22,9 +22,11 @@ import { IdeasPageComponent } from './ideas-page/ideas-page.component';
 import { AuthGuardService as AuthGuard } from './services/auth-guard-service/auth-guard.service';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { AdminIdeaComponent } from './admin-login/admin-idea/admin-idea.component';
+import { MainPageProgressBarComponent } from './main-page/main-page-progress-bar/main-page-progress-bar.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
+  { path: '', component: MainPageProgressBarComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'registration/success', component: SuccessPageComponent },
   { path: 'registration/:organization/:description/:category/:city/:cityId/:id', component: RegistrationComponent} ,
@@ -37,8 +39,6 @@ const routes: Routes = [
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
   { path: 'faq', component: FaqPageComponent},
-  { path: 'good-works-summer-frontend.herokuapp.com/admin', component: AdminLoginComponent },
-  { path: 'good-works-summer-frontend.herokuapp.com/**', component: PageNotFoundComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -59,7 +59,8 @@ const routes: Routes = [
     AdminIdeaAddComponent,
     IdeasPageComponent,
     FaqPageComponent,
-    AdminIdeaComponent
+    AdminIdeaComponent,
+    MainPageProgressBarComponent
   ],
   imports: [
     BrowserModule,
