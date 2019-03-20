@@ -40,7 +40,7 @@ export class JobRegistrationService {
           'name': teamForm.get('city').value
         },
         'project': {
-          'done': true,
+          'done': false,
           'approved': true
         }
       }]]

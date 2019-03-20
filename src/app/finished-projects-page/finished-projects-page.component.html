@@ -1,7 +1,7 @@
 <body>
 <div class="project-tab">
   <div class="flip-box" *ngFor="let team of teams">
-    <div class="flip-box-inner" *ngIf="team.ideas[0].project.approved">
+    <div class="flip-box-inner" *ngIf="team.ideas[0].project.done">
       <div class="flip-box-front">
         <div class="front-text">
           <div class="content" data-heading="Team Name">{{team.teamName}}</div>
