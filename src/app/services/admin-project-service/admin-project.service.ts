@@ -46,7 +46,7 @@ export class AdminProjectService {
     return this.adminProjectHttp.put<any>(ADMIN_PROJECT_DONE_API_URL + projectId, rawJsonFormValue).subscribe();
   }
 
-  submitForPost(teamForm: FormGroup, cities: any[], projectIdParam): Observable<any> {
+  submitForPost(teamForm: FormGroup, cities: any[], projectIdParam: string): Observable<any> {
     this.jsonForm = this.adminProjectServiceFormBuilder.group({
       'id': projectIdParam,
       'leadName': teamForm.get('teamLeadName').value.trim(),

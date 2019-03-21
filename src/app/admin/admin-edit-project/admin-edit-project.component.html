@@ -106,7 +106,6 @@
                 'is-invalid': submitted && registerFormControls.city.errors
               }"
             required
-            [attr.disabled]="cityParam"
           >
             <option value="" disabled selected>Location</option>
             <option *ngIf="cityParam != null">{{ cityParam }}</option>
@@ -137,7 +136,6 @@
                   submitted && registerFormControls.organization.errors
               }"
             required
-            [attr.disabled]="organizationParam"
           />
           <div
             *ngIf="submitted && registerFormControls.organization.errors"
@@ -159,7 +157,6 @@
                 'is-invalid': submitted && registerFormControls.category.errors
               }"
             required
-            [attr.disabled]="categoryParam"
           >
             <option value="" disabled selected>Category</option>
             <option *ngIf="categoryParam != null">{{
@@ -191,7 +188,6 @@
                   submitted && registerFormControls.ideaForJob.errors
               }"
               required
-              [attr.disabled]="descriptionParam"
             ></textarea>
           <div
             *ngIf="submitted && registerFormControls.ideaForJob.errors"

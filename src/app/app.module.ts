@@ -40,6 +40,8 @@ const routes: Routes = [
   { path: 'admin/ideas/add', component: AdminIdeaAddComponent, canActivate: [AuthGuard] },
   { path: 'admin/ideas', component: AdminIdeaComponent, canActivate: [AuthGuard] },
   { path: 'admin/project/update', component: AdminEditProjectComponent, canActivate: [AuthGuard] },
+  { path: 'admin/project/update/:leadName/:leadEmail/:teamName/:category/:organization/:city/:description/:id',
+    component: AdminEditProjectComponent, canActivate: [AuthGuard] },
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
   { path: 'faq', component: FaqPageComponent},

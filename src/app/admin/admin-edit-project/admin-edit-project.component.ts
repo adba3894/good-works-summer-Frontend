@@ -16,8 +16,12 @@ export class AdminEditProjectComponent implements OnInit {
   organizationParam = null;
   descriptionParam = null;
   categoryParam = null;
-  cityParam;
+  cityParam = null;
+  teamLeadNameParam = null;
+  teamLeadEmailParam = null;
+  teamNameParam = null;
   idParam: string;
+  ideaParam = null;
   ideas = [];
   public errorMsg;
 
@@ -29,6 +33,24 @@ export class AdminEditProjectComponent implements OnInit {
   }
 
   ngOnInit() {
+    if ( this.router.url !== '/admin/project/update') {
+      const organization = this.route.snapshot.paramMap.get('organization');
+      this.organizationParam = this.b64DecodeUnicode(organization);
+      const category = this.route.snapshot.paramMap.get('category');
+      this.categoryParam = this.b64DecodeUnicode(category);
+      const city = this.route.snapshot.paramMap.get('city');
+      this.cityParam = this.b64DecodeUnicode(city);
+      const teamLeadName = this.route.snapshot.paramMap.get('leadName');
+      this.teamLeadNameParam = this.b64DecodeUnicode(teamLeadName);
+      const teamLeadEmail = this.route.snapshot.paramMap.get('leadEmail');
+      this.teamLeadEmailParam = this.b64DecodeUnicode(teamLeadEmail);
+      const teamName = this.route.snapshot.paramMap.get('teamName');
+      this.teamNameParam = this.b64DecodeUnicode(teamName);
+      const description = this.route.snapshot.paramMap.get('description');
+      this.descriptionParam = this.b64DecodeUnicode(description);
+      const id = this.route.snapshot.paramMap.get('id');
+      this.idParam = this.b64DecodeUnicode(id);
+    }
     this.adminProjectService.getCitiesData(CITIES_API_URL)
       .subscribe(data => {
         this.cities = data;
@@ -38,16 +60,21 @@ export class AdminEditProjectComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
-      id: [this.isValueNotNull(this.idParam)],
-      teamLeadName: ['', [Validators.required,
+      teamLeadName: [this.isValueNotNull(this.teamLeadNameParam), [Validators.required,
         Validators.pattern('^([a-zA-Ząčęėįšųūž \\-ĄČĘĖĮŠŲŪŽ])+$'), Validators.maxLength(100)]],
-      teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
-      teamName: ['', [Validators.required, Validators.maxLength(30)]],
+      teamLeadEmail: [this.isValueNotNull(this.teamLeadEmailParam), [Validators.required, Validators.email, Validators.maxLength(100)]],
+      teamName: [this.isValueNotNull(this.teamNameParam), [Validators.required, Validators.maxLength(30)]],
       city: [this.isValueNotNull(this.cityParam), Validators.required],
-      organization: [this.organizationParam, [Validators.required, Validators.maxLength(100)]],
-      ideaForJob: [this.descriptionParam, Validators.required],
+      organization: [this.isValueNotNull(this.organizationParam), [Validators.required, Validators.maxLength(100)]],
+      ideaForJob: [this.isValueNotNull(this.descriptionParam), Validators.required],
       category: [this.isValueNotNull(this.categoryParam), Validators.required]
     });
+  }
+
+  b64DecodeUnicode(param) {
+    return decodeURIComponent(atob(param).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
   }
 
   get registerFormControls() {

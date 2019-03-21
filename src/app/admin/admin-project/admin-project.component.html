@@ -42,8 +42,8 @@
       <td>
         {{team.ideas[0].city.name}}
       </td>
-      <td *ngFor="let idea of team.ideas">
-        {{idea.description}}</td>
+      <td>
+        {{team.ideas[0].description}}</td>
       <td class="m_title">
         {{team.ideas[0].category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
       <td style="text-align: left">
@@ -61,7 +61,15 @@
           Done
         </button>
         &nbsp;&nbsp;
-        <button class="edit-button" (click)="editProjectInformation()">
+        <button class="edit-button" (click)="onSelect(
+        team.leadName,
+        team.leadEmail,
+        team.teamName,
+        team.ideas[0].category,
+        team.ideas[0].organization,
+        team.ideas[0].city.name,
+        team.ideas[0].description,
+        team.id)">
           Edit
         </button>
       </td>
@@ -71,3 +79,6 @@
 </div>
 </body>
 </html>
+
+<!--leadName, email, teamName, category, organization, city, idea, id-->
+<!--editProjectInformation()-->
