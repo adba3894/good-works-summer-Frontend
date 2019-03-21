@@ -18,17 +18,17 @@
   </div>
   <nav class="nav">
     <div class="nav-tabs">
-      <a class="nav-item" (click)="ngOnInit()"> All ideas </a>
-      <a class="nav-item" (click)="get_giving_back_data(); ">
+      <a class="nav-item" (click)="ngOnInit()" [ngStyle]="{'background-color': value === 0 ? 'rgba(232, 186, 36, 0.4)' : ''}"> All ideas </a>
+      <a class="nav-item" (click)="getGivingBackToSociety(); " [ngStyle]="{'background-color': value === 1 ? 'rgba(232, 186, 36, 0.4)' : ''}">
         Giving Back To Society
       </a>
-      <a class="nav-item" (click)="get_helping_animals_data()">
+      <a class="nav-item" (click)="getHelpingAnimalsData();" [ngStyle]="{'background-color': value === 2 ? 'rgba(232, 186, 36, 0.4)' : ''}">
         Helping Animals
       </a>
-      <a class="nav-item" (click)="get_sharing_knowledge_data()">
+      <a class="nav-item" (click)="getSharingKnowledge();" [ngStyle]="{'background-color': value === 3 ? 'rgba(232, 186, 36, 0.4)' : ''}">
         Sharing Knowledge
       </a>
-      <a class="nav-item" (click)="get_beautiful_environment_data()">
+      <a class="nav-item" (click)="getBeautifulEnvironmentData();" [ngStyle]="{'background-color': value == 4 ? 'rgba(232, 186, 36, 0.4)' : ''}">
         Beautiful Environment
       </a>
     </div>
