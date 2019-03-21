@@ -29,7 +29,6 @@ export class IdeasPageComponent implements OnInit {
   }
 
   onSelect(organization, description, category, city, id) {
-    console.log(id);
     this.router.navigate([
       '/registration',
       this.b64EncodeUnicode(organization),
