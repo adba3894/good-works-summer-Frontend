@@ -42,8 +42,6 @@ export class RegistrationComponent implements OnInit {
       this.categoryParam = this.b64DecodeUnicode(category);
       const id = this.route.snapshot.paramMap.get('id');
       this.idParam = this.b64DecodeUnicode(id);
-      console.log(this.idParam);
-      console.log('what');
     }
     this.jobRegistrationService.getCitiesData(CITIES_API_URL).subscribe(data => {
       this.cities = data;

@@ -12,6 +12,7 @@ export class IdeasPageComponent implements OnInit {
 
   ideas = [];
   cities = [];
+  value: boolean= false;
 
   constructor(private router: Router, private ideasPageService: IdeasPageService) {
   }
@@ -71,6 +72,9 @@ export class IdeasPageComponent implements OnInit {
       .subscribe(data => {
         this.ideas = data;
       });
+  }
+  setActive() {
+    return this.value = true;
   }
 
   goToFaq() {
