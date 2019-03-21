@@ -54,11 +54,15 @@
           Approve
         </button>
         &nbsp;&nbsp;
-        <button *ngIf="team.ideas[0].project.done === false" class="approve-button" (click)="markProjectAsDone(team.ideas[0].project.id)">
+        <button *ngIf="team.ideas[0].project.done === false && team.ideas[0].project.approved === true" class="approve-button" (click)="markProjectAsDone(team.ideas[0].project.id)">
           Done
         </button>
-        <button *ngIf="team.ideas[0].project.done === true" class="grey-button">
+        <button *ngIf="team.ideas[0].project.done === true || team.ideas[0].project.approved === false" class="grey-button">
           Done
+        </button>
+        &nbsp;&nbsp;
+        <button class="edit-button">
+          Edit
         </button>
       </td>
     </tr>
