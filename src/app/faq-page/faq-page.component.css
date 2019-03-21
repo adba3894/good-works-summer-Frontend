@@ -1,5 +1,33 @@
-.center {
-  margin: auto;
-  width: 40%;
-  padding: 10px;
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.project-tab{
+  padding-top: 4%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.panel-group{
+  background-color: rgba(252, 206, 36, 0.4);
+  background-image: linear-gradient(rgba(248, 222, 126, 0.3), rgba(252, 206, 36, 0.3));
+  border-radius: 10px;
+}
+
+.panel-body{
+  background-color: whitesmoke;
+}
+.panel-title{
+  margin-right: 35px;
+}
+@media only screen and (max-width: 968px) {
+  .project-tab{
+    max-width: 98%;
+  }
+}
+@media only screen and (min-width: 969px) {
+  .project-tab {
+    width: auto;
+    max-width: 950px;
+  }
 }
