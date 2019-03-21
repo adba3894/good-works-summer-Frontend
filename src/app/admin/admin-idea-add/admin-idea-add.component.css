@@ -12,14 +12,21 @@
 
 .successMessage {
   font-family: Century Gothic, monospace;
-  font-size: 14px;
+  font-size: 16px;
+  float: right;
   color: green;
+  margin-top: 1%;
+  margin-right: 1px;
 }
+
 
 .validationMessage {
   font-family: Century Gothic, monospace;
-  font-size: 14px;
+  font-size: 16px;
+  float: right;
   color: red;
+  margin-top: 1%;
+  margin-right: 1px;
 }
 
 .register {

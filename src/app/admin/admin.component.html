@@ -1,16 +1,23 @@
-<div class="container-fluid">
-<ul class="nav" style="background-color: slategrey">
-  <li class="nav-item">
-    <a class="nav-link active" (click)="goToAdminNewIdea()" style="color: white">New Idea</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="goToAdminProject()" style="color: white">Project</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="goToAdminIdea()" style="color: white">Ideas</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" (click)="logoutOfAdmin()" style="color: red">Log Out</a>
-  </li>
-</ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <img src="../../assets/main_header_logo.png" class="logo">
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link tabs" (click)="goToAdminNewIdea()" style="margin-left: 20px">New Idea</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link tabs" (click)="goToAdminProject()">Project</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link tabs" (click)="goToAdminIdea()">Ideas</a>
+      </li>
+    </ul>
+    <ul class="nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link tabs ml-auto" (click)="logoutOfAdmin()" style="font-size: 20px;">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>

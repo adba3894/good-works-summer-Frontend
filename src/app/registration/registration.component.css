@@ -55,8 +55,11 @@ textarea{
 }
 
 .successMessage {
-  font-size: 14px;
+  font-size: 16px;
+  float: right;
   color: red;
+  margin-top: 1%;
+  margin-right: 3%;
 }
 
 @media only screen and (max-width: 969px) {
