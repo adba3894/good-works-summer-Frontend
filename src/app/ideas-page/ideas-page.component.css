@@ -13,6 +13,10 @@ p {
   margin-right: auto;
 }
 
+.plus-button {
+  cursor: pointer;
+}
+
 .text {
   text-align: justify;
 }
@@ -53,12 +57,11 @@ div.nav-tabs a:hover {
   background-color: rgba(232, 186, 36, 0.4);
 }
 
-
 @media only screen and (max-width: 968px) {
 
-  .table-content img{
+  .table-content img {
     position: sticky;
-    float:right;
+    float: right;
   }
 
   tbody {
@@ -93,6 +96,7 @@ div.nav-tabs a:hover {
   .project-tab {
     width: 98%;
   }
+
   div.nav-tabs {
     overflow: auto;
   }

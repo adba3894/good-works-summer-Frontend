@@ -19,3 +19,10 @@
   position: relative;
   cursor: pointer;
 }
+
+.btn {
+  background-color: rgba(252, 206, 36, 0.8);
+  text-align: center;
+  font-size: 16px;
+  text-decoration-color: black;
+}
