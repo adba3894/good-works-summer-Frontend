@@ -2,7 +2,7 @@
   <div class="center">
     <div class="panel-group" *ngFor="let item of items; let i = index">
       <div class="panel-heading" (click)="current = i">
-        <h5 class="panel-title">  {{item.title}}</h5>
+        <h5 class="panel-title"> {{item.title}} </h5>
       </div>
       <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
         <div class="panel-body">{{item.description}}</div>
