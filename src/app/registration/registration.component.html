@@ -7,17 +7,17 @@
     <div class="row register">
       <div class="col-md-5 register-box">
         <div class="form-group">
+          <label>Team Lead Name and Surname</label>
           <input
             type="text"
             class="form-control"
             formControlName="teamLeadName"
             [ngClass]="{
-                'is-invalid':
-                  submitted && registerFormControls.teamLeadName.errors
-              }"
+              'is-invalid':
+                submitted && registerFormControls.teamLeadName.errors
+            }"
             required
-            placeholder="Team Lead Name"
-            value=""
+            placeholder="Jerry Keller"
           />
           <div
             *ngIf="submitted && registerFormControls.teamLeadName.errors"
@@ -35,21 +35,22 @@
           </div>
         </div>
         <div class="form-group">
+          <label>Team Lead E-mail</label>
           <input
             type="text"
             class="form-control"
             formControlName="teamLeadEmail"
             [ngClass]="{
-                'is-invalid':
-                  submitted && registerFormControls.teamLeadEmail.errors
-              }"
+              'is-invalid':
+                submitted && registerFormControls.teamLeadEmail.errors
+            }"
             required
-            placeholder="Team Lead E-mail"
-            value=""
+            placeholder="jerry.keller@example.com"
           />
           <div
             *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
-            class="invalid-feedback">
+            class="invalid-feedback"
+          >
             <div *ngIf="registerFormControls.teamLeadEmail.errors.required">
               Team Lead e-mail is required
             </div>
@@ -62,16 +63,16 @@
           </div>
         </div>
         <div class="form-group">
+          <label>Team Name</label>
           <input
             type="text"
             class="form-control"
             formControlName="teamName"
+            placeholder="DreamTeam"
             [ngClass]="{
-                'is-invalid': submitted && registerFormControls.teamName.errors
-              }"
+              'is-invalid': submitted && registerFormControls.teamName.errors
+            }"
             required
-            placeholder="Team Name"
-            value=""
           />
           <div
             *ngIf="submitted && registerFormControls.teamName.errors"
@@ -86,16 +87,17 @@
           </div>
         </div>
         <div class="form-group">
+          <label>Location</label>
           <select
             class="form-control"
             formControlName="city"
             [ngClass]="{
-                'is-invalid': submitted && registerFormControls.city.errors
-              }"
+              'is-invalid': submitted && registerFormControls.city.errors
+            }"
             required
             [attr.disabled]="cityParam"
           >
-            <option value="" disabled selected>Location</option>
+            <option value="" disabled selected>Choose location</option>
             <option *ngIf="cityParam != null">{{ cityParam }}</option>
             <option *ngFor="let city of cities">
               {{ city.name }}
@@ -113,16 +115,17 @@
       </div>
       <div class="col-md-5 register-box">
         <div class="form-group">
+          <label>Organization</label>
           <input
             type="text"
             class="form-control"
             formControlName="organization"
-            placeholder="Organization"
+            placeholder='„SOS gyvūnų“ prieglauda'
             value="{{ organizationParam }}"
             [ngClass]="{
-                'is-invalid':
-                  submitted && registerFormControls.organization.errors
-              }"
+              'is-invalid':
+                submitted && registerFormControls.organization.errors
+            }"
             required
             [attr.disabled]="organizationParam"
           />
@@ -139,16 +142,17 @@
           </div>
         </div>
         <div class="form-group">
+          <label>Category</label>
           <select
             class="form-control"
             formControlName="category"
             [ngClass]="{
-                'is-invalid': submitted && registerFormControls.category.errors
-              }"
+              'is-invalid': submitted && registerFormControls.category.errors
+            }"
             required
             [attr.disabled]="categoryParam"
           >
-            <option value="" disabled selected>Category</option>
+            <option disabled selected value="">Choose category</option>
             <option *ngIf="categoryParam != null">{{
               categoryParam.split("_").join(" ") | titlecase
               }}</option>
@@ -166,20 +170,20 @@
           </div>
         </div>
         <div class="form-group idea">
-            <textarea
-              type="text"
-              class="form-control"
-              formControlName="ideaForJob"
-              placeholder="Idea for a good job"
-              value="{{ descriptionParam }}"
-              maxlength="240"
-              [ngClass]="{
-                'is-invalid':
-                  submitted && registerFormControls.ideaForJob.errors
-              }"
-              required
-              [attr.disabled]="descriptionParam"
-            ></textarea>
+          <label>Idea for a good job</label>
+          <textarea
+            type="text"
+            class="form-control"
+            formControlName="ideaForJob"
+            value="{{ descriptionParam }}"
+            placeholder="Take care of animals..."
+            maxlength="240"
+            [ngClass]="{
+              'is-invalid': submitted && registerFormControls.ideaForJob.errors
+            }"
+            required
+            [attr.disabled]="descriptionParam"
+          ></textarea>
           <div
             *ngIf="submitted && registerFormControls.ideaForJob.errors"
             class="invalid-feedback"

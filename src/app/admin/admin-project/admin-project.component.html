@@ -1,87 +1,107 @@
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-<app-admin></app-admin>
-<body>
-<div class="container-fluid">
-  <table class="table table-hover">
-    <thead class="thead-color col-md-4"
-           style="text-align: left">
-    <tr>
-      <th>Lead Name</th>
-      <th>Lead Email</th>
-      <th>Organization</th>
-      <th>Team Name</th>
-      <th>Location</th>
-      <th>Idea</th>
-      <th width="250px">
-        Category
-      </th>
-      <th></th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let team of teams"
-        style="text-align: left">
-      <td>
-        {{team.leadName}}
-      </td>
-      <td>
-        {{team.leadEmail}}
-      </td>
-      <td>
-        {{team.ideas[0].organization}}
-      </td>
-      <td>
-        {{team.teamName}}
-      </td>
-      <td>
-        {{team.ideas[0].city.name}}
-      </td>
-      <td>
-        {{team.ideas[0].description}}</td>
-      <td class="m_title">
-        {{team.ideas[0].category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
-      <td style="text-align: left">
-        <button *ngIf="team.ideas[0].project.approved === false" class="approve-button" (click)="approveProject(team.ideas[0].project.id)">
-          Approve
-        </button>
-        <button *ngIf="team.ideas[0].project.approved === true" class="grey-button">
-          Approve
-        </button>
-        &nbsp;&nbsp;
-        <button *ngIf="team.ideas[0].project.done === false && team.ideas[0].project.approved === true" class="approve-button" (click)="markProjectAsDone(team.ideas[0].project.id)">
-          Done
-        </button>
-        <button *ngIf="team.ideas[0].project.done === true || team.ideas[0].project.approved === false" class="grey-button">
-          Done
-        </button>
-        &nbsp;&nbsp;
-        <button class="edit-button" (click)="onSelect(
-        team.leadName,
-        team.leadEmail,
-        team.teamName,
-        team.ideas[0].category,
-        team.ideas[0].organization,
-        team.ideas[0].city.name,
-        team.ideas[0].description,
-        team.id,
-        team.ideas[0].id,
-        team.ideas[0].project.id,
-        team.ideas[0].state)">
-          Edit
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <app-admin></app-admin>
+  <body>
+    <div class="container-fluid">
+      <table class="table table-hover">
+        <thead class="thead-color col-md-4" style="text-align: left">
+          <tr>
+            <th>Lead Name</th>
+            <th>Lead Email</th>
+            <th>Organization</th>
+            <th>Team Name</th>
+            <th>Location</th>
+            <th>Idea</th>
+            <th width="250px">
+              Category
+            </th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams" style="text-align: left">
+            <td>
+              {{ team.leadName }}
+            </td>
+            <td>
+              {{ team.leadEmail }}
+            </td>
+            <td>
+              {{ team.ideas[0].organization }}
+            </td>
+            <td>
+              {{ team.teamName }}
+            </td>
+            <td>
+              {{ team.ideas[0].city.name }}
+            </td>
+            <td>
+              {{ team.ideas[0].description }}
+            </td>
+            <td class="m_title">
+              {{
+                team.ideas[0].category
+                  .toLocaleLowerCase()
+                  .replace("_", " ")
+                  .replace("_", " ")
+                  .replace("_", " ")
+              }}
+            </td>
+            <td style="text-align: left">
+              <button
+                class="approve-button"
+                (click)="approveProject(team.ideas[0].project.id, team)"
+                [ngStyle]="{
+                  'background-color':
+                    team.ideas[0].project.approved === true
+                      ? 'lightslategrey'
+                      : 'springgreen'
+                }"
+              >
+                Approve
+              </button>
+              <button
+                (click)="markProjectAsDone(team.ideas[0].project.id, team)"
+                [ngStyle]="{
+                  'background-color':
+                    team.ideas[0].project.done === false &&
+                    team.ideas[0].project.approved === true
+                      ? 'springgreen'
+                      : 'lightslategrey'
+                }"
+                class="approve-button"
+              >
+                Done
+              </button>
+              <button
+                class="edit-button"
+                (click)="
+                  onSelect(
+                    team.leadName,
+                    team.leadEmail,
+                    team.teamName,
+                    team.ideas[0].category,
+                    team.ideas[0].organization,
+                    team.ideas[0].city.name,
+                    team.ideas[0].description,
+                    team.id
+                  )
+                "
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
-
-<!--leadName, email, teamName, category, organization, city, idea, id-->
-<!--editProjectInformation()-->

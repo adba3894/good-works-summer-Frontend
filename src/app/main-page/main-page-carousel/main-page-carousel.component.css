@@ -7,7 +7,7 @@ strong {
 }
 
 .container {
-  padding-top: 2%;
+  padding-top: 3%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -23,11 +23,6 @@ strong {
   z-index: -2;
 }
 
-.w3-center {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 36px;
-}
-
 .w3-button:hover {
   background-color: transparent !important;
   color: rgba(252, 206, 36, 0.7) !important;
@@ -38,26 +33,64 @@ button:focus {
 }
 
 .text {
+  font-size: 19px;
   text-align: justify;
   margin-left: auto;
   margin-right: auto;
   max-width: 950px;
+  margin-bottom: 4%;
 }
 
+.counter {
+  margin-bottom: 3%;
+}
 
-@media only screen and (max-width: 768px) {
+.w3-button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}
+
+.w3-display-left {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%)
+}
+
+.w3-display-right {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%)
+}
+
+@media only screen and (max-width: 968px) {
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 100%;
+    transform: translate(0);
+  }
 
   .carousel {
     margin-left: auto;
     margin-right: auto;
-    height: 280px;
+    height: 180px;
     width: auto;
-    max-width: 450px;
+    max-width: 750px;
     transform: translate(0);
-  }
-
-  .w3-center {
-    display: none;
   }
 
   .w3-button {
@@ -65,9 +98,17 @@ button:focus {
     color: rgba(255, 255, 255, 0.9);
   }
 
+  .container {
+    font-size: 12px !important;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 969px) {
 
   .carousel {
     margin-left: auto;

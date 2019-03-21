@@ -7,19 +7,19 @@
       </p>
     </div>
     <nav class="nav">
-      <div class="nav-tabs ">
-        <a class="nav-item" (click)="ngOnInit()"> All projects </a>
-        <a class="nav-item" (click)="getGivingBackData()">
+      <div class="nav-tabs">
+        <a class="nav-item" (click)="ngOnInit()" [ngStyle]="{'background-color': value === 0 ? 'rgba(232, 186, 36, 0.4)' : ''}"> All ideas </a>
+        <a class="nav-item" (click)="getGivingBackToSociety(); " [ngStyle]="{'background-color': value === 1 ? 'rgba(232, 186, 36, 0.4)' : ''}">
           Giving Back To Society
         </a>
-        <a class="nav-item" (click)="getHelpingAnimalsData()">
+        <a class="nav-item" (click)="getHelpingAnimalsData();" [ngStyle]="{'background-color': value === 2 ? 'rgba(232, 186, 36, 0.4)' : ''}">
           Helping Animals
         </a>
-        <a class="nav-item" (click)="getSharingKnowledgeData()">
+        <a class="nav-item" (click)="getSharingKnowledgeData();" [ngStyle]="{'background-color': value === 3 ? 'rgba(232, 186, 36, 0.4)' : ''}">
           Sharing Knowledge
         </a>
-        <a class="nav-item" (click)="getBeautifulEnvironmentData()">
-          Beautiful environment
+        <a class="nav-item" (click)="getBeautifulEnvironmentData();" [ngStyle]="{'background-color': value == 4 ? 'rgba(232, 186, 36, 0.4)' : ''}">
+          Beautiful Environment
         </a>
       </div>
     </nav>
@@ -29,8 +29,8 @@
           <tr>
             <th class="table-heading team">Team</th>
             <th class="table-heading organization">Organization</th>
-            <th class="table-heading tab-large plan">Plan of action</th>
-            <th class="table-heading tab-right location">Location</th>
+            <th class="table-heading plan">Plan of action</th>
+            <th class="table-heading location">Location</th>
           </tr>
         </thead>
         <tbody *ngFor="let team of teams">

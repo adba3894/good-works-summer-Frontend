@@ -13,6 +13,7 @@ import { FILTERED_TEAMS_API_URL } from '../registration.const';
 })
 export class ProjectPageComponent implements OnInit {
   teams = [];
+  value;
 
   constructor(private router: Router, private formBuilder: FormBuilder, private projectPageService: ProjectPageService) {
   }
@@ -22,6 +23,7 @@ export class ProjectPageComponent implements OnInit {
       .subscribe(data => {
         this.teams = data;
       });
+    this.value = 0;
   }
 
   getBeautifulEnvironmentData() {
@@ -29,13 +31,15 @@ export class ProjectPageComponent implements OnInit {
       .subscribe(data => {
         this.teams = data;
       });
+    this.value = 4;
   }
 
-  getGivingBackData() {
+  getGivingBackToSociety() {
     this.projectPageService.getTeamsData(FILTERED_TEAMS_API_URL + '/GIVING_BACK_TO_SOCIETY')
       .subscribe(data => {
         this.teams = data;
       });
+    this.value = 1;
   }
 
   getHelpingAnimalsData() {
@@ -43,6 +47,7 @@ export class ProjectPageComponent implements OnInit {
       .subscribe(data => {
         this.teams = data;
       });
+    this.value = 2;
   }
 
   getSharingKnowledgeData() {
@@ -50,6 +55,7 @@ export class ProjectPageComponent implements OnInit {
       .subscribe(data => {
         this.teams = data;
       });
+    this.value = 3;
   }
 
   goToIdeas() {

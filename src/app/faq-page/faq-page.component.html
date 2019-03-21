@@ -1,18 +1,16 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+      integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 <section class="project-tab">
-<div id="panel-group" class="center">
-  <div class="panel-group"  *ngFor="let item of items; let i = index">
-    <div class="panel-heading" (click)="current = i">
-      <h5 class="panel-title">
-        <i class='glyphicon'
-           [class.glyphicon-chevron-right]="i != current"
-           [class.glyphicon-chevron-down]="i == current"></i>   {{item.title}}
-      </h5>
-    </div>
-    <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
-      <div class="panel-body">{{item.description}}</div>
+  <div class="center">
+    <div class="panel-group" *ngFor="let item of items; let i = index">
+      <div class="panel-heading" (click)="current = i">
+        <i [class.collapse]='current != i' class= "icon" style="font-size:28px" class="fa"> &#xf107;</i>
+        <i [class.collapse]='current == i' class= "icon" style="font-size:28px" class="fa"> &#xf105;</i>
+        <h5 class="panel-title"> {{item.title}}</h5>
+      </div>
+      <div  [class.collapse]='current != i'>
+        <div class="panel-body">{{item.description}}</div>
+      </div>
     </div>
   </div>
-</div>
 </section>

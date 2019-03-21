@@ -51,7 +51,6 @@ export class RegistrationComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
-      id: [this.isValueNotNull(this.idParam)],
       teamLeadName: ['', [Validators.required,
         Validators.pattern('^([a-zA-Ząčęėįšųūž \\-ĄČĘĖĮŠŲŪŽ])+$'), Validators.maxLength(100)]],
       teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
@@ -89,6 +88,7 @@ export class RegistrationComponent implements OnInit {
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
+      console.log(this.idParam);
       this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.idParam)
         .subscribe(() => {
           this.goToSuccess();

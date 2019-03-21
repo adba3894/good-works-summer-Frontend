@@ -49,7 +49,7 @@
 }
 
 .flip-box-back {
-  background-color: rgb(150,234,227);
+  background-color: whitesmoke;
   color: gray;
   transform: rotateX(180deg);
   text-align: left;
@@ -75,15 +75,15 @@
 .content {
   text-align: left;
   margin-left: 15px;
-  font-size: 1.3rem;
-  color: #d6d6d6;
+  font-size: 1.4rem;
+  color: black;
 }
 
 .content:before {
   content: attr(data-heading);
   display: block;
   color: #999;
-  font-size: .7rem;
+  font-size: .8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 10px;
@@ -95,6 +95,12 @@
   float: right;
   width: 100px;
   height: 100px;
+}
+
+@media only screen and (max-width: 968px) {
+  .flip-box:active .flip-box-inner {
+    transform: rotateX(180deg);
+  }
 }
 
 @media only screen and (min-width: 969px) {
