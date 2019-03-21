@@ -42,8 +42,8 @@
       <td>
         {{team.ideas[0].city.name}}
       </td>
-      <td *ngFor="let idea of team.ideas">
-        {{idea.description}}</td>
+      <td>
+        {{team.ideas[0].description}}</td>
       <td class="m_title">
         {{team.ideas[0].category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
       <td style="text-align: left">
@@ -54,11 +54,23 @@
           Approve
         </button>
         &nbsp;&nbsp;
-        <button *ngIf="team.ideas[0].project.done === false" class="approve-button" (click)="markProjectAsDone(team.ideas[0].project.id)">
+        <button *ngIf="team.ideas[0].project.done === false && team.ideas[0].project.approved === true" class="approve-button" (click)="markProjectAsDone(team.ideas[0].project.id)">
           Done
         </button>
-        <button *ngIf="team.ideas[0].project.done === true" class="grey-button">
+        <button *ngIf="team.ideas[0].project.done === true || team.ideas[0].project.approved === false" class="grey-button">
           Done
+        </button>
+        &nbsp;&nbsp;
+        <button class="edit-button" (click)="onSelect(
+        team.leadName,
+        team.leadEmail,
+        team.teamName,
+        team.ideas[0].category,
+        team.ideas[0].organization,
+        team.ideas[0].city.name,
+        team.ideas[0].description,
+        team.id)">
+          Edit
         </button>
       </td>
     </tr>
@@ -67,3 +79,6 @@
 </div>
 </body>
 </html>
+
+<!--leadName, email, teamName, category, organization, city, idea, id-->
+<!--editProjectInformation()-->
