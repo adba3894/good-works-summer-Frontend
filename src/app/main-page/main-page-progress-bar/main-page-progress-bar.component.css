@@ -16,7 +16,7 @@
 }
 
 .progress-bar-striped {
-  background-color: rgba(252, 206, 36, 0.8);
+  background-color: rgba(252, 206, 36, 0.7);
 }
 
 @media only screen and (max-width: 968px) {
