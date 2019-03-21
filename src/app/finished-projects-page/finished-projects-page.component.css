@@ -6,10 +6,15 @@
   padding-top: 2%;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.project {
+  display: inline-block;
 }
 
 .flip-box {
-  display: inline-block;
   background-color: transparent;
   width: 275px;
   height: 235px;
@@ -34,15 +39,17 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border-radius: 10px;
 }
 
 .flip-box-front {
-  background-color: #DAE6E9;
+  background-color: rgba(248, 222, 126, 0.4);
+  background-image: linear-gradient(rgba(248, 222, 126, 0.5), rgba(252, 206, 36, 0.5));
   color: black;
 }
 
 .flip-box-back {
-  background-color: rgba(252, 206, 36, 1);
+  background-color: rgb(150,234,227);
   color: gray;
   transform: rotateX(180deg);
   text-align: left;
@@ -83,12 +90,11 @@
 }
 
 .icon {
-  margin-bottom: -70px;
   margin-right: 20px;
   opacity: 0.7;
   float: right;
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
 }
 
 @media only screen and (min-width: 969px) {
