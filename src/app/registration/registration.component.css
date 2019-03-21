@@ -3,12 +3,10 @@
 }
 
 .container-register {
-  margin-left: auto;
-  margin-right: auto;
   width: auto;
   max-width: 950px;
   height: 300px;
-  margin-top: 3%;
+  margin: 3% auto 20%;
 }
 
 .cointainer {
