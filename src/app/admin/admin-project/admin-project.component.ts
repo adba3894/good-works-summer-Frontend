@@ -9,6 +9,7 @@ import {
   TEAMS_API_URL
 } from '../../registration.const';
 import { AdminEditProjectComponent } from '../admin-edit-project/admin-edit-project.component';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-admin-project',
@@ -19,6 +20,7 @@ export class AdminProjectComponent implements OnInit {
   teams = [];
   cities = [];
   categories = [];
+  approved;
 
   constructor(private router: Router, private formBuilder: FormBuilder, private adminProjectService: AdminProjectService) {
   }
@@ -29,8 +31,8 @@ export class AdminProjectComponent implements OnInit {
     });
     this.adminProjectService.getCitiesData(CITIES_API_URL)
       .subscribe(data => {
-      this.cities = data;
-    });
+        this.cities = data;
+      });
     this.adminProjectService.getCategoriesData(CATEGORY_API_URL)
       .subscribe(data => {
         this.categories = data;
@@ -41,12 +43,14 @@ export class AdminProjectComponent implements OnInit {
     return this.adminProjectService.getTeamsData(TEAMS_API_URL);
   }
 
-  approveProject(projectId: any) {
+  approveProject(projectId: any, team) {
     this.adminProjectService.changeProjectValueToApproved(projectId);
+    team.ideas[0].project.approved = true;
   }
 
-  markProjectAsDone(projectId: any) {
+  markProjectAsDone(projectId: any, team) {
     this.adminProjectService.changeProjectValueToDone(projectId);
+    team.ideas[0].project.done = true;
   }
 
   editProjectInformation() {
