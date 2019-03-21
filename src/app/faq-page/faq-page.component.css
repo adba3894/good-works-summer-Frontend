@@ -2,47 +2,49 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.project-tab{
+.project-tab {
   padding-top: 4%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.panel-group{
+.panel-group {
+  margin-bottom: 20px;
+}
+
+.panel-heading {
+  padding: 8px;
   background-color: rgba(252, 206, 36, 0.4);
   background-image: linear-gradient(rgba(248, 222, 126, 0.3), rgba(252, 206, 36, 0.3));
   border-radius: 10px;
-  margin-bottom:20px
 }
 
-.panel-heading{
-  padding: 8px;
-}
-
-.panel-body{
+.panel-body {
   padding: 15px;
   background-color: whitesmoke;
 }
-.panel-collapse{
+
+i{
+  float:right;
+  opacity: 0.8;
 }
-.panel-title{
-  margin-right: 35px;
-}
+
 @media only screen and (max-width: 968px) {
-  .project-tab{
+  .project-tab {
     max-width: 98%;
   }
 
-  .panel-body{
+  .panel-body {
     font-size: 12px;
     padding: 10px;
   }
 
-  .panel-heading, h5{
+  .panel-heading, h5 {
     padding: 4px;
     font-size: 14px;
   }
 }
+
 @media only screen and (min-width: 969px) {
   .project-tab {
     width: auto;
