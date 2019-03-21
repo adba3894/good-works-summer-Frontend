@@ -25,6 +25,10 @@ h1 {
   padding-top: 20px;
 }
 
+iframe{
+  height: 270px;
+}
+
 .text {
   position: relative;
   text-align: center;
@@ -126,7 +130,7 @@ button:focus {
   #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
+    background: #cdcdcd;
   }
 
   #menuToggle input:checked ~ span:nth-last-child(3) {
@@ -139,7 +143,7 @@ button:focus {
   }
 
   .nav-link {
-    color: black !important;
+    color: white !important;
     padding: 5px 0;
     font-size: 22px;
     cursor: pointer;
@@ -147,7 +151,7 @@ button:focus {
   }
 
   .nav-link:hover {
-    color: white !important;
+    color: grey!important;
   }
 
   #menuToggle input:checked ~ ul {
@@ -155,15 +159,14 @@ button:focus {
   }
 
   .hamburger-menu {
-    overflow: hidden !important;
-    position: absolute;
-    width: auto;
+    position: fixed;
+    width: 100%;
     min-height: 800px;
     margin: -100px 0 0 -370px;
     padding: 50px;
     padding-top: 120px;
     padding-bottom: 10%;
-    background: rgb(248, 222, 126);
+    background: rgba(0, 0, 0, 0.85);
     list-style-type: none;
     transform-origin: 0% 0%;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
