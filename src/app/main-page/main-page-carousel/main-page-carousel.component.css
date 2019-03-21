@@ -41,18 +41,47 @@ button:focus {
   margin-bottom: 5%;
 }
 
-.counter{
+.counter {
   margin-bottom: 3%;
 }
 
-@media only screen and (max-width: 768px) {
+.w3-button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}
 
-  .container{
+.w3-display-left {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%)
+}
+
+.w3-display-right {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%)
+}
+
+@media only screen and (max-width: 968px) {
+
+  .container {
     margin-left: auto;
     margin-right: auto;
-    height: 250px;
+    height: 350px;
     width: auto;
-    max-width: 450px;
+    max-width: 90%;
     transform: translate(0);
   }
 
@@ -63,7 +92,7 @@ button:focus {
 
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 969px) {
 
   .carousel {
     margin-left: auto;
