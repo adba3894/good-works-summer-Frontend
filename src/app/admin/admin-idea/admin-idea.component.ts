@@ -22,4 +22,23 @@ export class AdminIdeaComponent implements OnInit {
       });
   }
 
+  onSelect(description, city, category, organization, state, projectId, ideaId) {
+    this.router.navigate([
+      '/admin/ideas/update',
+      this.b64EncodeUnicode(description),
+      this.b64EncodeUnicode(city),
+      this.b64EncodeUnicode(category),
+      this.b64EncodeUnicode(organization),
+      this.b64EncodeUnicode(state),
+      this.b64EncodeUnicode(projectId),
+      this.b64EncodeUnicode(ideaId)
+    ]);
+  }
+
+  b64EncodeUnicode(param) {
+    return btoa(encodeURIComponent(param).replace(/%([0-9A-F]{2})/g,
+      function toSolidBytes(match, p1) {
+        return String.fromCharCode(Number('0x' + p1));
+      }));
+  }
 }

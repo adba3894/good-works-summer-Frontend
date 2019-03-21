@@ -26,6 +26,7 @@ import { AdminIdeaComponent } from './admin/admin-idea/admin-idea.component';
 import { MainPageProgressBarComponent } from './main-page/main-page-progress-bar/main-page-progress-bar.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminEditProjectComponent } from './admin/admin-edit-project/admin-edit-project.component';
+import { AdminEditIdeaComponent } from './admin/admin-edit-idea/admin-edit-idea.component';
 
 const routes: Routes = [
   { path: '', component: MainPageCarouselComponent },
@@ -39,8 +40,11 @@ const routes: Routes = [
   { path: 'admin/project', component: AdminProjectComponent, canActivate: [AuthGuard] },
   { path: 'admin/ideas/add', component: AdminIdeaAddComponent, canActivate: [AuthGuard] },
   { path: 'admin/ideas', component: AdminIdeaComponent, canActivate: [AuthGuard] },
+  { path: 'admin/ideas/update', component: AdminEditIdeaComponent, canActivate: [AuthGuard] },
+  { path: 'admin/ideas/update/:description/:city/:category/:organization/:state/:projectId/:id',
+    component: AdminEditIdeaComponent, canActivate: [AuthGuard] },
   { path: 'admin/project/update', component: AdminEditProjectComponent, canActivate: [AuthGuard] },
-  { path: 'admin/project/update/:leadName/:leadEmail/:teamName/:category/:organization/:city/:description/:id/:ideaId/:projectId',
+  { path: 'admin/project/update/:leadName/:leadEmail/:teamName/:category/:organization/:city/:description/:id/:ideaId/:projectId/:state',
     component: AdminEditProjectComponent, canActivate: [AuthGuard] },
   { path: 'project', component: ProjectPageComponent},
   { path: 'ideas', component: IdeasPageComponent},
@@ -70,7 +74,8 @@ const routes: Routes = [
     AdminIdeaComponent,
     MainPageProgressBarComponent,
     AdminComponent,
-    AdminEditProjectComponent
+    AdminEditProjectComponent,
+    AdminEditIdeaComponent
   ],
   imports: [
     BrowserModule,

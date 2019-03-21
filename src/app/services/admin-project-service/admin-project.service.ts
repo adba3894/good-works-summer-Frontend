@@ -63,7 +63,8 @@ export class AdminProjectService {
         'city': {
           'id': cities.find(city => city.name === teamForm.get('city').value).id,
           'name': teamForm.get('city').value
-        }
+        },
+        'state': teamForm.get('state').value
       }]]
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
