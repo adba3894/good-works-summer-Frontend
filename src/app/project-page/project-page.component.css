@@ -56,11 +56,6 @@ div.nav-tabs a:hover {
 
 @media only screen and (max-width: 968px) {
 
-  .table-content img{
-    position: sticky;
-    float:right;
-  }
-
   tbody {
     border-top: none !important;
   }
