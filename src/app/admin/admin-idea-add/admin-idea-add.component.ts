@@ -45,6 +45,7 @@ export class AdminIdeaAddComponent implements OnInit {
     this.errorMsg = '';
     this.successMsg = '';
     this.submitted = true;
+    console.log(this.teamForm);
     if (this.teamForm.valid) {
       this.adminIdeaService.submitForPost(this.teamForm, this.cities)
         .subscribe(() => {

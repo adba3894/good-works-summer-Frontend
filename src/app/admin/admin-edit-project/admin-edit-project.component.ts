@@ -21,7 +21,8 @@ export class AdminEditProjectComponent implements OnInit {
   teamLeadEmailParam = null;
   teamNameParam = null;
   idParam: string;
-  ideaParam = null;
+  projectIdParam: string;
+  ideaIdParam: string;
   ideas = [];
   public errorMsg;
 
@@ -50,6 +51,10 @@ export class AdminEditProjectComponent implements OnInit {
       this.descriptionParam = this.b64DecodeUnicode(description);
       const id = this.route.snapshot.paramMap.get('id');
       this.idParam = this.b64DecodeUnicode(id);
+      const projectId = this.route.snapshot.paramMap.get('projectId');
+      this.projectIdParam = this.b64DecodeUnicode(projectId);
+      const ideaId = this.route.snapshot.paramMap.get('ideaId');
+      this.ideaIdParam = this.b64DecodeUnicode(ideaId);
     }
     this.adminProjectService.getCitiesData(CITIES_API_URL)
       .subscribe(data => {
@@ -60,6 +65,7 @@ export class AdminEditProjectComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
+      id: [this.isValueNotNull(this.idParam)],
       teamLeadName: [this.isValueNotNull(this.teamLeadNameParam), [Validators.required,
         Validators.pattern('^([a-zA-Ząčęėįšųūž \\-ĄČĘĖĮŠŲŪŽ])+$'), Validators.maxLength(100)]],
       teamLeadEmail: [this.isValueNotNull(this.teamLeadEmailParam), [Validators.required, Validators.email, Validators.maxLength(100)]],
@@ -67,7 +73,9 @@ export class AdminEditProjectComponent implements OnInit {
       city: [this.isValueNotNull(this.cityParam), Validators.required],
       organization: [this.isValueNotNull(this.organizationParam), [Validators.required, Validators.maxLength(100)]],
       ideaForJob: [this.isValueNotNull(this.descriptionParam), Validators.required],
-      category: [this.isValueNotNull(this.categoryParam), Validators.required]
+      category: [this.isValueNotNull(this.categoryParam), Validators.required],
+      projectId: [this.isValueNotNull(this.projectIdParam), Validators.required],
+      ideaId: [this.isValueNotNull(this.ideaIdParam), Validators.required]
     });
   }
 
@@ -89,6 +97,7 @@ export class AdminEditProjectComponent implements OnInit {
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
+      console.log(this.teamForm);
       this.adminProjectService.submitForPost(this.teamForm, this.cities, this.idParam)
         .subscribe(() => {
           this.goToAdminProject();
