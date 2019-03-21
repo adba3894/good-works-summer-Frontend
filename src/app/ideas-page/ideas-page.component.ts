@@ -26,14 +26,13 @@ export class IdeasPageComponent implements OnInit {
       });
   }
 
-  onSelect(organization, description, category, city, cityId, id) {
+  onSelect(organization, description, category, city, id) {
     this.router.navigate([
       '/registration',
       this.b64EncodeUnicode(organization),
       this.b64EncodeUnicode(description),
       this.b64EncodeUnicode(category),
       this.b64EncodeUnicode(city),
-      this.b64EncodeUnicode(cityId),
       this.b64EncodeUnicode(id)]);
   }
 

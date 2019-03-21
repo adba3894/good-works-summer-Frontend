@@ -12,6 +12,9 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
+.plus-button {
+  cursor: pointer;
+}
 
 .text {
   text-align: justify;
@@ -53,6 +56,9 @@ div.nav-tabs a:hover {
   background-color: rgba(232, 186, 36, 0.4);
 }
 
+div.nav-tabs a:visited {
+  background-color: blue;
+}
 
 @media only screen and (max-width: 968px) {
 

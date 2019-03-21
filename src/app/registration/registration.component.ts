@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   descriptionParam = null;
   categoryParam = null;
   cityParam;
-  idParam: string;
+  idParam: number;
   ideas = [];
   public errorMsg;
 
@@ -86,6 +86,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.teamForm.teamLeadName);
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {

@@ -4,68 +4,74 @@
   id="bootstrap-css"
 />
 <section class="project-tab">
-    <div class="text">
-      <p>
-        Please press on the <img src="../../assets/add-plus.svg">
-        next to the good job which interests you and fill in missing
-        information. If you have any additional questions do not hesitate to
-        check
-        <strong class="link" (click)="goToFaq()">FAQ</strong>
-        section or contact
-        <strong class="link" href="mailto:info@dogoodthissummer.net"
-          >info@dogoodthissummer.net</strong
-        >
-      </p>
+  <div class="text">
+    <p>
+      Please press on the <img src="../../assets/add-plus.svg" />
+      next to the good job which interests you and fill in missing information.
+      If you have any additional questions do not hesitate to check
+      <strong class="link" (click)="goToFaq()">FAQ</strong>
+      section or contact
+      <strong class="link" href="mailto:info@dogoodthissummer.net"
+        >info@dogoodthissummer.net</strong
+      >
+    </p>
+  </div>
+  <nav class="nav">
+    <div class="nav-tabs">
+      <a class="nav-item" (click)="ngOnInit()" > All ideas </a>
+      <a class="nav-item" (click)="get_giving_back_data()">
+        Giving Back To Society
+      </a>
+      <a class="nav-item" (click)="get_helping_animals_data()">
+        Helping Animals
+      </a>
+      <a class="nav-item" (click)="get_sharing_knowledge_data()">
+        Sharing Knowledge
+      </a>
+      <a class="nav-item" (click)="get_beautiful_environment_data()">
+        Beautiful Environment
+      </a>
     </div>
-    <nav class="nav">
-      <div class="nav-tabs ">
-        <a class="nav-item" (click)="ngOnInit()"> All ideas </a>
-        <a class="nav-item" (click)="get_giving_back_data()">
-          Giving Back To Society
-        </a>
-        <a class="nav-item" (click)="get_helping_animals_data()">
-          Helping Animals
-        </a>
-        <a class="nav-item" (click)="get_sharing_knowledge_data()">
-          Sharing Knowledge
-        </a>
-        <a class="nav-item" (click)="get_beautiful_environment_data()">
-          Beautiful Environment
-        </a>
-      </div>
-    </nav>
-    <div class="tab-content">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="table-heading organization">Organization</th>
-            <th class="table-heading plan">Plan of action</th>
-            <th class="table-heading location">Location</th>
-            <th class="table-heading add">Add</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let idea of ideas">
-          <tr class="table-row">
-            <td class="table-content" data-heading="Organization">
-              {{ idea.organization }}
-            </td>
-            <td class="table-content" data-heading="Plan of action">
-              {{ idea.description }}
-            </td>
-            <td class="table-content" data-heading="Location">
-              {{ idea.city.name }}
-            </td>
-            <td class="table-content img">
-              <img
-                src="../../assets/add-plus.svg"
-                (click)="
-                  onSelect( idea.organization, idea.description, idea.category, idea.city.name, idea.city.id, idea.id)
-                "
-              />
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-
+  </nav>
+  <div class="tab-content">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="table-heading organization">Organization</th>
+          <th class="table-heading plan">Plan of action</th>
+          <th class="table-heading location">Location</th>
+          <th class="table-heading add">Add</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let idea of ideas">
+        <tr class="table-row">
+          <td class="table-content" data-heading="Organization">
+            {{ idea.organization }}
+          </td>
+          <td class="table-content" data-heading="Plan of action">
+            {{ idea.description }}
+          </td>
+          <td class="table-content" data-heading="Location">
+            {{ idea.city.name }}
+          </td>
+          <td class="table-content img">
+            <img
+              class="plus-button"
+              src="../../assets/add-plus.svg"
+              (click)="
+                onSelect(
+                  idea.organization,
+                  idea.description,
+                  idea.category,
+                  idea.city.name,
+                  idea.city.id,
+                  idea.id
+                )
+              "
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>

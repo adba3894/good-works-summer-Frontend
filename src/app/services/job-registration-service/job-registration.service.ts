@@ -32,7 +32,7 @@ export class JobRegistrationService {
       'leadEmail': teamForm.get('teamLeadEmail').value.trim(),
       'teamName': teamForm.get('teamName').value.trim(),
       'ideas': [[{
-        'ideas': ideas,
+        'id': ideas.value,
         'description': teamForm.get('ideaForJob').value.trim(),
         'organization': teamForm.get('organization').value.trim(),
         'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_'),
