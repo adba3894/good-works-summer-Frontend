@@ -18,19 +18,20 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: none;
   color: white;
-  padding: 2px 30px;
+  padding: 2px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  background-color: springgreen;
+  margin-left: 5%;
 }
+
 
 .approve-button:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
   border: none;
   color: white;
-  padding: 2px 30px;
+  padding: 2px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -84,26 +85,26 @@ select {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  background-color: lightslategrey;
 }
 
 .edit-button {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border: none;
   color: white;
-  padding: 2px 30px;
+  padding: 2px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   background-color: springgreen;
+  margin-left: 5%;
 }
 
 .edit-button:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
   border: none;
   color: white;
-  padding: 2px 30px;
+  padding: 2px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
