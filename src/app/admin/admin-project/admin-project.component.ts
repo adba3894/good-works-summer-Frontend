@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AdminProjectService } from '../../services/admin-project-service/admin-project.service';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { ADMIN_IDEAS_ADD_ENDPOINT, ADMIN_IDEAS_ENDPOINT, ADMIN_PROJECT_ENDPOINT, TEAMS_API_URL } from '../../registration.const';
-import { AdminLoginService } from '../../services/admin-login-service/admin-login.service';
+import {
+  ADMIN_PROJECT_UPDATE_FORM_ENDPOINT,
+  CATEGORY_API_URL,
+  CITIES_API_URL,
+  TEAMS_API_URL
+} from '../../registration.const';
+import { AdminEditProjectComponent } from '../admin-edit-project/admin-edit-project.component';
 
 @Component({
   selector: 'app-admin-project',
@@ -12,15 +17,24 @@ import { AdminLoginService } from '../../services/admin-login-service/admin-logi
 })
 export class AdminProjectComponent implements OnInit {
   teams = [];
+  cities = [];
+  categories = [];
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private adminProjectService: AdminProjectService,
-              private adminLoginService: AdminLoginService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private adminProjectService: AdminProjectService) {
   }
 
   ngOnInit() {
     this.getTeams().subscribe(data => {
       this.teams = data;
     });
+    this.adminProjectService.getCitiesData(CITIES_API_URL)
+      .subscribe(data => {
+      this.cities = data;
+    });
+    this.adminProjectService.getCategoriesData(CATEGORY_API_URL)
+      .subscribe(data => {
+        this.categories = data;
+      });
   }
 
   getTeams() {
@@ -33,5 +47,13 @@ export class AdminProjectComponent implements OnInit {
 
   markProjectAsDone(projectId: any) {
     this.adminProjectService.changeProjectValueToDone(projectId);
+  }
+
+  editProjectInformation() {
+    this.goToAdminEditProjectPage();
+  }
+
+  goToAdminEditProjectPage() {
+    this.router.navigateByUrl(ADMIN_PROJECT_UPDATE_FORM_ENDPOINT);
   }
 }

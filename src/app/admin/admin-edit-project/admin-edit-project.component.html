@@ -1,0 +1,218 @@
+<html lang="en">
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<app-admin></app-admin>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<div class="container-register" style="margin-top: 20px">
+  <h4 class="register-heading">Edit Project Information</h4>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+    <div class="row register">
+      <div class="col-md-5 register-box">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="teamLeadName"
+            [ngClass]="{
+                'is-invalid':
+                  submitted && registerFormControls.teamLeadName.errors
+              }"
+            required
+            placeholder="Team Lead Name"
+            value=""
+          />
+          <div
+            *ngIf="submitted && registerFormControls.teamLeadName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.teamLeadName.errors.required">
+              Team Lead Name is required
+            </div>
+            <div *ngIf="registerFormControls.teamLeadName.errors.maxlength">
+              Team name must not exceed 100 characters
+            </div>
+            <div *ngIf="registerFormControls.teamLeadName.errors.pattern">
+              Team Lead Name must consist of only alphabetical characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="teamLeadEmail"
+            [ngClass]="{
+                'is-invalid':
+                  submitted && registerFormControls.teamLeadEmail.errors
+              }"
+            required
+            placeholder="Team Lead E-mail"
+            value=""
+          />
+          <div
+            *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
+            class="invalid-feedback">
+            <div *ngIf="registerFormControls.teamLeadEmail.errors.required">
+              Team Lead e-mail is required
+            </div>
+            <div *ngIf="registerFormControls.teamLeadEmail.errors.email">
+              Team Lead e-mail must be valid
+            </div>
+            <div *ngIf="registerFormControls.teamLeadEmail.errors.maxlength">
+              Team e-mail must not exceed 100 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="teamName"
+            [ngClass]="{
+                'is-invalid': submitted && registerFormControls.teamName.errors
+              }"
+            required
+            placeholder="Team Name"
+            value=""
+          />
+          <div
+            *ngIf="submitted && registerFormControls.teamName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.teamName.errors.maxlength">
+              Team name must not exceed 30 characters
+            </div>
+            <div *ngIf="registerFormControls.teamName.errors.required">
+              Team name is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <select
+            class="form-control"
+            formControlName="city"
+            [ngClass]="{
+                'is-invalid': submitted && registerFormControls.city.errors
+              }"
+            required
+            [attr.disabled]="cityParam"
+          >
+            <option value="" disabled selected>Location</option>
+            <option *ngIf="cityParam != null">{{ cityParam }}</option>
+            <option *ngFor="let city of cities">
+              {{ city.name }}
+            </option>
+          </select>
+          <div
+            *ngIf="submitted && registerFormControls.city.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.city.errors.required">
+              Location is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 register-box">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="organization"
+            placeholder="Organization"
+            value="{{ organizationParam }}"
+            [ngClass]="{
+                'is-invalid':
+                  submitted && registerFormControls.organization.errors
+              }"
+            required
+            [attr.disabled]="organizationParam"
+          />
+          <div
+            *ngIf="submitted && registerFormControls.organization.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.organization.errors.maxlength">
+              Organization name must not exceed 100 characters
+            </div>
+            <div *ngIf="registerFormControls.organization.errors.required">
+              Organization is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <select
+            class="form-control"
+            formControlName="category"
+            [ngClass]="{
+                'is-invalid': submitted && registerFormControls.category.errors
+              }"
+            required
+            [attr.disabled]="categoryParam"
+          >
+            <option value="" disabled selected>Category</option>
+            <option *ngIf="categoryParam != null">{{
+              categoryParam.split("_").join(" ") | titlecase
+              }}</option>
+            <option *ngFor="let category of categories">
+              {{ category }}
+            </option>
+          </select>
+          <div
+            *ngIf="submitted && registerFormControls.category.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.category.errors.required">
+              Category is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group idea">
+            <textarea
+              type="text"
+              class="form-control"
+              formControlName="ideaForJob"
+              placeholder="Idea for a good job"
+              value="{{ descriptionParam }}"
+              maxlength="240"
+              [ngClass]="{
+                'is-invalid':
+                  submitted && registerFormControls.ideaForJob.errors
+              }"
+              required
+              [attr.disabled]="descriptionParam"
+            ></textarea>
+          <div
+            *ngIf="submitted && registerFormControls.ideaForJob.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="registerFormControls.ideaForJob.errors.required">
+              Idea for a job is required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-register">Submit</button>
+    <button
+      type="button"
+      class="btn btn-cancel"
+      (click)="goToAdminProject()"
+      value="Cancel"
+    >
+      Cancel
+    </button>
+    <div class="successMessage">{{ errorMsg }}</div>
+  </form>
+</div>
