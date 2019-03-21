@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
   descriptionParam = null;
   categoryParam = null;
   cityParam;
-  idParam: number;
+  idParam: string;
   ideas = [];
   public errorMsg;
 
