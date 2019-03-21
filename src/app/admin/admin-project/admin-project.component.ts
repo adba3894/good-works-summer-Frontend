@@ -3,13 +3,10 @@ import { AdminProjectService } from '../../services/admin-project-service/admin-
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import {
-  ADMIN_PROJECT_UPDATE_FORM_ENDPOINT,
   CATEGORY_API_URL,
   CITIES_API_URL,
   TEAMS_API_URL
 } from '../../registration.const';
-import { AdminEditProjectComponent } from '../admin-edit-project/admin-edit-project.component';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-admin-project',
@@ -51,10 +48,6 @@ export class AdminProjectComponent implements OnInit {
   markProjectAsDone(projectId: any, team) {
     this.adminProjectService.changeProjectValueToDone(projectId);
     team.ideas[0].project.done = true;
-  }
-
-  goToAdminEditProjectPage() {
-    this.router.navigateByUrl(ADMIN_PROJECT_UPDATE_FORM_ENDPOINT);
   }
 
   onSelect(leadName, teamEmail, teamName, category, organization, city, description, id, ideaId, projectId, state) {
