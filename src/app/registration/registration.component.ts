@@ -42,6 +42,8 @@ export class RegistrationComponent implements OnInit {
       this.categoryParam = this.b64DecodeUnicode(category);
       const id = this.route.snapshot.paramMap.get('id');
       this.idParam = this.b64DecodeUnicode(id);
+      console.log(this.idParam);
+      console.log('what');
     }
     this.jobRegistrationService.getCitiesData(CITIES_API_URL).subscribe(data => {
       this.cities = data;
@@ -51,7 +53,6 @@ export class RegistrationComponent implements OnInit {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
-      id: [this.isValueNotNull(this.idParam)],
       teamLeadName: ['', [Validators.required,
         Validators.pattern('^([a-zA-Ząčęėįšųūž \\-ĄČĘĖĮŠŲŪŽ])+$'), Validators.maxLength(100)]],
       teamLeadEmail: ['', [Validators.required, Validators.email, Validators.maxLength(100)]],
@@ -86,10 +87,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.teamForm.teamLeadName);
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
+      console.log(this.idParam);
       this.jobRegistrationService.submitForPost(this.teamForm, this.cities, this.idParam)
         .subscribe(() => {
           this.goToSuccess();

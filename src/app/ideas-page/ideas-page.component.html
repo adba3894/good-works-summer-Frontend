@@ -18,7 +18,7 @@
   </div>
   <nav class="nav">
     <div class="nav-tabs">
-      <a class="nav-item" (click)="ngOnInit()" > All ideas </a>
+      <a class="nav-item" (click)="ngOnInit()"> All ideas </a>
       <a class="nav-item" (click)="get_giving_back_data()">
         Giving Back To Society
       </a>
@@ -43,8 +43,8 @@
           <th class="table-heading add">Add</th>
         </tr>
       </thead>
-      <tbody *ngFor="let idea of ideas">
-        <tr class="table-row">
+      <tbody>
+        <tr class="table-row" *ngFor="let idea of ideas">
           <td class="table-content" data-heading="Organization">
             {{ idea.organization }}
           </td>
@@ -64,7 +64,6 @@
                   idea.description,
                   idea.category,
                   idea.city.name,
-                  idea.city.id,
                   idea.id
                 )
               "

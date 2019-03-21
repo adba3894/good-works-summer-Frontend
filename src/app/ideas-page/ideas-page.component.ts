@@ -27,6 +27,7 @@ export class IdeasPageComponent implements OnInit {
   }
 
   onSelect(organization, description, category, city, id) {
+    console.log(id);
     this.router.navigate([
       '/registration',
       this.b64EncodeUnicode(organization),
@@ -34,6 +35,7 @@ export class IdeasPageComponent implements OnInit {
       this.b64EncodeUnicode(category),
       this.b64EncodeUnicode(city),
       this.b64EncodeUnicode(id)]);
+    console.log(this.ideas);
   }
 
   b64EncodeUnicode(param) {
