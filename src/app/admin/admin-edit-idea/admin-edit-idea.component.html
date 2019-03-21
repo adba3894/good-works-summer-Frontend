@@ -1,0 +1,131 @@
+<html lang="en">
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<app-admin></app-admin>
+<div class="container-register">
+  <h4 class="register-heading">Edit Idea Information</h4>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+    <div class="row register">
+      <div class="col-md-5 register-box">
+        <div class="form-group">
+          <select
+            class="form-control"
+            formControlName="city"
+            [ngClass]="{
+              'is-invalid': submitted && adminIdeaFormControls.city.errors
+            }"
+            required
+          >
+            <option value="" disabled selected>Location</option>
+            <option *ngIf="cityParam != null">{{ cityParam }}</option>
+            <option *ngFor="let city of cities">
+              {{ city.name }}
+            </option>
+          </select>
+          <div
+            *ngIf="submitted && adminIdeaFormControls.city.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="adminIdeaFormControls.city.errors.required">
+              Location is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="organization"
+            placeholder="Organization"
+            value=""
+            [ngClass]="{
+              'is-invalid':
+                submitted && adminIdeaFormControls.organization.errors
+            }"
+            required
+          />
+          <div
+            *ngIf="submitted && adminIdeaFormControls.organization.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="adminIdeaFormControls.organization.errors.maxlength">
+              Organization name must not exceed 100 characters
+            </div>
+            <div *ngIf="adminIdeaFormControls.organization.errors.required">
+              Organization is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 register-box">
+        <div class="form-group">
+          <select
+            class="form-control"
+            formControlName="category"
+            [ngClass]="{
+              'is-invalid': submitted && adminIdeaFormControls.category.errors
+            }"
+            required
+          >
+            <option value="" disabled selected>Category</option>
+            <option *ngIf="categoryParam != null">{{
+              categoryParam.split("_").join(" ") | titlecase
+              }}</option>
+            <option *ngFor="let category of categories">
+              {{ category }}
+            </option>
+          </select>
+          <div
+            *ngIf="submitted && adminIdeaFormControls.category.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="adminIdeaFormControls.category.errors.required">
+              Category is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group idea">
+          <textarea
+            type="text"
+            class="form-control"
+            formControlName="ideaForJob"
+            placeholder="Idea for a good job"
+            value=""
+            maxlength="240"
+            [ngClass]="{
+              'is-invalid': submitted && adminIdeaFormControls.ideaForJob.errors
+            }"
+            required
+          ></textarea>
+          <div
+            *ngIf="submitted && adminIdeaFormControls.ideaForJob.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="adminIdeaFormControls.ideaForJob.errors.required">
+              Idea for a job is required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-register">Submit</button>
+    <button
+      type="button"
+      class="btn btn-cancel"
+      (click)="goToAdminIdea()"
+      value="Cancel"
+    >
+      Cancel
+    </button>
+    <div class="successMessage">{{ errorMsg }}</div>
+  </form>
+</div>

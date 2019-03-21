@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ADMIN_PROJECT_ENDPOINT, CATEGORY_API_URL, CITIES_API_URL } from '../../registration.const';
-import { AdminProjectService } from '../../services/admin-project-service/admin-project.service';
-import { AdminComponent } from '../admin.component';
+import {
+  ADMIN_IDEAS_ENDPOINT,
+  CATEGORY_API_URL,
+  CITIES_API_URL
+} from '../../registration.const';
+import { AdminIdeaService } from '../../services/admin-idea-service/admin-idea.service';
 
 @Component({
-  selector: 'app-admin-edit-project',
-  templateUrl: './admin-edit-project.component.html',
-  styleUrls: ['./admin-edit-project.component.css']
+  selector: 'app-admin-edit-idea',
+  templateUrl: './admin-edit-idea.component.html',
+  styleUrls: ['./admin-edit-idea.component.css']
 })
-export class AdminEditProjectComponent implements OnInit {
+export class AdminEditIdeaComponent implements OnInit {
   categories = [];
   cities = [];
   organizationParam = null;
   descriptionParam = null;
   categoryParam = null;
   cityParam = null;
-  teamLeadNameParam = null;
-  teamLeadEmailParam = null;
-  teamNameParam = null;
   idParam: string;
   projectIdParam: string;
-  ideaIdParam: string;
   stateParam = null;
   ideas = [];
   public errorMsg;
@@ -31,54 +30,41 @@ export class AdminEditProjectComponent implements OnInit {
   submitted = false;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
-              private adminProjectService: AdminProjectService, private route: ActivatedRoute) {
+              private adminIdeaService: AdminIdeaService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    if ( this.router.url !== '/admin/project/update') {
+    if ( this.router.url !== '/admin/ideas/update') {
       const organization = this.route.snapshot.paramMap.get('organization');
       this.organizationParam = this.b64DecodeUnicode(organization);
       const category = this.route.snapshot.paramMap.get('category');
       this.categoryParam = this.b64DecodeUnicode(category);
       const city = this.route.snapshot.paramMap.get('city');
       this.cityParam = this.b64DecodeUnicode(city);
-      const teamLeadName = this.route.snapshot.paramMap.get('leadName');
-      this.teamLeadNameParam = this.b64DecodeUnicode(teamLeadName);
-      const teamLeadEmail = this.route.snapshot.paramMap.get('leadEmail');
-      this.teamLeadEmailParam = this.b64DecodeUnicode(teamLeadEmail);
-      const teamName = this.route.snapshot.paramMap.get('teamName');
-      this.teamNameParam = this.b64DecodeUnicode(teamName);
       const description = this.route.snapshot.paramMap.get('description');
       this.descriptionParam = this.b64DecodeUnicode(description);
       const id = this.route.snapshot.paramMap.get('id');
       this.idParam = this.b64DecodeUnicode(id);
       const projectId = this.route.snapshot.paramMap.get('projectId');
       this.projectIdParam = this.b64DecodeUnicode(projectId);
-      const ideaId = this.route.snapshot.paramMap.get('ideaId');
-      this.ideaIdParam = this.b64DecodeUnicode(ideaId);
       const state = this.route.snapshot.paramMap.get('state');
       this.stateParam = this.b64DecodeUnicode(state);
     }
-    this.adminProjectService.getCitiesData(CITIES_API_URL)
+    this.adminIdeaService.getCitiesData(CITIES_API_URL)
       .subscribe(data => {
         this.cities = data;
       });
-    this.adminProjectService.getCategoriesData(CATEGORY_API_URL)
+    this.adminIdeaService.getCategoriesData(CATEGORY_API_URL)
       .subscribe(data => {
         this.categories = data;
       });
     this.teamForm = this.formBuilder.group({
       id: [this.isValueNotNull(this.idParam)],
-      teamLeadName: [this.isValueNotNull(this.teamLeadNameParam), [Validators.required,
-        Validators.pattern('^([a-zA-Ząčęėįšųūž \\-ĄČĘĖĮŠŲŪŽ])+$'), Validators.maxLength(100)]],
-      teamLeadEmail: [this.isValueNotNull(this.teamLeadEmailParam), [Validators.required, Validators.email, Validators.maxLength(100)]],
-      teamName: [this.isValueNotNull(this.teamNameParam), [Validators.required, Validators.maxLength(30)]],
       city: [this.isValueNotNull(this.cityParam), Validators.required],
       organization: [this.isValueNotNull(this.organizationParam), [Validators.required, Validators.maxLength(100)]],
       ideaForJob: [this.isValueNotNull(this.descriptionParam), Validators.required],
       category: [this.isValueNotNull(this.categoryParam), Validators.required],
       projectId: [this.isValueNotNull(this.projectIdParam), Validators.required],
-      ideaId: [this.isValueNotNull(this.ideaIdParam), Validators.required],
       state: [this.isValueNotNull(this.stateParam), Validators.required]
     });
   }
@@ -89,21 +75,21 @@ export class AdminEditProjectComponent implements OnInit {
     }).join(''));
   }
 
-  get registerFormControls() {
+  get adminIdeaFormControls() {
     return this.teamForm.controls;
   }
 
-  goToAdminProject() {
-    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
+  goToAdminIdea() {
+    this.router.navigateByUrl(ADMIN_IDEAS_ENDPOINT);
   }
 
   onSubmit() {
     this.errorMsg = '';
     this.submitted = true;
     if (this.teamForm.valid) {
-      this.adminProjectService.submitForPost(this.teamForm, this.cities, this.idParam)
+      this.adminIdeaService.submitForEdit(this.teamForm, this.cities, this.idParam)
         .subscribe(() => {
-          this.goToAdminProject();
+          this.goToAdminIdea();
         }, (errorMessage) => {
           this.errorMsg = errorMessage.error.message;
         });

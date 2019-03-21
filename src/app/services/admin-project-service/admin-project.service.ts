@@ -49,22 +49,23 @@ export class AdminProjectService {
 
   submitForPost(teamForm: FormGroup, cities: any[], projectIdParam: string): Observable<any> {
     this.jsonForm = this.adminProjectServiceFormBuilder.group({
-      'id': projectIdParam,
+      'id': teamForm.get('id').value,
       'leadName': teamForm.get('teamLeadName').value.trim(),
       'leadEmail': teamForm.get('teamLeadEmail').value.trim(),
       'teamName': teamForm.get('teamName').value.trim(),
       'ideas': [[{
+        'id': teamForm.get('ideaId').value,
         'description': teamForm.get('ideaForJob').value.trim(),
+        'project': {
+          'id': teamForm.get('projectId').value
+        },
         'organization': teamForm.get('organization').value.trim(),
         'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_'),
         'city': {
           'id': cities.find(city => city.name === teamForm.get('city').value).id,
           'name': teamForm.get('city').value
         },
-        'project': {
-          'done': teamForm.get('done').value,
-          'approved': teamForm.get('approved').value
-        }
+        'state': teamForm.get('state').value
       }]]
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();

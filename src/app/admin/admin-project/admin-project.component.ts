@@ -53,15 +53,11 @@ export class AdminProjectComponent implements OnInit {
     team.ideas[0].project.done = true;
   }
 
-  editProjectInformation() {
-    this.goToAdminEditProjectPage();
-  }
-
   goToAdminEditProjectPage() {
     this.router.navigateByUrl(ADMIN_PROJECT_UPDATE_FORM_ENDPOINT);
   }
 
-  onSelect(leadName, teamEmail, teamName, category, organization, city, description, id) {
+  onSelect(leadName, teamEmail, teamName, category, organization, city, description, id, ideaId, projectId, state) {
     this.router.navigate([
       '/admin/project/update',
       this.b64EncodeUnicode(leadName),
@@ -71,7 +67,10 @@ export class AdminProjectComponent implements OnInit {
       this.b64EncodeUnicode(organization),
       this.b64EncodeUnicode(city),
       this.b64EncodeUnicode(description),
-      this.b64EncodeUnicode(id)
+      this.b64EncodeUnicode(id),
+      this.b64EncodeUnicode(ideaId),
+      this.b64EncodeUnicode(projectId),
+      this.b64EncodeUnicode(state)
     ]);
   }
 

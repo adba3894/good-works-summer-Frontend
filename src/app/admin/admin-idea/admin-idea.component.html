@@ -36,7 +36,14 @@
       <td class="m_title">
         {{idea.category.toLocaleLowerCase().replace('_', ' ').replace('_', ' ').replace('_', ' ')}}</td>
       <td style="text-align: left">
-        <button class="edit-button">
+        <button class="edit-button" (click)="onSelect(
+        idea.description,
+        idea.city.name,
+        idea.category,
+        idea.organization,
+        idea.state,
+        idea.project.id,
+        idea.id)">
           Edit
         </button>
       </td>

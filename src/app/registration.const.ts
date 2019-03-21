@@ -21,3 +21,5 @@ export const IDEAS_API_URL = 'https://good-works-summer-backend.herokuapp.com/id
 export const PROGRESS_BAR_DATA_URL = 'https://good-works-summer-backend.herokuapp.com/projects/counter';
 export const ADMIN_PROJECT_EDIT_API_URL = 'https://good-works-summer-backend.herokuapp.com/teams/update';
 export const ADMIN_PROJECT_UPDATE_FORM_ENDPOINT = 'admin/project/update';
+export const ADMIN_IDEA_EDIT_API_URL = 'https://good-works-summer-backend.herokuapp.com/ideas/update';
+export const ADMIN_EDIT_IDEAS_ENDPOINT = 'admin/ideas/update';
