@@ -1,9 +1,18 @@
-const express = require('express');
-const app = express();
 
-// Run the app by serving the static files in the dist directory
-app.use(express.static(__dirname + '/dist'));
+var express = require('express');
+var PORT = process.env.PORT || 8080
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+var buildPath = 'dist'
 
+// Initialize
+var app = express();
+
+// Serve static resources from 'build' folder
+app.use(express.static(buildPath));
+
+// Otherwise serve index.html
+app.get('*', function (req, res) {
+  res.sendFile(__dirname + "/" + buildPath + "/index.html");
+});
+
+app.listen(PORT);

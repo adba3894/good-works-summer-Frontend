@@ -25,8 +25,7 @@ export class AdminIdeaAddComponent implements OnInit {
   public errorMsg;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
-              private adminIdeaService: AdminIdeaService,
-              private adminLoginService: AdminLoginService) {
+              private adminIdeaService: AdminIdeaService) {
   }
 
   ngOnInit() {
@@ -67,21 +66,5 @@ export class AdminIdeaAddComponent implements OnInit {
 
   get adminIdeaFormControls() {
     return this.teamForm.controls;
-  }
-
-  logoutOfAdmin() {
-    this.adminLoginService.logoutAndNavigateToHome();
-  }
-
-  goToAdminIdea() {
-    this.router.navigateByUrl(ADMIN_IDEAS_ENDPOINT);
-  }
-
-  goToAdminNewIdea() {
-    this.router.navigateByUrl(ADMIN_IDEAS_ADD_ENDPOINT);
-  }
-
-  goToAdminProject() {
-    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
   }
 }

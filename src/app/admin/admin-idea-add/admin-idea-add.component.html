@@ -1,28 +1,16 @@
+<html lang="en">
 <link
   href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
   rel="stylesheet"
   id="bootstrap-css"
 />
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
-<div class="container-fluid">
-  <ul class="nav" style="background-color: slategrey">
-    <li class="nav-item">
-      <a class="nav-link active" (click)="goToAdminNewIdea()" style="color: white">New Idea</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="goToAdminProject()" style="color: white">Project</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="goToAdminIdea()" style="color: white">Ideas</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="logoutOfAdmin()" style="color: red">Log Out</a>
-      <!-- ^^^ cia kazkodel error nors visur kitur identiska ir veikia, tik ne cia :/ ^^^ -->
-    </li>
-  </ul>
-</div>
+<app-admin></app-admin>
 <div class="container-register">
   <h4 class="register-heading">Register new idea</h4>
   <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">

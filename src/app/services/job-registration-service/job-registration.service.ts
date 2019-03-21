@@ -26,12 +26,13 @@ export class JobRegistrationService {
     return this.jobRegistrationServiceHttp.get(citiesApiUrl);
   }
 
-  submitForPost(teamForm: FormGroup, cities: any[], ideas: any []): Observable<any> {
+  submitForPost(teamForm: FormGroup, cities: any[], ideas): Observable<any> {
     this.jsonForm = this.jobRegistrationServiceFormBuilder.group({
       'leadName': teamForm.get('teamLeadName').value.trim(),
       'leadEmail': teamForm.get('teamLeadEmail').value.trim(),
       'teamName': teamForm.get('teamName').value.trim(),
       'ideas': [[{
+        'ideas': ideas,
         'description': teamForm.get('ideaForJob').value.trim(),
         'organization': teamForm.get('organization').value.trim(),
         'category': teamForm.get('category').value.toUpperCase().replace(/ /g, '_'),
@@ -40,24 +41,13 @@ export class JobRegistrationService {
           'name': teamForm.get('city').value
         },
         'project': {
-          'done': true,
-          'approved': true
+          'done': false,
+          'approved': false
         }
       }]]
     });
     const rawJsonFormValue = this.jsonForm.getRawValue();
     return this.jobRegistrationServiceHttp.post<any>(REGISTER_API_URL, rawJsonFormValue);
-  }
-
-  submitForPut(teamForm: FormGroup): Observable<any> {
-    this.jsonForm = this.jobRegistrationServiceFormBuilder.group({
-      'leadName': teamForm.get('teamLeadName').value.trim(),
-      'leadEmail': teamForm.get('teamLeadEmail').value.trim(),
-      'teamName': teamForm.get('teamName').value.trim(),
-      'ideas': [[{}]]
-    });
-    const rawJsonFormValue = this.jsonForm.getRawValue();
-    return this.jobRegistrationServiceHttp.put<any>(REGISTER_API_URL, rawJsonFormValue);
   }
 
 }

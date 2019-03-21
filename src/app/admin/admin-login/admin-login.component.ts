@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AdminLoginService } from '../services/admin-login-service/admin-login.service';
-import { ADMIN_PROJECT_ENDPOINT } from '../registration.const';
+import { AdminLoginService } from '../../services/admin-login-service/admin-login.service';
+import { ADMIN_PROJECT_ENDPOINT } from '../../registration.const';
 
 @Component({
   selector: 'app-admin-login',
