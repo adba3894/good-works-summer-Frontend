@@ -1,6 +1,4 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
@@ -26,7 +24,7 @@
         <span></span>
         <span></span>
         <ul class="topBotomBordersOut hamburger-menu">
-          <li (click)="goHome()" class="navbar-item home">
+          <li (click)="goHome()" class="navbar-item home" [ngStyle]="">
             <a class="nav-link">HOME</a>
           </li>
           <li (click)="goToIdeas()" class="navbar-item">

@@ -22,19 +22,4 @@ export class AdminIdeaComponent implements OnInit {
       });
   }
 
-  goToAdminIdea() {
-    this.router.navigateByUrl(ADMIN_IDEAS_ENDPOINT);
-  }
-
-  goToAdminNewIdea() {
-    this.router.navigateByUrl(ADMIN_IDEAS_ADD_ENDPOINT);
-  }
-
-  goToAdminProject() {
-    this.router.navigateByUrl(ADMIN_PROJECT_ENDPOINT);
-  }
-
-  logoutOfAdmin() {
-    this.adminLoginService.logoutAndNavigateToHome();
-  }
 }

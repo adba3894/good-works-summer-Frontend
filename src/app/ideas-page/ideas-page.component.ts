@@ -12,7 +12,7 @@ export class IdeasPageComponent implements OnInit {
 
   ideas = [];
   cities = [];
-  value = true;
+  value;
 
   constructor(private router: Router, private ideasPageService: IdeasPageService) {
   }
@@ -25,10 +25,10 @@ export class IdeasPageComponent implements OnInit {
       .subscribe(data => {
         this.ideas = data;
       });
+    this.value = 0;
   }
 
   onSelect(organization, description, category, city, id) {
-    console.log(id);
     this.router.navigate([
       '/registration',
       this.b64EncodeUnicode(organization),
@@ -45,32 +45,36 @@ export class IdeasPageComponent implements OnInit {
       }));
   }
 
-  get_beautiful_environment_data() {
+  getBeautifulEnvironmentData() {
     this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/BEAUTIFUL_ENVIRONMENT' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
+    this.value = 4;
   }
 
-  get_giving_back_data() {
+  getGivingBackToSociety() {
     this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/GIVING_BACK_TO_SOCIETY' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
+    this.value = 1;
   }
 
-  get_helping_animals_data() {
+  getHelpingAnimalsData() {
     this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/HELPING_ANIMALS' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
+    this.value = 2;
   }
 
-  get_sharing_knowledge_data() {
+  getSharingKnowledge() {
     this.ideasPageService.getIdeasData(FILTERED_IDEAS_API_URL + '/SHARING_KNOWLEDGE' + '/free')
       .subscribe(data => {
         this.ideas = data;
       });
+    this.value = 3;
   }
 
   goToFaq() {

@@ -1,0 +1,77 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-register {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  max-width: 950px;
+  height: 300px;
+  margin-top: 3%;
+}
+.cointainer{
+  margin: 10px;
+}
+.register {
+  padding: 20px;
+  border-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-width: 3px;
+  border-color: rgba(252, 206, 36, 1);
+}
+
+.register-box {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.register-heading {
+  font-size: 18px;
+  padding-buttom: 4%;
+}
+
+.btn {
+  margin-top: 10px;
+  float: right;
+}
+
+.btn-register {
+  background-color: rgba(252, 206, 36, 0.8);
+  text-align: center;
+  font-size: 16px;
+  margin-left: 2%;
+}
+
+.btn-cancel {
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 16px;
+}
+
+textarea{
+  height: 90px;
+}
+
+.successMessage {
+  font-size: 16px;
+  float: right;
+  color: red;
+  margin-top: 1%;
+  margin-right: 3%;
+}
+
+@media only screen and (max-width: 969px) {
+
+  .container-register {
+    width: 90%;
+    height: auto;
+    margin-top: 3%;
+  }
+
+  h4{
+    font-size: 16px!important;
+  }
+
+}

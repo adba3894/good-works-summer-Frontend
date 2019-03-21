@@ -3,13 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminIdeaService } from '../../services/admin-idea-service/admin-idea.service';
 import {
-  ADMIN_IDEAS_ADD_ENDPOINT,
-  ADMIN_IDEAS_ENDPOINT,
-  ADMIN_PROJECT_ENDPOINT,
   CATEGORY_API_URL,
   CITIES_API_URL
 } from '../../registration.const';
-import { AdminLoginService } from '../../services/admin-login-service/admin-login.service';
 
 @Component({
   selector: 'app-admin-idea-add',
