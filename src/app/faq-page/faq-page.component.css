@@ -16,7 +16,7 @@
 }
 
 .panel-heading{
-  padding: 5px;
+  padding: 8px;
 }
 
 .panel-body{
@@ -31,6 +31,16 @@
 @media only screen and (max-width: 968px) {
   .project-tab{
     max-width: 98%;
+  }
+
+  .panel-body{
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .panel-heading, h5{
+    padding: 4px;
+    font-size: 14px;
   }
 }
 @media only screen and (min-width: 969px) {

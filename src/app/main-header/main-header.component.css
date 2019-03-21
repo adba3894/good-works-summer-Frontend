@@ -91,8 +91,8 @@ button:focus {
 
     cursor: pointer;
 
-    opacity: 0; /* hide this */
-    z-index: 10; /* and place it over the hamburger */
+    opacity: 0;
+    z-index: 10;
 
     -webkit-touch-callout: none;
   }

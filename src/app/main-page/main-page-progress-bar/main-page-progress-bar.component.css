@@ -24,6 +24,10 @@
     width: auto;
     max-width: 450px;
   }
+
+  h3{
+    font-size: 20px;
+  }
 }
 
 @media only screen and (min-width: 969px) {
