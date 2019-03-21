@@ -12,7 +12,7 @@ export class IdeasPageComponent implements OnInit {
 
   ideas = [];
   cities = [];
-  value: boolean= false;
+  value = true;
 
   constructor(private router: Router, private ideasPageService: IdeasPageService) {
   }
@@ -36,7 +36,6 @@ export class IdeasPageComponent implements OnInit {
       this.b64EncodeUnicode(category),
       this.b64EncodeUnicode(city),
       this.b64EncodeUnicode(id)]);
-    console.log(this.ideas);
   }
 
   b64EncodeUnicode(param) {
@@ -72,9 +71,6 @@ export class IdeasPageComponent implements OnInit {
       .subscribe(data => {
         this.ideas = data;
       });
-  }
-  setActive() {
-    return this.value = true;
   }
 
   goToFaq() {

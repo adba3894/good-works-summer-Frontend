@@ -19,16 +19,16 @@
   <nav class="nav">
     <div class="nav-tabs">
       <a class="nav-item" (click)="ngOnInit()"> All ideas </a>
-      <a class="nav-item" (click)="get_giving_back_data(); setActive()">
+      <a class="nav-item" (click)="get_giving_back_data(); ">
         Giving Back To Society
       </a>
-      <a class="nav-item" (click)="get_helping_animals_data()">
+      <a class="nav-item" (click)="get_helping_animals_data(); isActive()">
         Helping Animals
       </a>
-      <a class="nav-item" (click)="get_sharing_knowledge_data()">
+      <a class="nav-item" (click)="get_sharing_knowledge_data(); isActive()">
         Sharing Knowledge
       </a>
-      <a class="nav-item" (click)="get_beautiful_environment_data()">
+      <a class="nav-item" (click)="get_beautiful_environment_data(); isActive()">
         Beautiful Environment
       </a>
     </div>
