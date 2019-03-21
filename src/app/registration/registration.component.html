@@ -1,5 +1,5 @@
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <div class="container-register">
   <h4 class="register-heading">Registration</h4>
@@ -17,7 +17,7 @@
                 submitted && registerFormControls.teamLeadName.errors
             }"
             required
-            placeholder="Vardenis Pavardenis"
+            placeholder="Jerry Keller"
           />
           <div
             *ngIf="submitted && registerFormControls.teamLeadName.errors"
@@ -45,7 +45,7 @@
                 submitted && registerFormControls.teamLeadEmail.errors
             }"
             required
-            placeholder="example@domain.com"
+            placeholder="jerry.keller@example.com"
           />
           <div
             *ngIf="submitted && registerFormControls.teamLeadEmail.errors"
@@ -68,7 +68,7 @@
             type="text"
             class="form-control"
             formControlName="teamName"
-            placeholder="Super Komanda"
+            placeholder="DreamTeam"
             [ngClass]="{
               'is-invalid': submitted && registerFormControls.teamName.errors
             }"
@@ -97,7 +97,7 @@
             required
             [attr.disabled]="cityParam"
           >
-            <option value="" disabled selected>Vilnius</option>
+            <option value="" disabled selected>Choose location</option>
             <option *ngIf="cityParam != null">{{ cityParam }}</option>
             <option *ngFor="let city of cities">
               {{ city.name }}
@@ -120,7 +120,7 @@
             type="text"
             class="form-control"
             formControlName="organization"
-            placeholder="5 koja"
+            placeholder='„SOS gyvūnų“ prieglauda'
             value="{{ organizationParam }}"
             [ngClass]="{
               'is-invalid':
@@ -152,10 +152,10 @@
             required
             [attr.disabled]="categoryParam"
           >
-            <option disabled selected value="">Helping Animals</option>
+            <option disabled selected value="">Choose category</option>
             <option *ngIf="categoryParam != null">{{
               categoryParam.split("_").join(" ") | titlecase
-            }}</option>
+              }}</option>
             <option *ngFor="let category of categories">
               {{ category }}
             </option>
@@ -176,7 +176,7 @@
             class="form-control"
             formControlName="ideaForJob"
             value="{{ descriptionParam }}"
-            placeholder="nuprausim ir pamaitinsim šunis"
+            placeholder="Take care of animals..."
             maxlength="240"
             [ngClass]="{
               'is-invalid': submitted && registerFormControls.ideaForJob.errors

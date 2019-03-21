@@ -17,11 +17,12 @@
   background-color: rgba(252, 206, 36, 0.4);
   background-image: linear-gradient(rgba(248, 222, 126, 0.3), rgba(252, 206, 36, 0.3));
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .panel-body {
   padding: 15px;
-  background-color: whitesmoke;
+  background-color: #F3F3F3;
 }
 
 i{

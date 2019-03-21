@@ -19,6 +19,12 @@
   background-color: rgba(252, 206, 36, 0.7);
 }
 
+.procent{
+  color: black;
+  opacity: 0.8;
+  font-size: 20px;
+}
+
 @media only screen and (max-width: 968px) {
   .container {
     width: auto;
@@ -34,5 +40,11 @@
   .container {
     width: auto;
     max-width: 950px;
+  }
+
+  h3 {
+    font-size: 25px;
+    font-family: 'Cormorant', serif;
+    text-transform: uppercase;
   }
 }

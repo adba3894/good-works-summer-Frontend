@@ -1,4 +1,4 @@
-*{
+* {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -10,9 +10,11 @@
   height: 300px;
   margin-top: 3%;
 }
-.cointainer{
+
+.cointainer {
   margin: 10px;
 }
+
 .register {
   padding: 20px;
   border-style: solid;
@@ -28,7 +30,7 @@
 }
 
 .register-heading {
-  font-size: 18px;
+  font-size: 19px;
   padding-buttom: 4%;
 }
 
@@ -50,8 +52,8 @@
   font-size: 16px;
 }
 
-textarea{
-  height: 90px;
+textarea {
+  height: 125px;
 }
 
 .successMessage {
@@ -62,6 +64,34 @@ textarea{
   margin-right: 3%;
 }
 
+.form-group {
+  padding-bottom: 8px;
+}
+
+.form-group div {
+  margin-top: 0px;
+  font-size: 11px;
+  position: absolute;
+}
+
+input, select, textarea {
+  margin-top: -7px;
+  font-size: 16px;
+}
+
+label {
+  font-size: 16px;
+}
+
+input::placeholder, textarea::placeholder{
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}
+
+select{
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 969px) {
 
   .container-register {
@@ -70,8 +100,8 @@ textarea{
     margin-top: 3%;
   }
 
-  h4{
-    font-size: 16px!important;
+  h4 {
+    font-size: 16px !important;
   }
 
 }

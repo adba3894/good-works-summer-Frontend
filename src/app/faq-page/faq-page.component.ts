@@ -47,7 +47,7 @@ export class FaqPageComponent implements OnInit {
       { 'title':
           'Who can participate in “Do Good This Summer” initiatives?',
         'description':
-          'Participants of “Do Good This Summer” initiatives can be all employees of '}
+          'Participants of “Do Good This Summer” initiatives can be all employees of company.'}
     ];
 
   }
